@@ -64,7 +64,7 @@ const raw = [
     sub: { en: 'One-handed swords, 8 textures', es: 'Espadas a una mano, 8 texturas' },
     short: { en: 'Three free one-handed swords with eight textures each. A sample of the modular sets.', es: 'Tres espadas a una mano gratuitas con ocho texturas cada una. Una muestra de los sets modulares.' } },
   { slug: 'free-car-low-poly', name: 'Free Car Low Poly', cat: 'lowpoly', price: 0, stripePrice: '',
-    sub: { en: 'Compatible with the other cars' wheels', es: 'Compatible con las ruedas de los otros coches' },
+    sub: { en: 'Shares wheels with the other cars', es: 'Compatible con las ruedas de los otros coches' },
     short: { en: 'A free low-poly car that shares wheels with the rest of the car packs.', es: 'Un coche low poly gratuito que comparte ruedas con el resto de packs de coches.' } },
   { slug: 'free-low-poly-car3-3-body-kits-4-rims', name: 'Free Low Poly Car 3', cat: 'lowpoly', price: 0, stripePrice: '',
     sub: { en: '3 body kits, 4 rims', es: '3 carrocerías, 4 llantas' },
