@@ -9,18 +9,35 @@ const L = t.lang;
   <p class="lead">{p.lead}</p>
   <a class="btn" href={itch.store} target="_blank" rel="noopener">{p.cta}</a>
 </section>
+<section id="soon">
+  <h2 style="font-size:26px">{itch.soon.title[L]}</h2>
+  <p class="lead">{itch.soon.lead[L]}</p>
+  <div class="grid">
+    {itch.soon.items.map((i) => (
+      <div class="card" style="border-color:#38BDF8">
+        <span class="tag">{itch.soon.title[L]}</span>
+        <h3 style="margin-top:10px">{i.name}</h3>
+        <p class="small" style="color:#7DD3FC">{i.sub}</p>
+        <p>{i[L]}</p>
+      </div>
+    ))}
+  </div>
+</section>
 {itch.groups.map((g) => (
   <section id={g.id}>
     <h2 style="font-size:26px">{g.title[L]}</h2>
     <p class="lead">{g.lead[L]}</p>
     <div class="grid">
       {g.items.map((i) => (
-        <a class="card" href={i.url} target="_blank" rel="noopener" style="display:block">
-          <span class="tag">{i.price === 'Free' ? p.free : i.price}</span>
-          <h3 style="margin-top:10px">{i.name}</h3>
-          <p class="small" style="color:#7DD3FC">{i.sub}</p>
-          <p>{i[L]}</p>
-          <p class="small muted">{p.buy}</p>
+        <a class="card" href={i.url} target="_blank" rel="noopener" style="display:block;padding:0;overflow:hidden">
+          {i.img && <img src={i.img} alt={i.name} loading="lazy" style="width:100%;aspect-ratio:315/250;object-fit:cover;display:block;background:#0B1220" />}
+          <div style="padding:18px 22px 22px">
+            <span class="tag">{i.price === 'Free' ? p.free : i.price}</span>
+            <h3 style="margin-top:10px">{i.name}</h3>
+            <p class="small" style="color:#7DD3FC">{i.sub}</p>
+            <p>{i[L]}</p>
+            <p class="small muted" style="margin:0">{p.buy}</p>
+          </div>
         </a>
       ))}
     </div>
