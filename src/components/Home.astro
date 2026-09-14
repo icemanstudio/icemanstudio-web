@@ -29,10 +29,10 @@ const latest = home.latest.map((s) => bySlug[s]).filter(Boolean);
   <p class="lead">{itch.soon.lead[L]}</p>
   <div class="grid">
     {itch.soon.items.map((i) => (
-      <a class="card" href={`${t.base}/pixel-art#soon`} style="display:block;border-color:#38BDF8">
+      <a class="card" href={`${t.base}/pixel-art#soon`} style="display:block;border-color:#FF7A59">
         <span class="tag">{t.home.soon}</span>{i.price !== 'Soon' && <span class="tag">{i.price}</span>}
         <h3 style="margin-top:10px">{i.name}</h3>
-        <p class="small" style="color:#7DD3FC">{i.sub}</p>
+        <p class="small" style="color:#FFB199">{i.sub}</p>
         <p>{i[L]}</p>
       </a>
     ))}

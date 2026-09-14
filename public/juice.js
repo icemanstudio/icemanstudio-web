@@ -72,7 +72,7 @@
     const ctx = c.getContext('2d'); let w, h; const flakes = [];
     const size = () => { w = c.width = innerWidth; h = c.height = innerHeight; }; size(); addEventListener('resize', size);
     for (let i = 0; i < 140; i++) flakes.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, r: 1 + Math.random() * 2.5, s: .4 + Math.random() * 1.2, d: Math.random() * 6.28 });
-    (function draw() { ctx.clearRect(0, 0, w, h); ctx.fillStyle = 'rgba(224,242,254,.85)'; for (const f of flakes) { f.y += f.s; f.x += Math.sin(f.d += .01) * .3; if (f.y > h) { f.y = -4; f.x = Math.random() * w; } ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.28); ctx.fill(); } requestAnimationFrame(draw); })();
+    (function draw() { ctx.clearRect(0, 0, w, h); ctx.fillStyle = 'rgba(255,225,214,.85)'; for (const f of flakes) { f.y += f.s; f.x += Math.sin(f.d += .01) * .3; if (f.y > h) { f.y = -4; f.x = Math.random() * w; } ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.28); ctx.fill(); } requestAnimationFrame(draw); })();
   }
 
   // ---------- mobile menu ----------
@@ -85,5 +85,5 @@
   }
 
   // ---------- console greeting (for the devs who look) ----------
-  try { console.log('%cIceMan Studio %c— hello, fellow developer. Try the Konami code.', 'color:#38BDF8;font-weight:900;font-size:16px', 'color:#9AA3AD'); } catch {}
+  try { console.log('%cIceMan Studio %c— hello, fellow developer. Try the Konami code.', 'color:#FF7A59;font-weight:900;font-size:16px', 'color:#9AA3AD'); } catch {}
 })();

@@ -36,3 +36,7 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 - **Hecho:** el 14 de septiembre de 2026 la web en workers.dev no cargaba desde Vodafone fijo ni móvil por IPv4 (rangos 188.114.96/97 y 172.67 de Cloudflare bloqueados), sí desde el móvil por IPv6 y desde el PC con WARP. Es el bloqueo judicial de LaLiga sobre IPs compartidas de Cloudflare en días de partido.
 - **Decisión:** mover producción a un servidor con IP propia (Hetzner CX22, Ubuntu, Caddy para la web estática y un servicio Node pequeño para `/api/*`), con Cloudflare solo como DNS sin proxy. La copia en workers.dev queda como espejo.
 - **Por qué:** clientes españoles de financiación y el propio equipo quedan fuera en horario de fútbol; una IP propia no está en las listas. Vercel y Netlify también han sufrido estos bloqueos, así que no sirven como alternativa.
+
+## 2026-09-14 · Paleta C "Ascua": coral sobre carbón, verde agua secundario
+- **Decisión:** el acento pasa del azul cielo al coral `#FF7A59` (claro `#FFB199`, profundo `#E85D3F`), con verde agua `#2DD4BF` solo en etiquetas de oferta y barra de logros. Tokens renombrados a `--acc`, `--acc2`, `--acc3`, `--acc-b`. Logos, favicon y guía de marca actualizados.
+- **Por qué:** el azul era genérico; el coral es reconocible, vivo y encaja con FastFX y los packs de explosiones, manteniendo la base #131313 sobria.

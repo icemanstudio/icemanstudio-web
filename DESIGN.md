@@ -18,11 +18,12 @@ This file is the source of truth for how the site looks and feels. Read it befor
 | `--line` | `#2a2a2a` | Borders |
 | `--text` | `#F8FAFC` | Primary text |
 | `--muted` | `#9AA3AD` | Secondary text |
-| `--ice2` | `#7DD3FC` | Light accent: links, labels |
-| `--ice` | `#38BDF8` | Main accent: buttons, frost line, focus |
-| `--ice3` | `#0EA5E9` | Deep accent, light backgrounds |
+| `--acc2` | `#FFB199` | Light accent: links, labels |
+| `--acc` | `#FF7A59` | Main accent (ember coral): buttons, frost line, focus, hover borders |
+| `--acc3` | `#E85D3F` | Deep accent, light backgrounds |
+| `--acc-b` | `#2DD4BF` | Secondary (aqua): sale tags, achievement bar. Small surfaces only |
 
-Rules: neutral dark base, one accent hue (sky blue, about 199 degrees). Never introduce a second accent hue. Never use pure black `#000` or navy backgrounds. Light mode is not supported on purpose.
+Rules: neutral dark base, one main accent hue (ember coral, about 12 degrees) plus one secondary (aqua) reserved for small surfaces. Never introduce a third hue. Never use pure black `#000` or navy backgrounds. Light mode is not supported on purpose.
 
 ## 3. Type and spacing
 
@@ -45,7 +46,7 @@ Motion exists to make the site feel like a game menu made by people who ship gam
 
 - Timing tokens: `--t-fast` 120ms (presses), `--t-mid` 260ms (hover, small reveals), `--t-slow` 600ms (entrances). Easings: `--ease-out` for movement, `--ease-bounce` only for presses and toasts.
 - Entrances: hero children rise with an 80 to 280ms stagger. Everything else reveals on scroll once and never replays.
-- Hover: cards lift 4px, ice border, glow, one diagonal shine sweep. Buttons glow. Nav links underline from the left.
+- Hover: cards lift 4px, coral border, glow, one diagonal shine sweep. Buttons glow. Nav links underline from the left.
 - Press: buttons squash to 0.94. That is the only scale-down allowed.
 - Ambient: the frost divider shimmers slowly (6s). Nothing else loops on screen by default. No background glow or gradient behind the page: the base is flat #131313.
 - Numbers: calculator results count up in 500ms.

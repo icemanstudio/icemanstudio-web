@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
   <rect width="256" height="256" rx="48" fill="#131313"/>
   <text x="128" y="128" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="88" font-weight="900" fill="#F8FAFC">IM</text>
-  <polyline points="28,166 76,166 98,136 120,166 156,166 176,146 196,166 228,166" fill="none" stroke="#38BDF8" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline points="28,166 76,166 98,136 120,166 156,166 176,146 196,166 228,166" fill="none" stroke="#FF7A59" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
 </svg>
