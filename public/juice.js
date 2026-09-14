@@ -55,7 +55,7 @@
   const path = location.pathname.replace(/^\/es/, '').replace(/\/$/, '') || '/';
   const seen = new Set(store.get('seen', [])); seen.add(path); store.set('seen', [...seen]);
   if (path === '/pixel-art') achieve('pixel', T.pixel, T.pixelDesc, '🎨');
-  if (['/assets', '/pixel-art', '/services', '/financing', '/tools'].every((p) => seen.has(p))) achieve('explorer', T.explorer, T.explorerDesc, '🧭');
+  if (['/assets', '/pixel-art', '/services', '/tools'].every((p) => seen.has(p))) achieve('explorer', T.explorer, T.explorerDesc, '🧭');
   const langs = new Set(store.get('langs', [])); langs.add(lang.slice(0, 2)); store.set('langs', [...langs]);
   if (langs.size >= 2) achieve('bilingual', T.bilingual, T.bilingualDesc, '🌐');
 
