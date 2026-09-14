@@ -9,6 +9,7 @@ export const t = {
       sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX, and localizes and migrates games for indie studios.',
       cta1: 'Browse assets', cta2: 'Get a quote'
     },
+    search: { placeholder: 'Search the store…  ( / )' },
     home: { soon: 'Coming soon', latest: 'Latest releases', all: 'See the whole store' },
     pillars: [
       { title: 'Store', text: 'Aseprite extensions, pixel art VFX, tilesets and low-poly packs. Buy by card here or on itch.io. Frost engine systems coming next.', href: '/assets' },
@@ -63,6 +64,7 @@ export const t = {
       sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art, y localiza y migra juegos para estudios indie.',
       cta1: 'Ver assets', cta2: 'Pedir presupuesto'
     },
+    search: { placeholder: 'Buscar en la tienda…  ( / )' },
     home: { soon: 'Próximamente', latest: 'Últimos lanzamientos', all: 'Ver toda la tienda' },
     pillars: [
       { title: 'Tienda', text: 'Extensiones para Aseprite, VFX en pixel art, tilesets y packs low poly. Compra con tarjeta aquí o en itch.io. Sistemas Frost para motores, próximamente.', href: '/es/assets' },

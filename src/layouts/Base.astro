@@ -23,11 +23,16 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools,
     <meta property="og:description" content={t.hero.sub} />
     <meta property="og:image" content="https://icemanstudio.com/brand/logo-horizontal-dark.svg" />
     <script src="/juice.js" defer></script>
+    <script src="/search.js" defer></script>
   </head>
   <body>
     <header class="site">
       <div class="wrap">
         <a class="logo" href={b || '/'} aria-label="IceMan Studio"><img src="/brand/logo-header.svg" alt="IceMan Studio" /></a>
+        <form id="site-search" class="search" role="search" autocomplete="off">
+          <input type="search" name="q" placeholder={t.search.placeholder} aria-label={t.search.placeholder} />
+          <div class="results" hidden></div>
+        </form>
         <nav>
           <a href={`${b}/assets`}>{t.nav.assets}</a>
           <a href={`${b}/pixel-art`}>{t.nav.pixel}</a>
