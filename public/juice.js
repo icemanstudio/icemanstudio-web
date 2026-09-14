@@ -75,6 +75,15 @@
     (function draw() { ctx.clearRect(0, 0, w, h); ctx.fillStyle = 'rgba(224,242,254,.85)'; for (const f of flakes) { f.y += f.s; f.x += Math.sin(f.d += .01) * .3; if (f.y > h) { f.y = -4; f.x = Math.random() * w; } ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.28); ctx.fill(); } requestAnimationFrame(draw); })();
   }
 
+  // ---------- mobile menu ----------
+  const mb = document.getElementById('menu-btn'); const nav = document.getElementById('site-nav');
+  if (mb && nav) {
+    const set = (open) => { nav.classList.toggle('open', open); mb.classList.toggle('open', open); mb.setAttribute('aria-expanded', String(open)); };
+    mb.addEventListener('click', (e) => { e.preventDefault(); set(!nav.classList.contains('open')); });
+    document.addEventListener('click', (e) => { if (!nav.contains(e.target) && !mb.contains(e.target)) set(false); });
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+  }
+
   // ---------- console greeting (for the devs who look) ----------
   try { console.log('%cIceMan Studio %c— hello, fellow developer. Try the Konami code.', 'color:#38BDF8;font-weight:900;font-size:16px', 'color:#9AA3AD'); } catch {}
 })();
