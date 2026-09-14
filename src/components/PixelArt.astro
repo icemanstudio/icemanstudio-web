@@ -1,0 +1,28 @@
+---
+import { itch } from '../data/itch.js';
+const { t } = Astro.props;
+const p = t.pixel;
+const L = t.lang;
+---
+<section>
+  <h2>{p.title}</h2>
+  <p class="lead">{p.lead}</p>
+  <a class="btn" href={itch.store} target="_blank" rel="noopener">{p.cta}</a>
+</section>
+{itch.groups.map((g) => (
+  <section id={g.id}>
+    <h2 style="font-size:26px">{g.title[L]}</h2>
+    <p class="lead">{g.lead[L]}</p>
+    <div class="grid">
+      {g.items.map((i) => (
+        <a class="card" href={i.url} target="_blank" rel="noopener" style="display:block">
+          <span class="tag">{i.price === 'Free' ? p.free : i.price}</span>
+          <h3 style="margin-top:10px">{i.name}</h3>
+          <p class="small" style="color:#7DD3FC">{i.sub}</p>
+          <p>{i[L]}</p>
+          <p class="small muted">{p.buy}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+))}

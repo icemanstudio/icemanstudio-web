@@ -1,14 +1,16 @@
 export const t = {
   en: {
     lang: 'en', other: 'es', otherLabel: 'ES', base: '',
-    nav: { assets: 'Assets', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
+    nav: { assets: 'Assets', pixel: 'Pixel art', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
+    pixel: { title: 'Aseprite extensions and pixel art packs', lead: 'Tools for Aseprite and animated VFX packs, sold and downloaded on itch.io. Free versions available to try before you buy.', cta: 'Open the itch.io store', free: 'Free', buy: 'View on itch.io →' },
     hero: {
       title: 'Tools, services and funding for indie game studios.',
-      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, localizes and migrates games, and writes the public-funding applications that pay for them (Spain and the European Union).',
+      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX, localizes and migrates games, and writes the public-funding applications that pay for them (Spain and the European Union).',
       cta1: 'Browse assets', cta2: 'Get a quote'
     },
     pillars: [
       { title: 'Assets', text: 'The Frost family: gameplay systems and editor tools shipped for Unreal and Unity on day one, Godot next.', href: '/assets' },
+      { title: 'Pixel art', text: 'Aseprite extensions (FastFX, VeSprite, GhostFrames) and animated pixel art VFX packs, on itch.io.', href: '/pixel-art' },
       { title: 'Services', text: 'Game localization with LQA, engine migrations at a fixed price, and Steam marketing tools.', href: '/services' },
       { title: 'Funding', text: 'Public grants for studios based in Spain or the EU: Creative Europe, Spanish national and regional calls, plus pitch decks and publisher lists for anyone.', href: '/financing' }
     ],
@@ -46,20 +48,22 @@ export const t = {
     },
     tools: { title: 'Free tools', lead: 'Small, honest calculators for Steam launches. Assumptions visible and editable.',
       wl: { title: 'Wishlists to first-week sales', wishlists: 'Wishlists at launch', conv: 'Launch-week conversion (%)', price: 'Price ($)', estimate: 'Estimate', res: 'Estimated first-week gross', note: 'Benchmarks: 10–25 % of wishlists convert in launch week; Steam keeps 30 %.' } },
-    about: { title: 'About', text: 'IceMan Studio is a small independent studio from Spain. Four years of Unreal Engine behind it, a fleet of AI coding agents beside it, and a simple rule: every deliverable is something you can test, read or play before you pay the balance. We use AI-assisted tooling heavily and review everything we ship.' },
+    about: { title: 'About', text: 'IceMan Studio is a small independent studio from Spain. Four years of Unreal Engine behind it, a catalogue of Aseprite extensions and pixel art packs on itch.io, a fleet of AI coding agents beside it, and a simple rule: every deliverable is something you can test, read or play before you pay the balance. We use AI-assisted tooling heavily and review everything we ship.' },
     contact: { title: 'Contact', lead: 'Write to hello@icemanstudio.com or use the form. We answer within one business day.', name: 'Name', email: 'Email', topic: 'Topic', message: 'Message', send: 'Send', sent: 'Thanks. We will reply within one business day.', fail: 'The form could not be sent. Please email hello@icemanstudio.com.', topics: ['Assets', 'Localization', 'Engine migration', 'Funding', 'Other'] },
     footer: '© 2026 IceMan Studio · Spain · hello@icemanstudio.com'
   },
   es: {
     lang: 'es', other: 'en', otherLabel: 'EN', base: '/es',
-    nav: { assets: 'Assets', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
+    nav: { assets: 'Assets', pixel: 'Pixel art', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
+    pixel: { title: 'Extensiones para Aseprite y packs de pixel art', lead: 'Herramientas para Aseprite y packs de VFX animados, a la venta y descarga en itch.io. Hay versiones gratuitas para probar antes de comprar.', cta: 'Abrir la tienda en itch.io', free: 'Gratis', buy: 'Ver en itch.io →' },
     hero: {
       title: 'Herramientas, servicios y financiación para estudios indie.',
-      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, localiza y migra juegos, y redacta las solicitudes de ayudas públicas, españolas y europeas, que los pagan.',
+      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art, localiza y migra juegos, y redacta las solicitudes de ayudas públicas, españolas y europeas, que los pagan.',
       cta1: 'Ver assets', cta2: 'Pedir presupuesto'
     },
     pillars: [
       { title: 'Assets', text: 'La familia Frost: sistemas de gameplay y herramientas de editor para Unreal y Unity desde el primer día, Godot después.', href: '/es/assets' },
+      { title: 'Pixel art', text: 'Extensiones para Aseprite (FastFX, VeSprite, GhostFrames) y packs de VFX animados en pixel art, en itch.io.', href: '/es/pixel-art' },
       { title: 'Servicios', text: 'Localización de juegos con LQA, migraciones de motor a precio cerrado y herramientas de marketing para Steam.', href: '/es/services' },
       { title: 'Financiación', text: 'Ayudas públicas para estudios de España y de la UE: Creative Europe, Ministerio de Cultura y comunidades autónomas, más pitch decks y listas de publishers para cualquier estudio.', href: '/es/financing' }
     ],
@@ -97,7 +101,7 @@ export const t = {
     },
     tools: { title: 'Herramientas gratuitas', lead: 'Calculadoras pequeñas y honestas para lanzamientos en Steam. Supuestos visibles y editables.',
       wl: { title: 'De wishlists a ventas de la primera semana', wishlists: 'Wishlists al lanzar', conv: 'Conversión en semana de lanzamiento (%)', price: 'Precio ($)', estimate: 'Calcular', res: 'Ingreso bruto estimado en la primera semana', note: 'Referencias: convierte el 10–25 % de las wishlists en la semana de lanzamiento; Steam se queda el 30 %.' } },
-    about: { title: 'Sobre', text: 'IceMan Studio es un estudio independiente pequeño desde España. Cuatro años de Unreal Engine detrás, una flota de agentes de IA para programar al lado, y una regla simple: cada entrega es algo que puedes probar, leer o jugar antes de pagar el resto. Usamos herramientas de IA intensivamente y revisamos todo lo que entregamos.' },
+    about: { title: 'Sobre', text: 'IceMan Studio es un estudio independiente pequeño desde España. Cuatro años de Unreal Engine detrás, un catálogo de extensiones para Aseprite y packs de pixel art en itch.io, una flota de agentes de IA para programar al lado, y una regla simple: cada entrega es algo que puedes probar, leer o jugar antes de pagar el resto. Usamos herramientas de IA intensivamente y revisamos todo lo que entregamos.' },
     contact: { title: 'Contacto', lead: 'Escribe a hola@icemanstudio.com o usa el formulario. Respondemos en un día laborable.', name: 'Nombre', email: 'Correo', topic: 'Tema', message: 'Mensaje', send: 'Enviar', sent: 'Gracias. Respondemos en un día laborable.', fail: 'No se pudo enviar el formulario. Escríbenos a hola@icemanstudio.com.', topics: ['Assets', 'Localización', 'Migración de motor', 'Financiación', 'Otro'] },
     footer: '© 2026 IceMan Studio · España · hola@icemanstudio.com'
   }
