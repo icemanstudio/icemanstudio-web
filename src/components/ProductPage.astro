@@ -13,7 +13,7 @@ const canCheckout = !pi.free && !!p.stripePrice;
   <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{categories[p.cat][L]}</span></p>
   <div class="product-hero">
     <div class="gallery">
-      {p.images.length > 0 && <img id="g-main" src={p.images[0]} alt={p.name} style="width:100%;border-radius:14px;border:1px solid var(--line);background:#131313;display:block" />}
+      {p.images.length > 0 && <img id="g-main" src={p.images[0]} alt={p.name} style="width:100%;border-radius:6px;border:1px solid var(--line);background:#131313;display:block" />}
       {p.images.length > 1 && (
         <div class="thumbs">
           {p.images.map((im, i) => <img src={im} alt={`${p.name} ${i + 1}`} loading="lazy" data-full={im} class={i === 0 ? 'on' : ''} />)}

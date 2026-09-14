@@ -28,7 +28,7 @@ Rules: neutral dark base, one accent hue (sky blue, about 199 degrees). Never in
 
 - Font: Inter (400 body, 600 labels, 800 headings, 900 hero). System fallback: Segoe UI, Arial.
 - Sizes: hero `clamp(34px, 6vw, 60px)`, section h2 32px, card h3 20px, body 15 to 16px, small 13px.
-- Radius: 14px cards, 10px buttons and inputs, 999px tags.
+- Radius: 6px on every box (cards, buttons, inputs, images, dropdowns); tags stay as pills (999px). No translucency or blur anywhere: the header is solid `--bg`.
 - Layout: `.wrap` max 1120px, 20px side padding, sections 48px vertical. Grid: `repeat(auto-fit, minmax(260px, 1fr))`, gap 18px.
 
 ## 4. Components
