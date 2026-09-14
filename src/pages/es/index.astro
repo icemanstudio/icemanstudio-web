@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import Home from '../../components/Home.astro';
+import { t as all } from '../../data/t.js';
+const t = all.es;
+---
+<Base t={t} title={undefined} path="">
+  <Home t={t} />
+</Base>

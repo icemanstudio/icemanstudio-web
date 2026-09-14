@@ -1,0 +1,20 @@
+---
+const { t } = Astro.props;
+---
+<section class="hero">
+  <h1>{t.hero.title}</h1>
+  <p>{t.hero.sub}</p>
+  <a class="btn" href={`${t.base}/assets`}>{t.hero.cta1}</a>
+  <a class="btn ghost" href={`${t.base}/contact`} style="margin-left:10px">{t.hero.cta2}</a>
+</section>
+<div class="frost"></div>
+<section>
+  <div class="grid">
+    {t.pillars.map((p) => (
+      <a class="card" href={p.href} style="display:block">
+        <h3>{p.title}</h3>
+        <p>{p.text}</p>
+      </a>
+    ))}
+  </div>
+</section>

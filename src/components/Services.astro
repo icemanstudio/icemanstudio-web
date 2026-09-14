@@ -1,0 +1,38 @@
+---
+const { t } = Astro.props;
+const s = t.services;
+---
+<section>
+  <h2>{s.title}</h2>
+  <p class="lead">{s.lead}</p>
+  <div class="grid">
+    {s.items.map((i) => (
+      <div class="card">
+        <h3>{i.name}</h3>
+        <p class="small" style="color:#7DD3FC">{i.price}</p>
+        <p>{i.text}</p>
+      </div>
+    ))}
+  </div>
+</section>
+<section>
+  <h2 style="font-size:24px">{s.calcTitle}</h2>
+  <form id="loc-calc" onsubmit="return false">
+    <label>{s.words}<input type="number" id="lc-words" value="30000" min="1" /></label>
+    <label>{s.langs}<input type="number" id="lc-langs" value="4" min="1" max="30" /></label>
+    <label>{s.rate}<input type="number" id="lc-rate" value="0.05" step="0.01" min="0.01" /></label>
+    <div><button class="btn" id="lc-go" type="button">{s.estimate}</button> <a class="btn ghost" href={`${t.base}/contact`}>{s.quote}</a></div>
+  </form>
+  <div class="result" id="lc-out" hidden><strong>{s.result}:</strong> <span id="lc-val"></span></div>
+</section>
+<script>
+  const go = document.getElementById('lc-go');
+  go?.addEventListener('click', () => {
+    const w = Number((document.getElementById('lc-words') as HTMLInputElement).value);
+    const l = Number((document.getElementById('lc-langs') as HTMLInputElement).value);
+    const r = Number((document.getElementById('lc-rate') as HTMLInputElement).value);
+    const total = Math.max(300, w * l * r);
+    (document.getElementById('lc-val') as HTMLElement).textContent = new Intl.NumberFormat(document.documentElement.lang, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(total);
+    (document.getElementById('lc-out') as HTMLElement).hidden = false;
+  });
+</script>

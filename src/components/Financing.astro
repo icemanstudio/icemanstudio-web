@@ -1,0 +1,42 @@
+---
+const { t } = Astro.props;
+const f = t.financing;
+---
+<section>
+  <h2>{f.title}</h2>
+  <p class="lead">{f.lead}</p>
+  <div class="grid">
+    {f.items.map((i) => (
+      <div class="card"><h3>{i.name}</h3><p>{i.text}</p></div>
+    ))}
+  </div>
+  <p style="margin-top:22px"><strong>{f.pricing}</strong></p>
+</section>
+<section>
+  <h2 style="font-size:24px">{f.preTitle}</h2>
+  <p class="lead">{f.preLead}</p>
+  <form id="pre-eval" onsubmit="return false">
+    {f.q.map((q, i) => (
+      <label>{q}
+        <select name={`q${i}`}><option value="1">{f.yes}</option><option value="0" selected>{f.no}</option></select>
+      </label>
+    ))}
+    <div><button class="btn" id="pe-go" type="button">{f.evaluate}</button></div>
+  </form>
+  <div class="result" id="pe-out" hidden></div>
+</section>
+<script define:vars={{ bands: f.bands, base: t.base }}>
+  document.getElementById('pe-go')?.addEventListener('click', () => {
+    const form = document.getElementById('pre-eval');
+    const v = Array.from(form.querySelectorAll('select')).map((s) => Number(s.value));
+    let band;
+    if (v[0] === 0 || v[1] === 0) band = 0;
+    else {
+      const score = v.slice(2).reduce((a, b) => a + b, 0);
+      band = score <= 2 ? 1 : score <= 4 ? 2 : 3;
+    }
+    const out = document.getElementById('pe-out');
+    out.innerHTML = '<p style="margin:0 0 10px">' + bands[band] + '</p><a class="btn" href="' + base + '/contact">→</a>';
+    out.hidden = false;
+  });
+</script>

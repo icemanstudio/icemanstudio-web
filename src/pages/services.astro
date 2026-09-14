@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import Services from '../components/Services.astro';
+import { t as all } from '../data/t.js';
+const t = all.en;
+---
+<Base t={t} title={t.nav.services} path="/services">
+  <Services t={t} />
+</Base>

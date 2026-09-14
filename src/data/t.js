@@ -1,0 +1,104 @@
+export const t = {
+  en: {
+    lang: 'en', other: 'es', otherLabel: 'ES', base: '',
+    nav: { assets: 'Assets', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
+    hero: {
+      title: 'Tools, services and funding for indie game studios.',
+      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, localizes and migrates games, and writes the public-funding applications that pay for them.',
+      cta1: 'Browse assets', cta2: 'Get a quote'
+    },
+    pillars: [
+      { title: 'Assets', text: 'The Frost family: gameplay systems and editor tools shipped for Unreal and Unity on day one, Godot next.', href: '/assets' },
+      { title: 'Services', text: 'Game localization with LQA, engine migrations at a fixed price, and Steam marketing tools.', href: '/services' },
+      { title: 'Funding', text: 'Creative Europe, Spanish national and regional grants, pitch decks and publisher lists.', href: '/financing' }
+    ],
+    assets: {
+      title: 'Assets', lead: 'Every product ships for Unreal Engine and Unity, with documentation, sample scenes and support within 24 hours. Buy on Fab, the Unity Asset Store, or directly here.',
+      soon: 'First release: FrostFeel, a game-feel kit (hit-stop, camera shake, hit flashes, damage numbers, screen effects). In review, available October 2026.',
+      products: [
+        { name: 'FrostFeel', tag: 'Game feel', text: 'Hit-stop, camera shake, hit flashes, floating damage numbers and screen effects. Plug in, tune in the editor, ship.', status: 'October 2026', engines: 'Unreal · Unity' },
+        { name: 'FrostInventory', tag: 'Gameplay system', text: 'Data-driven inventory and interaction: DataTables, drag and drop UI, stacking, save and load.', status: 'Q4 2026', engines: 'Unreal · Unity' },
+        { name: 'FrostDialogue', tag: 'Narrative', text: 'Dialogue and quest system with a graph editor, conditions and localization hooks.', status: '2027', engines: 'Unreal · Unity · Godot' }
+      ]
+    },
+    services: {
+      title: 'Services', lead: 'Fixed prices, written scope, delivery you can verify.',
+      items: [
+        { name: 'Game localization with LQA', price: 'from €0.05 per word and language · minimum €300', text: 'Glossary, placeholders and variables verified, in-context QA on screenshots, delivery in your string format (CSV, PO, JSON, Unreal StringTables, Unity tables). Core pack: Simplified Chinese, Russian, Brazilian Portuguese, Spanish.' },
+        { name: 'Engine migration', price: 'fixed price per project · from €2,000', text: 'Unity to Godot, Unity to Unreal, UE4 to UE5. Written audit first, then migration with a test build you play and approve before the balance.' },
+        { name: 'Steam page and launch tools', price: 'free tools · paid data layer coming', text: 'Wishlist and revenue calculators, localization planner, store page checklist.' }
+      ],
+      calcTitle: 'Localization cost calculator', words: 'Source words', langs: 'Languages', rate: 'Rate per word (€)', estimate: 'Estimate', result: 'Estimated cost',
+      quote: 'Request a quote'
+    },
+    financing: {
+      title: 'Funding for game studios', lead: 'We write and manage public-funding applications for small studios, and the material a publisher or investor asks for.',
+      items: [
+        { name: 'Creative Europe MEDIA', text: 'Up to €200,000 per project at 60 % for development (pre-production). Requires a commercially released title since 2023. Next call expected to open in autumn 2026, deadline early 2027.' },
+        { name: 'Spain: Ministry of Culture', text: 'Up to €80,000–120,000 per project depending on score. 100-point scale, threshold 50. Annual call.' },
+        { name: 'Regional: Madrid, Catalonia (ICEC) and others', text: '€25,000 grants in Madrid; repayable contributions in Catalonia; more regions on request.' },
+        { name: 'Pitch decks and publisher lists', text: 'A concise, visual deck built around your hook, proof and ask, plus a curated list of publishers that match your genre and budget.' }
+      ],
+      pricing: 'Pricing: €400–800 upfront per application, plus 10 % on success, payable when the grant is paid to you. Pitch deck: €300–600 fixed.',
+      preTitle: 'Free pre-evaluation', preLead: 'Answer eight questions and get an estimated score band for the main calls. No commitment.',
+      q: ['Has your studio commercially released a game since January 2023?', 'Do you own the majority of the IP of the project?', 'Do you have a playable prototype, vertical slice or demo?', 'Is the project narrative-driven or does it have original gameplay (not puzzle, sports, racing, party, quiz)?', 'Do you have a written development plan with a schedule and budget?', 'Do you have a financing plan with identified partners or co-financing?', 'Do you have a localization and distribution strategy for international markets?', 'Do you have concrete sustainability and diversity measures?'],
+      yes: 'Yes', no: 'No', evaluate: 'Evaluate', bands: ['Not eligible yet: the first two answers are hard requirements for Creative Europe. We can help you prepare for the national calls.', 'Below threshold: the project needs work on plan, financing or strategy before applying. We can build those pieces.', 'Competitive: with a well-written application you are in the range that gets funded. Let us talk.', 'Strong: this is a project we would take on success terms.']
+    },
+    tools: { title: 'Free tools', lead: 'Small, honest calculators for Steam launches. Assumptions visible and editable.',
+      wl: { title: 'Wishlists to first-week sales', wishlists: 'Wishlists at launch', conv: 'Launch-week conversion (%)', price: 'Price ($)', estimate: 'Estimate', res: 'Estimated first-week gross', note: 'Benchmarks: 10–25 % of wishlists convert in launch week; Steam keeps 30 %.' } },
+    about: { title: 'About', text: 'IceMan Studio is a small independent studio from Spain. Four years of Unreal Engine behind it, a fleet of AI coding agents beside it, and a simple rule: every deliverable is something you can test, read or play before you pay the balance. We use AI-assisted tooling heavily and review everything we ship.' },
+    contact: { title: 'Contact', lead: 'Write to hello@icemanstudio.com or use the form. We answer within one business day.', name: 'Name', email: 'Email', topic: 'Topic', message: 'Message', send: 'Send', sent: 'Thanks. We will reply within one business day.', fail: 'The form could not be sent. Please email hello@icemanstudio.com.', topics: ['Assets', 'Localization', 'Engine migration', 'Funding', 'Other'] },
+    footer: '© 2026 IceMan Studio · Spain · hello@icemanstudio.com'
+  },
+  es: {
+    lang: 'es', other: 'en', otherLabel: 'EN', base: '/es',
+    nav: { assets: 'Assets', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
+    hero: {
+      title: 'Herramientas, servicios y financiación para estudios indie.',
+      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, localiza y migra juegos, y redacta las solicitudes de ayudas públicas que los pagan.',
+      cta1: 'Ver assets', cta2: 'Pedir presupuesto'
+    },
+    pillars: [
+      { title: 'Assets', text: 'La familia Frost: sistemas de gameplay y herramientas de editor para Unreal y Unity desde el primer día, Godot después.', href: '/es/assets' },
+      { title: 'Servicios', text: 'Localización de juegos con LQA, migraciones de motor a precio cerrado y herramientas de marketing para Steam.', href: '/es/services' },
+      { title: 'Financiación', text: 'Creative Europe, ayudas del Ministerio de Cultura y de las comunidades, pitch decks y listas de publishers.', href: '/es/financing' }
+    ],
+    assets: {
+      title: 'Assets', lead: 'Cada producto sale para Unreal Engine y Unity, con documentación, escenas de ejemplo y soporte en menos de 24 horas. Compra en Fab, en la Unity Asset Store o directamente aquí.',
+      soon: 'Primer lanzamiento: FrostFeel, un kit de game feel (hit-stop, sacudida de cámara, destellos de impacto, números de daño, efectos de pantalla). En revisión, disponible en octubre de 2026.',
+      products: [
+        { name: 'FrostFeel', tag: 'Game feel', text: 'Hit-stop, sacudida de cámara, destellos de impacto, números de daño flotantes y efectos de pantalla. Conecta, ajusta en el editor, publica.', status: 'Octubre 2026', engines: 'Unreal · Unity' },
+        { name: 'FrostInventory', tag: 'Sistema de gameplay', text: 'Inventario e interacción data-driven: DataTables, UI con arrastrar y soltar, apilado, guardado y carga.', status: 'Q4 2026', engines: 'Unreal · Unity' },
+        { name: 'FrostDialogue', tag: 'Narrativa', text: 'Sistema de diálogos y misiones con editor de grafos, condiciones y ganchos de localización.', status: '2027', engines: 'Unreal · Unity · Godot' }
+      ]
+    },
+    services: {
+      title: 'Servicios', lead: 'Precios cerrados, alcance por escrito, entregas que puedes verificar.',
+      items: [
+        { name: 'Localización de juegos con LQA', price: 'desde 0,05 € por palabra e idioma · mínimo 300 €', text: 'Glosario, placeholders y variables verificados, QA en contexto sobre capturas, entrega en tu formato (CSV, PO, JSON, StringTables de Unreal, tablas de Unity). Pack base: chino simplificado, ruso, portugués de Brasil, inglés.' },
+        { name: 'Migración de motor', price: 'precio cerrado por proyecto · desde 2.000 €', text: 'Unity a Godot, Unity a Unreal, UE4 a UE5. Primero auditoría escrita, después migración con build de prueba que juegas y apruebas antes del pago final.' },
+        { name: 'Herramientas de página y lanzamiento en Steam', price: 'herramientas gratuitas · capa de datos de pago en camino', text: 'Calculadoras de wishlists e ingresos, planificador de localización, checklist de página de tienda.' }
+      ],
+      calcTitle: 'Calculadora de coste de localización', words: 'Palabras de origen', langs: 'Idiomas', rate: 'Tarifa por palabra (€)', estimate: 'Calcular', result: 'Coste estimado',
+      quote: 'Pedir presupuesto'
+    },
+    financing: {
+      title: 'Financiación para estudios', lead: 'Redactamos y gestionamos solicitudes de ayudas públicas para estudios pequeños, y el material que pide un publisher o un inversor.',
+      items: [
+        { name: 'Creative Europe MEDIA', text: 'Hasta 200.000 € por proyecto al 60 % para desarrollo (preproducción). Exige un título publicado comercialmente desde 2023. Próxima convocatoria prevista para otoño de 2026, cierre a principios de 2027.' },
+        { name: 'Ministerio de Cultura', text: 'Hasta 80.000–120.000 € por proyecto según puntuación. Baremo de 100 puntos, umbral 50. Convocatoria anual.' },
+        { name: 'Comunidad de Madrid, ICEC Cataluña y otras', text: 'Ayudas de 25.000 € en Madrid; aportaciones reintegrables en Cataluña; otras comunidades bajo consulta.' },
+        { name: 'Pitch decks y listas de publishers', text: 'Un deck breve y visual alrededor de tu gancho, tus pruebas y lo que pides, más una lista curada de publishers que encajan con tu género y presupuesto.' }
+      ],
+      pricing: 'Precios: 400–800 € de entrada por solicitud, más un 10 % a éxito, pagadero cuando cobres la ayuda. Pitch deck: 300–600 € cerrado.',
+      preTitle: 'Pre-evaluación gratuita', preLead: 'Responde ocho preguntas y recibe una franja de puntuación estimada para las convocatorias principales. Sin compromiso.',
+      q: ['¿Tu estudio ha publicado comercialmente un juego desde enero de 2023?', '¿Posees la mayoría de la propiedad intelectual del proyecto?', '¿Tienes un prototipo jugable, vertical slice o demo?', '¿El proyecto es narrativo o tiene gameplay original (no puzzle, deportes, carreras, party, quiz)?', '¿Tienes un plan de desarrollo escrito con calendario y presupuesto?', '¿Tienes un plan de financiación con socios identificados o cofinanciación?', '¿Tienes estrategia de localización y distribución internacional?', '¿Tienes medidas concretas de sostenibilidad y diversidad?'],
+      yes: 'Sí', no: 'No', evaluate: 'Evaluar', bands: ['Todavía no elegible: las dos primeras respuestas son requisitos duros en Creative Europe. Podemos prepararte para las convocatorias nacionales.', 'Por debajo del umbral: el proyecto necesita trabajo en plan, financiación o estrategia antes de presentarse. Podemos construir esas piezas.', 'Competitivo: con una memoria bien escrita estás en el rango que se financia. Hablemos.', 'Fuerte: es un proyecto que llevaríamos a éxito.']
+    },
+    tools: { title: 'Herramientas gratuitas', lead: 'Calculadoras pequeñas y honestas para lanzamientos en Steam. Supuestos visibles y editables.',
+      wl: { title: 'De wishlists a ventas de la primera semana', wishlists: 'Wishlists al lanzar', conv: 'Conversión en semana de lanzamiento (%)', price: 'Precio ($)', estimate: 'Calcular', res: 'Ingreso bruto estimado en la primera semana', note: 'Referencias: convierte el 10–25 % de las wishlists en la semana de lanzamiento; Steam se queda el 30 %.' } },
+    about: { title: 'Sobre', text: 'IceMan Studio es un estudio independiente pequeño desde España. Cuatro años de Unreal Engine detrás, una flota de agentes de IA para programar al lado, y una regla simple: cada entrega es algo que puedes probar, leer o jugar antes de pagar el resto. Usamos herramientas de IA intensivamente y revisamos todo lo que entregamos.' },
+    contact: { title: 'Contacto', lead: 'Escribe a hola@icemanstudio.com o usa el formulario. Respondemos en un día laborable.', name: 'Nombre', email: 'Correo', topic: 'Tema', message: 'Mensaje', send: 'Enviar', sent: 'Gracias. Respondemos en un día laborable.', fail: 'No se pudo enviar el formulario. Escríbenos a hola@icemanstudio.com.', topics: ['Assets', 'Localización', 'Migración de motor', 'Financiación', 'Otro'] },
+    footer: '© 2026 IceMan Studio · España · hola@icemanstudio.com'
+  }
+};

@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import Financing from '../../components/Financing.astro';
+import { t as all } from '../../data/t.js';
+const t = all.es;
+---
+<Base t={t} title={t.nav.financing} path="/financing">
+  <Financing t={t} />
+</Base>

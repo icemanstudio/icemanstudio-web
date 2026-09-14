@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import Contact from '../components/Contact.astro';
+import { t as all } from '../data/t.js';
+const t = all.en;
+---
+<Base t={t} title={t.nav.contact} path="/contact">
+  <Contact t={t} />
+</Base>

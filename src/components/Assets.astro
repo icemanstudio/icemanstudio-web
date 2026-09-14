@@ -1,0 +1,19 @@
+---
+const { t } = Astro.props;
+const a = t.assets;
+---
+<section>
+  <h2>{a.title}</h2>
+  <p class="lead">{a.lead}</p>
+  <div class="card" style="margin-bottom:22px"><p style="margin:0">{a.soon}</p></div>
+  <div class="grid">
+    {a.products.map((p) => (
+      <div class="card">
+        <span class="tag">{p.tag}</span><span class="tag">{p.engines}</span>
+        <h3 style="margin-top:10px">{p.name}</h3>
+        <p>{p.text}</p>
+        <p class="small muted">{p.status}</p>
+      </div>
+    ))}
+  </div>
+</section>

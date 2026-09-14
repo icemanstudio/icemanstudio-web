@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+const { t, title, path = '' } = Astro.props;
+const b = t.base;
+const otherBase = t.other === 'es' ? '/es' : '';
+const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools, services and funding for indie game studios';
+---
+<!doctype html>
+<html lang={t.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={t.hero.sub} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang="en" href={`https://icemanstudio.com${path}`} />
+    <link rel="alternate" hreflang="es" href={`https://icemanstudio.com/es${path}`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={t.hero.sub} />
+    <meta property="og:image" content="https://icemanstudio.com/brand/logo-horizontal-dark.svg" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="logo" href={b || '/'} aria-label="IceMan Studio"><img src="/brand/logo-header.svg" alt="IceMan Studio" /></a>
+        <nav>
+          <a href={`${b}/assets`}>{t.nav.assets}</a>
+          <a href={`${b}/services`}>{t.nav.services}</a>
+          <a href={`${b}/financing`}>{t.nav.financing}</a>
+          <a href={`${b}/tools`}>{t.nav.tools}</a>
+          <a href={`${b}/about`}>{t.nav.about}</a>
+          <a href={`${b}/contact`}>{t.nav.contact}</a>
+          <a class="lang" href={`${otherBase}${path || '/'}`}>{t.otherLabel}</a>
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site">
+      <div class="wrap">
+        <span>{t.footer}</span>
+        <span><a href="https://github.com/icemanstudio">GitHub</a> · <a href="https://www.fab.com/">Fab</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

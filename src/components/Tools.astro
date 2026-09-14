@@ -1,0 +1,31 @@
+---
+const { t } = Astro.props;
+const w = t.tools.wl;
+---
+<section>
+  <h2>{t.tools.title}</h2>
+  <p class="lead">{t.tools.lead}</p>
+  <div class="card">
+    <h3>{w.title}</h3>
+    <form onsubmit="return false">
+      <label>{w.wishlists}<input type="number" id="wl-n" value="10000" min="0" /></label>
+      <label>{w.conv}<input type="number" id="wl-c" value="15" min="1" max="100" /></label>
+      <label>{w.price}<input type="number" id="wl-p" value="14.99" step="0.01" min="0" /></label>
+      <div><button class="btn" id="wl-go" type="button">{w.estimate}</button></div>
+    </form>
+    <div class="result" id="wl-out" hidden><strong>{w.res}:</strong> <span id="wl-val"></span></div>
+    <p class="small muted" style="margin-top:12px">{w.note}</p>
+  </div>
+</section>
+<script>
+  document.getElementById('wl-go')?.addEventListener('click', () => {
+    const n = Number((document.getElementById('wl-n') as HTMLInputElement).value);
+    const c = Number((document.getElementById('wl-c') as HTMLInputElement).value) / 100;
+    const p = Number((document.getElementById('wl-p') as HTMLInputElement).value);
+    const gross = n * c * p;
+    const net = gross * 0.7;
+    const fmt = (x: number) => new Intl.NumberFormat(document.documentElement.lang, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(x);
+    (document.getElementById('wl-val') as HTMLElement).textContent = `${fmt(gross)} (net ≈ ${fmt(net)})`;
+    (document.getElementById('wl-out') as HTMLElement).hidden = false;
+  });
+</script>
