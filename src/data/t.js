@@ -4,13 +4,13 @@ export const t = {
     nav: { assets: 'Assets', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
     hero: {
       title: 'Tools, services and funding for indie game studios.',
-      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, localizes and migrates games, and writes the public-funding applications that pay for them.',
+      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, localizes and migrates games, and writes the public-funding applications that pay for them (Spain and the European Union).',
       cta1: 'Browse assets', cta2: 'Get a quote'
     },
     pillars: [
       { title: 'Assets', text: 'The Frost family: gameplay systems and editor tools shipped for Unreal and Unity on day one, Godot next.', href: '/assets' },
       { title: 'Services', text: 'Game localization with LQA, engine migrations at a fixed price, and Steam marketing tools.', href: '/services' },
-      { title: 'Funding', text: 'Creative Europe, Spanish national and regional grants, pitch decks and publisher lists.', href: '/financing' }
+      { title: 'Funding', text: 'Public grants for studios based in Spain or the EU: Creative Europe, Spanish national and regional calls, plus pitch decks and publisher lists for anyone.', href: '/financing' }
     ],
     assets: {
       title: 'Assets', lead: 'Every product ships for Unreal Engine and Unity, with documentation, sample scenes and support within 24 hours. Buy on Fab, the Unity Asset Store, or directly here.',
@@ -32,12 +32,12 @@ export const t = {
       quote: 'Request a quote'
     },
     financing: {
-      title: 'Funding for game studios', lead: 'We write and manage public-funding applications for small studios, and the material a publisher or investor asks for.',
+      title: 'Funding for game studios', lead: 'We write and manage public-funding applications for small studios based in Spain or in a Creative Europe country, and the pitch material any studio needs for a publisher or investor. Grants are only available to studios established in the EU or in countries associated with the programme.',
       items: [
-        { name: 'Creative Europe MEDIA', text: 'Up to €200,000 per project at 60 % for development (pre-production). Requires a commercially released title since 2023. Next call expected to open in autumn 2026, deadline early 2027.' },
-        { name: 'Spain: Ministry of Culture', text: 'Up to €80,000–120,000 per project depending on score. 100-point scale, threshold 50. Annual call.' },
-        { name: 'Regional: Madrid, Catalonia (ICEC) and others', text: '€25,000 grants in Madrid; repayable contributions in Catalonia; more regions on request.' },
-        { name: 'Pitch decks and publisher lists', text: 'A concise, visual deck built around your hook, proof and ask, plus a curated list of publishers that match your genre and budget.' }
+        { name: 'Creative Europe MEDIA (EU and associated countries)', text: 'Up to €200,000 per project at 60 % for development (pre-production). For companies established in a Creative Europe participating country. Requires a commercially released title since 2023. Next call expected to open in autumn 2026, deadline early 2027.' },
+        { name: 'Spain: Ministry of Culture', text: 'Up to €80,000–120,000 per project depending on score. 100-point scale, threshold 50. Annual call. Only for companies with tax residence in Spain.' },
+        { name: 'Spain, regional: Madrid, Catalonia (ICEC) and others', text: '€25,000 grants in Madrid; repayable contributions in Catalonia; more regions on request. Require a registered office in the region.' },
+        { name: 'Pitch decks and publisher lists (worldwide)', text: 'A concise, visual deck built around your hook, proof and ask, plus a curated list of publishers that match your genre and budget. Available to studios anywhere.' }
       ],
       pricing: 'Pricing: €400–800 upfront per application, plus 10 % on success, payable when the grant is paid to you. Pitch deck: €300–600 fixed.',
       preTitle: 'Free pre-evaluation', preLead: 'Answer eight questions and get an estimated score band for the main calls. No commitment.',
@@ -55,13 +55,13 @@ export const t = {
     nav: { assets: 'Assets', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
     hero: {
       title: 'Herramientas, servicios y financiación para estudios indie.',
-      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, localiza y migra juegos, y redacta las solicitudes de ayudas públicas que los pagan.',
+      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, localiza y migra juegos, y redacta las solicitudes de ayudas públicas, españolas y europeas, que los pagan.',
       cta1: 'Ver assets', cta2: 'Pedir presupuesto'
     },
     pillars: [
       { title: 'Assets', text: 'La familia Frost: sistemas de gameplay y herramientas de editor para Unreal y Unity desde el primer día, Godot después.', href: '/es/assets' },
       { title: 'Servicios', text: 'Localización de juegos con LQA, migraciones de motor a precio cerrado y herramientas de marketing para Steam.', href: '/es/services' },
-      { title: 'Financiación', text: 'Creative Europe, ayudas del Ministerio de Cultura y de las comunidades, pitch decks y listas de publishers.', href: '/es/financing' }
+      { title: 'Financiación', text: 'Ayudas públicas para estudios de España y de la UE: Creative Europe, Ministerio de Cultura y comunidades autónomas, más pitch decks y listas de publishers para cualquier estudio.', href: '/es/financing' }
     ],
     assets: {
       title: 'Assets', lead: 'Cada producto sale para Unreal Engine y Unity, con documentación, escenas de ejemplo y soporte en menos de 24 horas. Compra en Fab, en la Unity Asset Store o directamente aquí.',
@@ -83,12 +83,12 @@ export const t = {
       quote: 'Pedir presupuesto'
     },
     financing: {
-      title: 'Financiación para estudios', lead: 'Redactamos y gestionamos solicitudes de ayudas públicas para estudios pequeños, y el material que pide un publisher o un inversor.',
+      title: 'Financiación para estudios', lead: 'Redactamos y gestionamos solicitudes de ayudas públicas para estudios pequeños con sede en España o en un país de Creative Europe, y el material que cualquier estudio necesita para un publisher o un inversor. Las ayudas solo están disponibles para empresas establecidas en la UE o en países asociados al programa.',
       items: [
-        { name: 'Creative Europe MEDIA', text: 'Hasta 200.000 € por proyecto al 60 % para desarrollo (preproducción). Exige un título publicado comercialmente desde 2023. Próxima convocatoria prevista para otoño de 2026, cierre a principios de 2027.' },
-        { name: 'Ministerio de Cultura', text: 'Hasta 80.000–120.000 € por proyecto según puntuación. Baremo de 100 puntos, umbral 50. Convocatoria anual.' },
-        { name: 'Comunidad de Madrid, ICEC Cataluña y otras', text: 'Ayudas de 25.000 € en Madrid; aportaciones reintegrables en Cataluña; otras comunidades bajo consulta.' },
-        { name: 'Pitch decks y listas de publishers', text: 'Un deck breve y visual alrededor de tu gancho, tus pruebas y lo que pides, más una lista curada de publishers que encajan con tu género y presupuesto.' }
+        { name: 'Creative Europe MEDIA (UE y países asociados)', text: 'Hasta 200.000 € por proyecto al 60 % para desarrollo (preproducción). Para empresas establecidas en un país participante en Creative Europe. Exige un título publicado comercialmente desde 2023. Próxima convocatoria prevista para otoño de 2026, cierre a principios de 2027.' },
+        { name: 'España: Ministerio de Cultura', text: 'Hasta 80.000–120.000 € por proyecto según puntuación. Baremo de 100 puntos, umbral 50. Convocatoria anual. Solo para empresas con residencia fiscal en España.' },
+        { name: 'España, autonómicas: Madrid, ICEC Cataluña y otras', text: 'Ayudas de 25.000 € en Madrid; aportaciones reintegrables en Cataluña; otras comunidades bajo consulta. Exigen sede en la comunidad.' },
+        { name: 'Pitch decks y listas de publishers (cualquier país)', text: 'Un deck breve y visual alrededor de tu gancho, tus pruebas y lo que pides, más una lista curada de publishers que encajan con tu género y presupuesto. Para estudios de cualquier país.' }
       ],
       pricing: 'Precios: 400–800 € de entrada por solicitud, más un 10 % a éxito, pagadero cuando cobres la ayuda. Pitch deck: 300–600 € cerrado.',
       preTitle: 'Pre-evaluación gratuita', preLead: 'Responde ocho preguntas y recibe una franja de puntuación estimada para las convocatorias principales. Sin compromiso.',
