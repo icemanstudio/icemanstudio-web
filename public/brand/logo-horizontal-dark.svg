@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" width="640" height="200">
-  <rect width="640" height="200" fill="#0B1220"/>
+  <rect width="640" height="200" fill="#131313"/>
   <text x="60" y="118" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="92" font-weight="900" letter-spacing="2" fill="#F8FAFC">ICEMAN</text>
   <polyline points="40,136 120,136 150,106 180,136 250,136 280,112 310,136 420,136 450,118 480,136 600,136" fill="none" stroke="#38BDF8" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
   <text x="64" y="174" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="400" letter-spacing="16" fill="#7DD3FC">S T U D I O</text>

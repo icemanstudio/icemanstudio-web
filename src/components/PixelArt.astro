@@ -30,7 +30,7 @@ const L = t.lang;
     <div class="grid">
       {g.items.map((i) => (
         <a class="card" href={i.url} target="_blank" rel="noopener" style="display:block;padding:0;overflow:hidden">
-          {i.img && <img src={i.img} alt={i.name} loading="lazy" style="width:100%;aspect-ratio:315/250;object-fit:cover;display:block;background:#0B1220" />}
+          {i.img && <img src={i.img} alt={i.name} loading="lazy" style="width:100%;aspect-ratio:315/250;object-fit:cover;display:block;background:#131313" />}
           <div style="padding:18px 22px 22px">
             <span class="tag">{i.price === 'Free' ? p.free : i.price}</span>
             <h3 style="margin-top:10px">{i.name}</h3>
