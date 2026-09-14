@@ -39,6 +39,7 @@ for slug in SLUGS:
             fn = f"{i:02d}{ext}"; open(f"{d}/{fn}", "wb").write(data)
             local = f"/itch/{slug}/{fn}"; imgs.append(local)
             desc_html = desc_html.replace(src, local)
+            desc_html = desc_html.replace(f'<img src="{local}">', f'<img src="{local}" loading="lazy">')
         except Exception as e:
             print("  img err", src[:60], e)
     out[slug] = {"title": title, "short": short, "price": price, "url": url, "description_html": desc_html, "images": imgs}
