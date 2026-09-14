@@ -31,7 +31,6 @@ textarea{min-height:120px}.result{background:var(--bg2);border:1px solid var(--l
 
 /* ---------- Juice: motion tokens ---------- */
 :root{--ease-out:cubic-bezier(.22,1,.36,1);--ease-bounce:cubic-bezier(.34,1.56,.64,1);--t-fast:120ms;--t-mid:260ms;--t-slow:600ms;--glow:0 0 0 1px rgba(56,189,248,.35),0 10px 30px -10px rgba(56,189,248,.35)}
-body{background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(56,189,248,.10),transparent 60%)}
 .hero{position:relative}
 .hero::before{content:"";position:absolute;inset:-40px 0 0 0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 70% 80% at 30% 20%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 30% 20%,#000 30%,transparent 75%)}
 .hero>*{position:relative}

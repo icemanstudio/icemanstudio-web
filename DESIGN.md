@@ -47,7 +47,7 @@ Motion exists to make the site feel like a game menu made by people who ship gam
 - Entrances: hero children rise with an 80 to 280ms stagger. Everything else reveals on scroll once and never replays.
 - Hover: cards lift 4px, ice border, glow, one diagonal shine sweep. Buttons glow. Nav links underline from the left.
 - Press: buttons squash to 0.94. That is the only scale-down allowed.
-- Ambient: the frost divider shimmers slowly (6s). Nothing else loops on screen by default.
+- Ambient: the frost divider shimmers slowly (6s). Nothing else loops on screen by default. No background glow or gradient behind the page: the base is flat #131313.
 - Numbers: calculator results count up in 500ms.
 - Every animation is disabled under `prefers-reduced-motion`. Test it.
 - No libraries. `public/juice.js` is vanilla, deferred, and the page works without it.
