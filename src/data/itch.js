@@ -6,15 +6,15 @@ export const itch = {
     title: { en: 'Coming soon', es: 'Próximamente' },
     lead: { en: 'Launch order: Spaghetti for Aseprite, then FastAnim, then Spaghetti Studio as a standalone app.', es: 'Orden de lanzamiento: Spaghetti para Aseprite, después FastAnim, y después Spaghetti Studio como aplicación independiente.' },
     items: [
-      { name: 'Spaghetti', sub: 'Node-based procedural textures for Aseprite', price: 'Soon',
+      { name: 'Spaghetti', sub: 'Node-based procedural textures for Aseprite', price: '€7.99',
         en: 'A pocket Substance Designer inside Aseprite: a graph of 64 procedural nodes (noise, patterns, filters, blends) that renders tileable pixel art textures and applies them to your sprite as a layer. Includes Wang and blob autotile templates.',
         es: 'Un Substance Designer de bolsillo dentro de Aseprite: un grafo de 64 nodos procedurales (ruidos, patrones, filtros, mezclas) que genera texturas pixel art tileables y las aplica al sprite como capa. Incluye plantillas de autotile Wang y blob.' },
-      { name: 'FastAnim', sub: 'Skeleton-first character animation', price: 'Soon',
+      { name: 'FastAnim', sub: 'Skeleton-first character animation', price: '€7.99',
         en: 'Rig a character with joints, set pose keys, ease between them and bake the result into frames. Character animation for pixel art without leaving Aseprite.',
         es: 'Crea un esqueleto con articulaciones, fija poses clave, suaviza entre ellas y hornea el resultado en frames. Animación de personajes en pixel art sin salir de Aseprite.' },
-      { name: 'Spaghetti Studio', sub: 'Standalone node-based texture editor · big launch', price: 'Soon',
-        en: 'A tiny Substance Designer for pixel art, as a standalone Windows app: build seamless textures and PBR materials from nodes, preview them in 3D and export to any engine at up to 4096×4096.',
-        es: 'Un Substance Designer pequeño para pixel art, como aplicación independiente para Windows: construye texturas sin costuras y materiales PBR con nodos, previsualízalos en 3D y expórtalos a cualquier motor hasta 4096×4096.' }
+      { name: 'Spaghetti Studio', sub: 'Standalone node-based texture editor · includes Spaghetti for Aseprite', price: '€15',
+        en: 'A tiny Substance Designer for pixel art, as a standalone Windows app: build seamless textures and PBR materials from nodes, preview them in 3D and export to any engine at up to 4096×4096. Buying Studio includes the Aseprite extension.',
+        es: 'Un Substance Designer pequeño para pixel art, como aplicación independiente para Windows: construye texturas sin costuras y materiales PBR con nodos, previsualízalos en 3D y expórtalos a cualquier motor hasta 4096×4096. Al comprar Studio, la extensión de Aseprite va incluida.' }
     ]
   },
   groups: [

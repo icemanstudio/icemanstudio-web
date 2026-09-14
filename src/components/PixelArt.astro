@@ -17,7 +17,7 @@ const L = t.lang;
   <div class="grid">
     {itch.soon.items.map((i) => (
       <div class="card" style="border-color:#38BDF8">
-        <span class="tag">{itch.soon.title[L]}</span>
+        <span class="tag">{itch.soon.title[L]}</span>{i.price !== 'Soon' && <span class="tag">{i.price}</span>}
         <h3 style="margin-top:10px">{i.name}</h3>
         <p class="small" style="color:#7DD3FC">{i.sub}</p>
         <p>{i[L]}</p>

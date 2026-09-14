@@ -5,15 +5,14 @@ export const t = {
     nav: { assets: 'Store', pixel: 'Pixel art', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
     pixel: { title: 'Aseprite extensions and pixel art packs', lead: 'Tools for Aseprite and animated VFX packs, sold and downloaded on itch.io. Free versions available to try before you buy.', cta: 'Open the itch.io store', free: 'Free', buy: 'View on itch.io →', view: 'View product →' },
     hero: {
-      title: 'Tools, services and funding for indie game studios.',
-      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX, localizes and migrates games, and writes the public-funding applications that pay for them (Spain and the European Union).',
+      title: 'Tools and services for indie game studios.',
+      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX, and localizes and migrates games for indie studios.',
       cta1: 'Browse assets', cta2: 'Get a quote'
     },
     pillars: [
       { title: 'Store', text: 'Aseprite extensions, pixel art VFX, tilesets and low-poly packs. Buy by card here or on itch.io. Frost engine systems coming next.', href: '/assets' },
       { title: 'Pixel art', text: 'Aseprite extensions (FastFX, VeSprite, GhostFrames) and animated pixel art VFX packs, on itch.io.', href: '/pixel-art' },
       { title: 'Services', text: 'Game localization with LQA, engine migrations at a fixed price, and Steam marketing tools.', href: '/services' },
-      { title: 'Funding', text: 'Public grants for studios based in Spain or the EU: Creative Europe, Spanish national and regional calls, plus pitch decks and publisher lists for anyone.', href: '/financing' }
     ],
     assets: {
       title: 'Assets', lead: 'Every product ships for Unreal Engine and Unity, with documentation, sample scenes and support within 24 hours. Buy on Fab, the Unity Asset Store, or directly here.',
@@ -59,15 +58,14 @@ export const t = {
     nav: { assets: 'Tienda', pixel: 'Pixel art', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
     pixel: { title: 'Extensiones para Aseprite y packs de pixel art', lead: 'Herramientas para Aseprite y packs de VFX animados, a la venta y descarga en itch.io. Hay versiones gratuitas para probar antes de comprar.', cta: 'Abrir la tienda en itch.io', free: 'Gratis', buy: 'Ver en itch.io →', view: 'Ver producto →' },
     hero: {
-      title: 'Herramientas, servicios y financiación para estudios indie.',
-      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art, localiza y migra juegos, y redacta las solicitudes de ayudas públicas, españolas y europeas, que los pagan.',
+      title: 'Herramientas y servicios para estudios indie.',
+      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art, y localiza y migra juegos para estudios indie.',
       cta1: 'Ver assets', cta2: 'Pedir presupuesto'
     },
     pillars: [
       { title: 'Tienda', text: 'Extensiones para Aseprite, VFX en pixel art, tilesets y packs low poly. Compra con tarjeta aquí o en itch.io. Sistemas Frost para motores, próximamente.', href: '/es/assets' },
       { title: 'Pixel art', text: 'Extensiones para Aseprite (FastFX, VeSprite, GhostFrames) y packs de VFX animados en pixel art, en itch.io.', href: '/es/pixel-art' },
       { title: 'Servicios', text: 'Localización de juegos con LQA, migraciones de motor a precio cerrado y herramientas de marketing para Steam.', href: '/es/services' },
-      { title: 'Financiación', text: 'Ayudas públicas para estudios de España y de la UE: Creative Europe, Ministerio de Cultura y comunidades autónomas, más pitch decks y listas de publishers para cualquier estudio.', href: '/es/financing' }
     ],
     assets: {
       title: 'Assets', lead: 'Cada producto sale para Unreal Engine y Unity, con documentación, escenas de ejemplo y soporte en menos de 24 horas. Compra en Fab, en la Unity Asset Store o directamente aquí.',
