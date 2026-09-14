@@ -57,9 +57,21 @@ const raw = [
   { slug: '11-modular-swords', name: '11 Modular One-Hand Swords', cat: 'lowpoly', price: 3.00, stripePrice: '',
     sub: { en: 'Low poly, 8 textures', es: 'Low poly, 8 texturas' },
     short: { en: 'Modular one-handed swords with thousands of combinations.', es: 'Espadas a una mano modulares con miles de combinaciones.' } },
-  { slug: 'free-low-poly-car-3-body-kits-4-rims', name: 'Free Low Poly Cars', cat: 'lowpoly', price: 0, stripePrice: '',
+  { slug: 'free-low-poly-car-3-body-kits-4-rims', name: 'Free Low Poly Car 1', cat: 'lowpoly', price: 0, stripePrice: '',
     sub: { en: 'Body kits, rims, spoilers', es: 'Carrocerías, llantas, alerones' },
-    short: { en: 'Free low-poly cars with interchangeable parts.', es: 'Coches low poly gratuitos con piezas intercambiables.' } }
+    short: { en: 'First free low-poly car with three body kits, four rims and two spoilers.', es: 'Primer coche low poly gratuito con tres carrocerías, cuatro llantas y dos alerones.' } },
+  { slug: '3-free-low-poly-swords', name: '3 Free Low Poly Swords', cat: 'lowpoly', price: 0, stripePrice: '',
+    sub: { en: 'One-handed swords, 8 textures', es: 'Espadas a una mano, 8 texturas' },
+    short: { en: 'Three free one-handed swords with eight textures each. A sample of the modular sets.', es: 'Tres espadas a una mano gratuitas con ocho texturas cada una. Una muestra de los sets modulares.' } },
+  { slug: 'free-car-low-poly', name: 'Free Car Low Poly', cat: 'lowpoly', price: 0, stripePrice: '',
+    sub: { en: 'Compatible with the other cars' wheels', es: 'Compatible con las ruedas de los otros coches' },
+    short: { en: 'A free low-poly car that shares wheels with the rest of the car packs.', es: 'Un coche low poly gratuito que comparte ruedas con el resto de packs de coches.' } },
+  { slug: 'free-low-poly-car3-3-body-kits-4-rims', name: 'Free Low Poly Car 3', cat: 'lowpoly', price: 0, stripePrice: '',
+    sub: { en: '3 body kits, 4 rims', es: '3 carrocerías, 4 llantas' },
+    short: { en: 'Third free low-poly car with three body kits and four rims.', es: 'Tercer coche low poly gratuito con tres carrocerías y cuatro llantas.' } },
+  { slug: 'free-low-poly-car2-3-body-kits-4-rims', name: 'Free Low Poly Car 2', cat: 'lowpoly', price: 0, stripePrice: '',
+    sub: { en: '3 body kits, 4 rims, 1 spoiler', es: '3 carrocerías, 4 llantas, 1 alerón' },
+    short: { en: 'Second free low-poly car with three body kits, four rims and a spoiler.', es: 'Segundo coche low poly gratuito con tres carrocerías, cuatro llantas y un alerón.' } }
 ];
 
 export const categories = cats;
