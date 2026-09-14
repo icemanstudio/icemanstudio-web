@@ -1,5 +1,11 @@
 ---
+import ProductCard from './ProductCard.astro';
+import { bySlug } from '../data/products.js';
+import { home } from '../data/home.js';
+import { itch } from '../data/itch.js';
 const { t } = Astro.props;
+const L = t.lang;
+const latest = home.latest.map((s) => bySlug[s]).filter(Boolean);
 ---
 <section class="hero">
   <h1>{t.hero.title}</h1>
@@ -17,4 +23,25 @@ const { t } = Astro.props;
       </a>
     ))}
   </div>
+</section>
+<section>
+  <h2>{t.home.soon}</h2>
+  <p class="lead">{itch.soon.lead[L]}</p>
+  <div class="grid">
+    {itch.soon.items.map((i) => (
+      <a class="card" href={`${t.base}/pixel-art#soon`} style="display:block;border-color:#38BDF8">
+        <span class="tag">{t.home.soon}</span>{i.price !== 'Soon' && <span class="tag">{i.price}</span>}
+        <h3 style="margin-top:10px">{i.name}</h3>
+        <p class="small" style="color:#7DD3FC">{i.sub}</p>
+        <p>{i[L]}</p>
+      </a>
+    ))}
+  </div>
+</section>
+<section>
+  <h2>{t.home.latest}</h2>
+  <div class="grid">
+    {latest.map((p) => <ProductCard p={p} t={t} />)}
+  </div>
+  <p style="margin-top:18px"><a class="btn ghost" href={`${t.base}/assets`}>{t.home.all}</a></p>
 </section>
