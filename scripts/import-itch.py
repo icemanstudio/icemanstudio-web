@@ -11,6 +11,12 @@ def clean(h):
     h = re.sub(r'\s(class|style|id|data-[a-z-]+|width|height|loading)="[^"]*"', '', h)
     h = re.sub(r'<(/?)(div|span|section|figure)[^>]*>', '', h)
     h = re.sub(r'\n\s*\n+', '\n', h)
+    h = re.split(r'<a href="javascript:void\(0\)">More information', h)[0]
+    h = re.sub(r'<svg.*?</svg>', '', h, flags=re.S)
+    h = re.sub(r'<table>.*?</table>', '', h, flags=re.S)
+    h = re.sub(r'<iframe[^>]*>\s*<a href="([^"]+)">(.*?)</a>\s*</iframe>',
+               lambda m: '<p><a class="btn ghost" href="/assets/%s/">%s</a></p>' % (m.group(1).rstrip('/').split('/')[-1], re.sub('<[^>]+>', '', m.group(2)).strip()), h, flags=re.S)
+    h = re.sub(r'<iframe.*?</iframe>', '', h, flags=re.S)
     return h.strip()
 out = {}
 for slug in SLUGS:
