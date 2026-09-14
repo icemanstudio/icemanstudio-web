@@ -1,15 +1,16 @@
 export const t = {
   en: {
     lang: 'en', other: 'es', otherLabel: 'ES', base: '',
-    nav: { assets: 'Assets', pixel: 'Pixel art', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
-    pixel: { title: 'Aseprite extensions and pixel art packs', lead: 'Tools for Aseprite and animated VFX packs, sold and downloaded on itch.io. Free versions available to try before you buy.', cta: 'Open the itch.io store', free: 'Free', buy: 'View on itch.io →' },
+    store: { title: 'Store', lead: 'Every asset we publish, in one place. Pay by card here or buy on itch.io; both give you the same files and updates.', all: 'All', buy: 'Buy now', free: 'Free', download: 'Download free', itch: 'Buy on itch.io', getItch: 'Get it on itch.io', soonCheckout: 'Direct card checkout is being set up. Until then, itch.io delivers the same files.', off: 'off', ends: 'Offer ends', code: 'Code', gallery: 'Gallery', about: 'About this product', back: 'Back to store', related: 'More in', vat: 'Prices in EUR. VAT is added at checkout where it applies.', secure: 'Card payments by Stripe. Instant download link by email.', frostSoon: 'Engine systems (Frost family) are in production; the first release, FrostFeel, lands in October 2026.' },
+    nav: { assets: 'Store', pixel: 'Pixel art', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
+    pixel: { title: 'Aseprite extensions and pixel art packs', lead: 'Tools for Aseprite and animated VFX packs, sold and downloaded on itch.io. Free versions available to try before you buy.', cta: 'Open the itch.io store', free: 'Free', buy: 'View on itch.io →', view: 'View product →' },
     hero: {
       title: 'Tools, services and funding for indie game studios.',
       sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX, localizes and migrates games, and writes the public-funding applications that pay for them (Spain and the European Union).',
       cta1: 'Browse assets', cta2: 'Get a quote'
     },
     pillars: [
-      { title: 'Assets', text: 'The Frost family: gameplay systems and editor tools shipped for Unreal and Unity on day one, Godot next.', href: '/assets' },
+      { title: 'Store', text: 'Aseprite extensions, pixel art VFX, tilesets and low-poly packs. Buy by card here or on itch.io. Frost engine systems coming next.', href: '/assets' },
       { title: 'Pixel art', text: 'Aseprite extensions (FastFX, VeSprite, GhostFrames) and animated pixel art VFX packs, on itch.io.', href: '/pixel-art' },
       { title: 'Services', text: 'Game localization with LQA, engine migrations at a fixed price, and Steam marketing tools.', href: '/services' },
       { title: 'Funding', text: 'Public grants for studios based in Spain or the EU: Creative Europe, Spanish national and regional calls, plus pitch decks and publisher lists for anyone.', href: '/financing' }
@@ -54,15 +55,16 @@ export const t = {
   },
   es: {
     lang: 'es', other: 'en', otherLabel: 'EN', base: '/es',
-    nav: { assets: 'Assets', pixel: 'Pixel art', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
-    pixel: { title: 'Extensiones para Aseprite y packs de pixel art', lead: 'Herramientas para Aseprite y packs de VFX animados, a la venta y descarga en itch.io. Hay versiones gratuitas para probar antes de comprar.', cta: 'Abrir la tienda en itch.io', free: 'Gratis', buy: 'Ver en itch.io →' },
+    store: { title: 'Tienda', lead: 'Todos los assets que publicamos, en un solo sitio. Paga con tarjeta aquí o compra en itch.io; ambos dan los mismos archivos y actualizaciones.', all: 'Todo', buy: 'Comprar', free: 'Gratis', download: 'Descargar gratis', itch: 'Comprar en itch.io', getItch: 'Conseguir en itch.io', soonCheckout: 'El pago directo con tarjeta se está configurando. Mientras tanto, itch.io entrega los mismos archivos.', off: 'de descuento', ends: 'La oferta termina el', code: 'Código', gallery: 'Galería', about: 'Sobre este producto', back: 'Volver a la tienda', related: 'Más en', vat: 'Precios en EUR. El IVA se añade al pagar donde corresponda.', secure: 'Pago con tarjeta por Stripe. Enlace de descarga inmediato por correo.', frostSoon: 'Los sistemas para motores (familia Frost) están en producción; el primero, FrostFeel, sale en octubre de 2026.' },
+    nav: { assets: 'Tienda', pixel: 'Pixel art', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
+    pixel: { title: 'Extensiones para Aseprite y packs de pixel art', lead: 'Herramientas para Aseprite y packs de VFX animados, a la venta y descarga en itch.io. Hay versiones gratuitas para probar antes de comprar.', cta: 'Abrir la tienda en itch.io', free: 'Gratis', buy: 'Ver en itch.io →', view: 'Ver producto →' },
     hero: {
       title: 'Herramientas, servicios y financiación para estudios indie.',
       sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art, localiza y migra juegos, y redacta las solicitudes de ayudas públicas, españolas y europeas, que los pagan.',
       cta1: 'Ver assets', cta2: 'Pedir presupuesto'
     },
     pillars: [
-      { title: 'Assets', text: 'La familia Frost: sistemas de gameplay y herramientas de editor para Unreal y Unity desde el primer día, Godot después.', href: '/es/assets' },
+      { title: 'Tienda', text: 'Extensiones para Aseprite, VFX en pixel art, tilesets y packs low poly. Compra con tarjeta aquí o en itch.io. Sistemas Frost para motores, próximamente.', href: '/es/assets' },
       { title: 'Pixel art', text: 'Extensiones para Aseprite (FastFX, VeSprite, GhostFrames) y packs de VFX animados en pixel art, en itch.io.', href: '/es/pixel-art' },
       { title: 'Servicios', text: 'Localización de juegos con LQA, migraciones de motor a precio cerrado y herramientas de marketing para Steam.', href: '/es/services' },
       { title: 'Financiación', text: 'Ayudas públicas para estudios de España y de la UE: Creative Europe, Ministerio de Cultura y comunidades autónomas, más pitch decks y listas de publishers para cualquier estudio.', href: '/es/financing' }

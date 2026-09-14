@@ -82,3 +82,11 @@ Achievements are a Steam-style toast (bottom right, 4.2s, slides in with bounce)
 3. Reduced motion checked once (DevTools, Rendering, emulate).
 4. No new color outside the token table.
 5. Strings added in both languages.
+
+## 9. Store
+
+- Catalogue: `src/data/products.js` (prices in EUR are the source of truth), long descriptions and galleries imported from itch.io into `src/data/itch-import.json` and `public/itch/<slug>/` by `python scripts/import-itch.py`. Add a product: one entry in `products.js`, its slug in `scripts/itch-slugs.json`, run the importer.
+- Offers: `src/data/offers.js`. A sale is one object with percent, dates and scope (`all`, `cat:<category>` or a list of slugs). Active offers show a banner on the store, a `-N%` sale tag on cards and a struck-through base price on the product page. Dates are evaluated at build time, so push once when a sale starts and once when it ends.
+- Product page: gallery with thumbnails on the left, sticky buy box on the right, imported description below in `.prose`, three related products at the end.
+- Buy box logic: free → "Download free" to itch; paid without `stripePrice` → "Buy on itch.io" plus a note that card checkout is coming; paid with `stripePrice` and Stripe configured → "Buy now" (Stripe Checkout with automatic tax and promotion codes) plus itch as secondary.
+- Never show a price on the site that differs from the store it links to.

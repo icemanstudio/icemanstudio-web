@@ -1,0 +1,20 @@
+---
+import { priceInfo, fmt } from '../data/offers.js';
+const { p, t } = Astro.props;
+const L = t.lang;
+const pi = priceInfo(p);
+const href = `${t.base}/assets/${p.slug}/`;
+---
+<a class="card product" href={href} style="display:block;padding:0;overflow:hidden">
+  {p.cover && <img src={p.cover} alt={p.name} loading="lazy" style="width:100%;aspect-ratio:315/250;object-fit:cover;display:block;background:#131313" />}
+  <div style="padding:18px 22px 22px">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      {pi.free ? <span class="tag">{t.store.free}</span> : pi.offer
+        ? <><span class="tag sale">-{pi.offer.percent}%</span><span class="tag"><s style="opacity:.6">{fmt(pi.base, L)}</s> {fmt(pi.final, L)}</span></>
+        : <span class="tag">{fmt(pi.base, L)}</span>}
+    </div>
+    <h3 style="margin-top:10px">{p.name}</h3>
+    <p class="small" style="color:#7DD3FC">{p.sub[L]}</p>
+    <p>{p.short[L]}</p>
+  </div>
+</a>

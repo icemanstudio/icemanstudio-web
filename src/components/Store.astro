@@ -1,0 +1,32 @@
+---
+import ProductCard from './ProductCard.astro';
+import { products, categories } from '../data/products.js';
+import { activeOffers } from '../data/offers.js';
+const { t } = Astro.props;
+const L = t.lang;
+const s = t.store;
+const offers = activeOffers();
+const order = ['aseprite', 'vfx', 'tileset', 'lowpoly'];
+---
+<section>
+  <h2>{s.title}</h2>
+  <p class="lead">{s.lead}</p>
+  {offers.length > 0 && (
+    <div class="card offer-banner" style="margin-bottom:22px">
+      {offers.map((o) => <p style="margin:0"><strong>{o.name[L]}:</strong> -{o.percent}% · {s.ends} {o.until}{o.code ? ` · ${s.code} ${o.code}` : ''}</p>)}
+    </div>
+  )}
+  <div class="card" style="margin-bottom:22px"><p style="margin:0">{s.frostSoon}</p></div>
+  <nav class="cats" aria-label="Categories">
+    {order.map((c) => <a href={`#${c}`}>{categories[c][L]}</a>)}
+  </nav>
+</section>
+{order.map((c) => (
+  <section id={c}>
+    <h2 style="font-size:26px">{categories[c][L]}</h2>
+    <div class="grid">
+      {products.filter((p) => p.cat === c).map((p) => <ProductCard p={p} t={t} />)}
+    </div>
+  </section>
+))}
+<p class="small muted">{s.vat}</p>

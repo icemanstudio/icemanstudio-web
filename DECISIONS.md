@@ -26,3 +26,8 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 ## 2026-09-14 · Ventas de assets: tiendas primero, Stripe para servicios
 - **Decisión:** los assets se venden en Fab, Unity Asset Store e itch.io (ellos liquidan impuestos); servicios y financiación se cobran por Stripe. Compra directa de assets con Stripe Tax solo cuando haya catálogo propio.
 - **Por qué:** evita gestionar el IVA de la UE por descargas digitales desde el primer día.
+
+## 2026-09-14 · Tienda propia con catálogo importado de itch y Stripe diferido
+- **Decisión:** la web tiene tienda propia con ficha por producto (`/assets/<slug>/`), importando textos e imágenes de itch.io con `scripts/import-itch.py`. Precios y ofertas viven en `src/data/products.js` y `src/data/offers.js`. El pago directo usa Stripe Checkout (`functions/api/checkout.js`) y solo se activa cuando existan `STRIPE_SECRET_KEY` y los Price IDs; hasta entonces la ficha manda a itch.io.
+- **Por qué:** una sola casa para todo el catálogo sin depender del diseño de itch, ofertas controladas desde un archivo, y poder encender Stripe sin tocar las páginas. Se posponen la entrega de archivos y el webhook de Stripe hasta configurar la cuenta.
+- **Pendiente:** almacenamiento de archivos (R2) y webhook `checkout.session.completed` que envíe el enlace de descarga por Resend; Stripe Tax activado; traducción al español de las descripciones largas (hoy en inglés en ambos idiomas).

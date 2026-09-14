@@ -1,0 +1,61 @@
+---
+import ProductCard from './ProductCard.astro';
+import { products, categories } from '../data/products.js';
+import { priceInfo, fmt } from '../data/offers.js';
+const { p, t } = Astro.props;
+const L = t.lang;
+const s = t.store;
+const pi = priceInfo(p);
+const related = products.filter((x) => x.cat === p.cat && x.slug !== p.slug).slice(0, 3);
+const canCheckout = !pi.free && !!p.stripePrice;
+---
+<section style="padding-top:28px">
+  <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{categories[p.cat][L]}</span></p>
+  <div class="product-hero">
+    <div class="gallery">
+      {p.images.length > 0 && <img id="g-main" src={p.images[0]} alt={p.name} style="width:100%;border-radius:14px;border:1px solid var(--line);background:#131313;display:block" />}
+      {p.images.length > 1 && (
+        <div class="thumbs">
+          {p.images.map((im, i) => <img src={im} alt={`${p.name} ${i + 1}`} loading="lazy" data-full={im} class={i === 0 ? 'on' : ''} />)}
+        </div>
+      )}
+    </div>
+    <aside class="buybox card">
+      <h1 style="margin:0 0 4px;font-size:30px">{p.name}</h1>
+      <p style="color:#7DD3FC;margin:0 0 14px">{p.sub[L]}</p>
+      <p class="muted" style="margin:0 0 18px">{p.short[L]}</p>
+      <div class="price">
+        {pi.free ? <span class="big">{s.free}</span> : pi.offer
+          ? <><span class="big">{fmt(pi.final, L)}</span> <s class="muted">{fmt(pi.base, L)}</s> <span class="tag sale">-{pi.offer.percent}% {s.off}</span></>
+          : <span class="big">{fmt(pi.base, L)}</span>}
+      </div>
+      {pi.offer && <p class="small muted">{pi.offer.name[L]} · {s.ends} {pi.offer.until}{pi.offer.code ? ` · ${s.code}: ${pi.offer.code}` : ''}</p>}
+      {pi.free
+        ? <a class="btn" href={p.itch} target="_blank" rel="noopener">{s.download}</a>
+        : canCheckout
+          ? <><form method="post" action="/api/checkout"><input type="hidden" name="slug" value={p.slug} /><input type="hidden" name="lang" value={L} /><button class="btn" type="submit">{s.buy}</button></form>
+              <a class="btn ghost" href={p.itch} target="_blank" rel="noopener" style="margin-top:8px">{s.itch}</a>
+              <p class="small muted" style="margin-top:12px">{s.secure}</p></>
+          : <><a class="btn" href={p.itch} target="_blank" rel="noopener">{s.itch}</a>
+              <p class="small muted" style="margin-top:12px">{s.soonCheckout}</p></>}
+      <p class="small muted" style="margin-top:10px">{s.vat}</p>
+    </aside>
+  </div>
+</section>
+<section>
+  <h2 style="font-size:24px">{s.about}</h2>
+  <div class="prose" set:html={p.html} />
+</section>
+{related.length > 0 && (
+  <section>
+    <h2 style="font-size:24px">{s.related} {categories[p.cat][L]}</h2>
+    <div class="grid">{related.map((r) => <ProductCard p={r} t={t} />)}</div>
+  </section>
+)}
+<script>
+  const main = document.getElementById('g-main') as HTMLImageElement | null;
+  document.querySelectorAll<HTMLImageElement>('.thumbs img').forEach((th) => th.addEventListener('click', () => {
+    if (!main) return; main.src = th.dataset.full || th.src;
+    document.querySelectorAll('.thumbs img').forEach((x) => x.classList.remove('on')); th.classList.add('on');
+  }));
+</script>
