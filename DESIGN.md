@@ -113,3 +113,10 @@ Achievements are a Steam-style toast (bottom right, 4.2s, slides in with bounce)
 - `/dl/<token>` verifies the token and streams the file from R2 with a download filename. Expired links answer 410 with instructions to reply to the order email.
 - After paying, Stripe sends the customer to `/download/?session_id=...` (or `/es/download/`): the worker verifies the session with Stripe and renders the download page with the same signed links. The email is the backup copy and links to that page.
 - Secrets in the Worker: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `DOWNLOAD_SECRET`, `RESEND_API_KEY`; variable `CONTACT_TO`.
+
+## 13. Accounts
+
+- No passwords. `/account/` (and `/es/account/`) shows the sign-in form or the library. Sign-in link: POST `/api/auth/request`; callback `/auth/verify?token=`; sign out POST `/api/auth/logout`. Profile actions: `/api/account/name`, `/api/account/email` (confirmation to the new address), `/api/account/delete` (type DELETE / ELIMINAR).
+- Data in D1 (`schema.sql`, binding `DB`). Orders are recorded by the Stripe webhook (`functions/lib/db.js` → `recordOrder`). Library links are signed for 1 day at render time.
+- Dynamic pages use `functions/lib/page.js` (`shell`) so they match the site palette without the Astro build. Keep them `noindex`.
+- Legal pages: `src/data/legal.js` → `/privacy/`, `/terms/` in both languages; `holder` must be completed when the business is registered.

@@ -60,3 +60,7 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 ## 2026-09-15 · Entrega de archivos: R2 + enlaces firmados por correo
 - **Decisión:** los archivos se guardan en R2 (jurisdicción UE) y se entregan tras el webhook `checkout.session.completed` como enlaces firmados (HMAC, 30 días) enviados por Resend; `/dl/<token>` sirve el archivo desde R2. Manifiesto en `src/data/files.json`; subida con `scripts/upload-files.py`.
 - **Por qué:** sin servidor propio ni cuentas de usuario; el enlace es la prueba de compra, caduca y se reemite a mano si hace falta. Los bundles se resuelven en el webhook a sus productos.
+
+## 2026-09-15 · Cuentas sin contraseña con D1
+- **Decisión:** identidad = correo del pago. Acceso por enlace de un solo uso (15 min), sesión de 30 días en cookie `ims_session` (HttpOnly, Secure, Lax). Tablas en D1 (`schema.sql`): users, orders, sessions, login_tokens. El webhook registra cada pedido; la biblioteca (`/account/`) genera enlaces firmados de 1 día al vuelo. Cambio de correo con confirmación al correo nuevo y traslado de pedidos; borrado de cuenta anonimiza pedidos. Páginas de privacidad y condiciones en `src/data/legal.js`.
+- **Por qué:** sin contraseñas no hay filtraciones ni restablecimientos; itch y otras tiendas hacen lo mismo. La caja de compra avisa de usar un correo accesible porque todo cuelga de él.
