@@ -47,5 +47,17 @@
    "name": "VeSprite-0.1.0.aseprite-extension",
    "size": 112520
   }
+ ],
+ "500-rpg-vfx": [
+  {
+   "key": "500-rpg-vfx/500-Pixel-Art-Effects-Part1-GIF-Spritesheets-FastFX.zip",
+   "name": "500-Pixel-Art-Effects-Part1-GIF-Spritesheets-FastFX.zip",
+   "size": 190698267
+  },
+  {
+   "key": "500-rpg-vfx/500-Pixel-Art-Effects-Part2-PNG-Frames.zip",
+   "name": "500-Pixel-Art-Effects-Part2-PNG-Frames.zip",
+   "size": 145268669
+  }
  ]
 }
