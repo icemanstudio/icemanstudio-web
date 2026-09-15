@@ -31,11 +31,11 @@ export async function destroySession(env, req) {
 }
 
 /** Creates a login/change-email token. Throttled: max 5 per email per 15 minutes. */
-export async function createLoginToken(env, { email, purpose, newEmail = '', lang = 'en' }) {
+export async function createLoginToken(env, { email, purpose, newEmail = '', lang = 'en', ttl = 900 }) {
   const recent = await env.DB.prepare('SELECT COUNT(*) AS n FROM login_tokens WHERE email = ? AND created > ?').bind(email, now() - 900).first();
   if (recent && recent.n >= 5) return null;
   const token = rand(32);
-  await env.DB.prepare('INSERT INTO login_tokens (token, email, purpose, new_email, lang, expires, created) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(token, email, purpose, newEmail, lang, now() + 900, now()).run();
+  await env.DB.prepare('INSERT INTO login_tokens (token, email, purpose, new_email, lang, expires, created) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(token, email, purpose, newEmail, lang, now() + ttl, now()).run();
   return token;
 }
 

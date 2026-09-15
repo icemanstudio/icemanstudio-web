@@ -23,7 +23,7 @@ export async function onRequestGet({ request, env }) {
         ? `<ul>${g.links.map((l) => `<li><a class="btn" href="${l.url}">⬇ ${esc(l.name)}</a><span class="muted">${mb(l.size)}</span></li>`).join('')}</ul>`
         : `<p class="muted">${T.missing}</p>`) + `</section>`).join('') +
       (email ? `<p class="muted">${T.mailed} <strong>${esc(email)}</strong>. ${T.bye}</p>` : `<p class="muted">${T.bye}</p>`) +
-      `<p><a class="btn ghost" href="${lang === 'es' ? '/es' : ''}/account/">${lang === 'es' ? 'Guardar en mi biblioteca (sin contraseña)' : 'Save to my library (no password)'}</a></p>`;
+      `<p class="muted">${lang === 'es' ? 'Tu cuenta se ha creado sola con ese correo: en el correo del pedido tienes el botón para entrar en tu biblioteca y descargar siempre que quieras.' : 'Your account was created automatically with that email: the order email has a button to open your library and download whenever you want.'}</p>`;
   }
   return new Response(shell({ lang, title: T.title, body }), { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'private, no-store' } });
 }
