@@ -9,7 +9,7 @@
     "html_handling": "auto-trailing-slash",
     "run_worker_first": ["/api/*", "/dl/*", "/auth/*", "/download", "/download/*", "/es/download", "/es/download/*", "/account", "/account/*", "/es/account", "/es/account/*"]
   },
-  "d1_databases": [{ "binding": "DB", "database_name": "icemanstudio-db", "database_id": "REPLACE_WITH_D1_ID" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "icemanstudio-db", "database_id": "d2646e0f-b454-41cc-a409-bc0b310562ac" }],
   "r2_buckets": [{ "binding": "FILES", "bucket_name": "icemanstudio-files", "jurisdiction": "eu" }],
   "observability": { "enabled": true }
 }
