@@ -4,14 +4,12 @@ import { onRequestPost as checkout } from '../functions/api/checkout.js';
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === '/api/contact') {
-      if (request.method !== 'POST') return new Response('method not allowed', { status: 405 });
-      return contact({ request, env });
+    if (url.pathname.startsWith('/api/') && request.method !== 'POST') {
+      // A direct visit (back button, reload, typed URL): send people to the store instead of an error page.
+      return Response.redirect(`${url.origin}/assets/`, 302);
     }
-    if (url.pathname === '/api/checkout') {
-      if (request.method !== 'POST') return new Response('method not allowed', { status: 405 });
-      return checkout({ request, env });
-    }
+    if (url.pathname === '/api/contact') return contact({ request, env });
+    if (url.pathname === '/api/checkout') return checkout({ request, env });
     return env.ASSETS.fetch(request);
   }
 };
