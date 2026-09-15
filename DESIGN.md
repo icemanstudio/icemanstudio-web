@@ -91,3 +91,9 @@ Achievements are a Steam-style toast (bottom right, 4.2s, slides in with bounce)
 - Product page: gallery with thumbnails on the left, sticky buy box on the right, imported description below in `.prose`, three related products at the end.
 - Buy box logic: free → "Download free" to itch; paid with `config.stripeEnabled` false → "Buy on itch.io" plus a note that card checkout is coming; paid with it true → "Buy now" (Stripe Checkout with an ad-hoc price computed from `products.js` + `offers.js`, automatic tax, promotion codes) plus itch as secondary. No price IDs are needed in Stripe.
 - Never show a price on the site that differs from the store it links to.
+
+## 10. Bundles
+
+- `src/data/bundles.js`: slug, name, fixed price, item slugs, sub and short in both languages. The page computes the sum of the items, the saving and the percent. Sold only via our checkout (`bundle=<slug>`), never on itch.
+- Shown in the store and at `/assets/bundle/<slug>/` when `config.showBundles` is true. Percentage offers never apply to bundles: the bundle price is already the deal.
+- Card: 2x2 mosaic of the included covers, aqua saving tag, struck-through sum.

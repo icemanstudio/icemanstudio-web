@@ -1,0 +1,34 @@
+---
+import ProductCard from './ProductCard.astro';
+import { bundleInfo } from '../data/bundles.js';
+import { fmt } from '../data/offers.js';
+import { config } from '../data/config.js';
+const { b, t } = Astro.props;
+const L = t.lang;
+const s = t.store;
+const bi = bundleInfo(b);
+---
+<section style="padding-top:28px">
+  <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{s.bundles}</span></p>
+  <div class="product-hero">
+    <div class="bundle-covers big">
+      {bi.items.map((p) => <a href={`${t.base}/assets/${p.slug}/`}><img src={p.cover} alt={p.name} loading="lazy" /></a>)}
+    </div>
+    <aside class="buybox card">
+      <h1 style="margin:0 0 4px;font-size:30px">{b.name}</h1>
+      <p style="color:#FFB199;margin:0 0 14px">{b.sub[L]}</p>
+      <p class="muted" style="margin:0 0 18px">{b.short[L]}</p>
+      <div class="price"><span class="big">{fmt(b.price, L)}</span> <s class="muted">{fmt(bi.sum, L)}</s> <span class="tag sale">-{bi.percent}%</span></div>
+      <p class="small muted">{s.youSave} {fmt(bi.save, L)}</p>
+      {config.stripeEnabled
+        ? <><form method="post" action="/api/checkout"><input type="hidden" name="bundle" value={b.slug} /><input type="hidden" name="lang" value={L} /><button class="btn" type="submit">{s.buyBundle}</button></form>
+            <p class="small muted" style="margin-top:12px">{s.secure}</p></>
+        : <p class="small muted">{s.soonCheckout}</p>}
+      <p class="small muted" style="margin-top:10px">{s.vat}</p>
+    </aside>
+  </div>
+</section>
+<section>
+  <h2 style="font-size:24px">{s.included}</h2>
+  <div class="grid">{bi.items.map((p) => <ProductCard p={p} t={t} />)}</div>
+</section>

@@ -1,0 +1,12 @@
+---
+import Base from '../../../layouts/Base.astro';
+import BundlePage from '../../../components/BundlePage.astro';
+import { bundles } from '../../../data/bundles.js';
+import { t as all } from '../../../data/t.js';
+export function getStaticPaths() { return bundles.map((b) => ({ params: { slug: b.slug }, props: { b } })); }
+const { b } = Astro.props;
+const t = all.en;
+---
+<Base t={t} title={b.name} path={`/assets/bundle/${b.slug}/`}>
+  <BundlePage b={b} t={t} />
+</Base>

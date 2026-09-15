@@ -48,3 +48,7 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 ## 2026-09-15 · Ofertas automáticas evaluadas en vivo
 - **Decisión:** temporadas anuales (primavera, verano, otoño, Halloween solo VFX, Black Friday calculado, invierno), jams con fechas por rellenar, y 25 % automático los 7 primeros días de cada producto nuevo (`released`, que el importador estampa). Reglas en `src/data/offers.js`, servidas en `/offers.json` y evaluadas en el navegador (`public/offers.js`) y en el worker al cobrar.
 - **Por qué:** una web estática solo cambiaría precios al publicar; evaluando la fecha en el cliente y en el checkout, las ofertas empiezan y terminan solas y lo cobrado coincide con lo mostrado.
+
+## 2026-09-15 · Bundles a precio cerrado, solo por checkout propio
+- **Decisión:** `src/data/bundles.js` define paquetes con precio fijo y lista de productos; ficha propia, mosaico de portadas, ahorro calculado; se cobran como un único pago con los slugs incluidos en los metadatos de Stripe para la entrega. Ocultos hasta `config.showBundles`.
+- **Por qué:** itch no tiene bundles por producto; es una ventaja exclusiva de la tienda propia y una razón para comprar aquí. Sin ofertas porcentuales encima para no acumular descuentos.

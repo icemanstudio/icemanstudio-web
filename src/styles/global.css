@@ -124,3 +124,9 @@ header.site nav a:not(.lang):hover::after{right:0}
   header.site nav a:not(.lang)::after{display:none}
   header.site nav a.lang{border:0;border-radius:0;padding:12px 16px;font-size:14px}
 }
+
+/* ---------- Bundles ---------- */
+.bundle-covers{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#131313}
+.bundle-covers img{width:100%;aspect-ratio:315/250;object-fit:cover;display:block}
+.bundle-covers.big{gap:8px;border-radius:6px;overflow:hidden}
+.bundle-covers.big a{display:block}.bundle-covers.big img{border-radius:6px;border:1px solid var(--line)}

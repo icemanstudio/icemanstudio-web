@@ -1,0 +1,21 @@
+---
+import { bundleInfo } from '../data/bundles.js';
+import { fmt } from '../data/offers.js';
+const { b, t } = Astro.props;
+const L = t.lang;
+const bi = bundleInfo(b);
+---
+<a class="card product bundle" href={`${t.base}/assets/bundle/${b.slug}/`} style="display:block;padding:0;overflow:hidden">
+  <div class="bundle-covers">
+    {bi.items.slice(0, 4).map((p) => <img src={p.cover} alt={p.name} loading="lazy" />)}
+  </div>
+  <div style="padding:18px 22px 22px">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="tag sale">-{bi.percent}%</span>
+      <span class="tag"><s style="opacity:.6">{fmt(bi.sum, L)}</s> {fmt(b.price, L)}</span>
+    </div>
+    <h3 style="margin-top:10px">{b.name}</h3>
+    <p class="small" style="color:#FFB199">{b.sub[L]}</p>
+    <p>{b.short[L]}</p>
+  </div>
+</a>

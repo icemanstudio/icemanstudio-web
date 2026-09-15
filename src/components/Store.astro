@@ -1,5 +1,8 @@
 ---
 import ProductCard from './ProductCard.astro';
+import BundleCard from './BundleCard.astro';
+import { bundles } from '../data/bundles.js';
+import { config } from '../data/config.js';
 import { products, categories } from '../data/products.js';
 import { activeOffers, offerUntil } from '../data/offers.js';
 const { t } = Astro.props;
@@ -16,9 +19,17 @@ const order = ['aseprite', 'vfx', 'tileset', 'lowpoly'];
   </div>
   <div class="card" style="margin-bottom:22px"><p style="margin:0">{s.frostSoon}</p></div>
   <nav class="cats" aria-label="Categories">
+    {config.showBundles && <a href="#bundles">{s.bundles}</a>}
     {order.map((c) => <a href={`#${c}`}>{categories[c][L]}</a>)}
   </nav>
 </section>
+{config.showBundles && (
+  <section id="bundles">
+    <h2 style="font-size:26px">{s.bundles}</h2>
+    <p class="lead">{s.bundlesLead}</p>
+    <div class="grid">{bundles.map((b) => <BundleCard b={b} t={t} />)}</div>
+  </section>
+)}
 {order.map((c) => (
   <section id={c}>
     <h2 style="font-size:26px">{categories[c][L]}</h2>
