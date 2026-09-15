@@ -11,6 +11,7 @@ const related = products.filter((x) => x.cat === p.cat && x.slug !== p.slug).sli
 const canCheckout = !pi.free && config.stripeEnabled;
 ---
 <section style="padding-top:28px">
+  {p.banner && <img class="banner" src={p.banner} alt={p.name} />}
   <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{categories[p.cat][L]}</span></p>
   <div class="product-hero">
     <div class="gallery">
