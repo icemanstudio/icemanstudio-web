@@ -21,7 +21,7 @@ const canCheckout = !pi.free && config.stripeEnabled;
         </div>
       )}
     </div>
-    <aside class="buybox card">
+    <aside class="buybox card" data-slug={p.slug}>
       <h1 style="margin:0 0 4px;font-size:30px">{p.name}</h1>
       <p style="color:#FFB199;margin:0 0 14px">{p.sub[L]}</p>
       <p class="muted" style="margin:0 0 18px">{p.short[L]}</p>
@@ -30,7 +30,7 @@ const canCheckout = !pi.free && config.stripeEnabled;
           ? <><span class="big">{fmt(pi.final, L)}</span> <s class="muted">{fmt(pi.base, L)}</s> <span class="tag sale">-{pi.offer.percent}% {s.off}</span></>
           : <span class="big">{fmt(pi.base, L)}</span>}
       </div>
-      {pi.offer && <p class="small muted">{pi.offer.name[L]} · {s.ends} {pi.offer.until}{pi.offer.code ? ` · ${s.code}: ${pi.offer.code}` : ''}</p>}
+      <p class="small muted offer-note" hidden={!pi.offer}>{pi.offer ? `${pi.offer.name[L]} · ${s.ends} ${pi.until}${pi.offer.code ? ` · ${s.code}: ${pi.offer.code}` : ''}` : ''}</p>
       {pi.free
         ? <a class="btn" href={p.itch} target="_blank" rel="noopener">{s.download}</a>
         : canCheckout

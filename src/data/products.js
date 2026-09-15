@@ -1,5 +1,6 @@
 // Product catalogue. Prices here are the source of truth for the store (EUR).
 // Long descriptions and gallery come from src/data/itch-import.json (run scripts/import-itch.py to refresh).
+// `released` (YYYY-MM-DD) drives the automatic launch-week discount; the importer stamps it for new products (firstSeen).
 // Stripe: fill `stripePrice` with the Price ID (price_...) once products exist in Stripe. Empty = direct checkout not available yet.
 import imported from './itch-import.json';
 
@@ -78,7 +79,7 @@ export const categories = cats;
 
 export const products = raw.map((p) => {
   const i = imported[p.slug] || {};
-  return { ...p, itch: i.url || `https://icemaan.itch.io/${p.slug}`, images: i.images || [], cover: (i.images || [])[0] || `/itch/${p.slug}.png`, html: i.description_html || '' };
+  return { ...p, released: p.released || i.firstSeen || '', itch: i.url || `https://icemaan.itch.io/${p.slug}`, images: i.images || [], cover: (i.images || [])[0] || `/itch/${p.slug}.png`, html: i.description_html || '' };
 });
 
 export const bySlug = Object.fromEntries(products.map((p) => [p.slug, p]));

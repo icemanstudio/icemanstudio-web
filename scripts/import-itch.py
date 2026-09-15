@@ -18,6 +18,8 @@ def clean(h):
                lambda m: '<p><a class="btn ghost" href="/assets/%s/">%s</a></p>' % (m.group(1).rstrip('/').split('/')[-1], re.sub('<[^>]+>', '', m.group(2)).strip()), h, flags=re.S)
     h = re.sub(r'<iframe.*?</iframe>', '', h, flags=re.S)
     return h.strip()
+import datetime
+prev = json.load(open("src/data/itch-import.json", encoding="utf-8")) if os.path.exists("src/data/itch-import.json") else {}
 out = {}
 for slug in SLUGS:
     url = BASE + slug
@@ -48,7 +50,8 @@ for slug in SLUGS:
             desc_html = desc_html.replace(f'<img src="{local}">', f'<img src="{local}" loading="lazy">')
         except Exception as e:
             print("  img err", src[:60], e)
-    out[slug] = {"title": title, "short": short, "price": price, "url": url, "description_html": desc_html, "images": imgs}
+    out[slug] = {"title": title, "short": short, "price": price, "url": url, "description_html": desc_html, "images": imgs,
+                 "firstSeen": (prev[slug].get("firstSeen", "") if slug in prev else (datetime.date.today().isoformat() if prev else ""))}
     print("ok", slug, "|", price or "free", "|", len(imgs), "imgs |", len(desc_html), "chars")
     time.sleep(1)
 json.dump(out, open("src/data/itch-import.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)

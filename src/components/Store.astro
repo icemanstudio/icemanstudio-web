@@ -1,7 +1,7 @@
 ---
 import ProductCard from './ProductCard.astro';
 import { products, categories } from '../data/products.js';
-import { activeOffers } from '../data/offers.js';
+import { activeOffers, offerUntil } from '../data/offers.js';
 const { t } = Astro.props;
 const L = t.lang;
 const s = t.store;
@@ -11,11 +11,9 @@ const order = ['aseprite', 'vfx', 'tileset', 'lowpoly'];
 <section>
   <h2>{s.title}</h2>
   <p class="lead">{s.lead}</p>
-  {offers.length > 0 && (
-    <div class="card offer-banner" style="margin-bottom:22px">
-      {offers.map((o) => <p style="margin:0"><strong>{o.name[L]}:</strong> -{o.percent}% · {s.ends} {o.until}{o.code ? ` · ${s.code} ${o.code}` : ''}</p>)}
-    </div>
-  )}
+  <div class="card offer-banner" id="offer-banner" style="margin-bottom:22px" hidden={offers.length === 0}>
+    {offers.map((o) => <p style="margin:0"><strong>{o.name[L]}:</strong> -{o.percent}% · {s.ends} {offerUntil(o)}{o.code ? ` · ${s.code} ${o.code}` : ''}</p>)}
+  </div>
   <div class="card" style="margin-bottom:22px"><p style="margin:0">{s.frostSoon}</p></div>
   <nav class="cats" aria-label="Categories">
     {order.map((c) => <a href={`#${c}`}>{categories[c][L]}</a>)}
