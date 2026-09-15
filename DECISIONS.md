@@ -56,3 +56,7 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 ## 2026-09-15 · GEO: entradas legibles por máquinas y datos estructurados
 - **Decisión:** robots.txt que permite explícitamente los rastreadores de IA, sitemap con hreflang, `llms.txt` y `llms-full.txt`, feed `catalog.json`, JSON-LD (Organization, WebSite, SoftwareApplication/Product+Offer, BreadcrumbList, FAQPage), canónicas y metadatos por página, y una FAQ citable en Sobre. Hechos centralizados en `src/data/geo.js`.
 - **Por qué:** los asistentes y agentes citan lo que pueden leer sin ambigüedad; el catálogo y la licencia expuestos como datos evitan que inventen precios o condiciones.
+
+## 2026-09-15 · Entrega de archivos: R2 + enlaces firmados por correo
+- **Decisión:** los archivos se guardan en R2 (jurisdicción UE) y se entregan tras el webhook `checkout.session.completed` como enlaces firmados (HMAC, 30 días) enviados por Resend; `/dl/<token>` sirve el archivo desde R2. Manifiesto en `src/data/files.json`; subida con `scripts/upload-files.py`.
+- **Por qué:** sin servidor propio ni cuentas de usuario; el enlace es la prueba de compra, caduca y se reemite a mano si hace falta. Los bundles se resuelven en el webhook a sus productos.

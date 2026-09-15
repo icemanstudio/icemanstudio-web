@@ -105,3 +105,11 @@ Achievements are a Steam-style toast (bottom right, 4.2s, slides in with bounce)
 - JSON-LD: Organization + WebSite (with SearchAction) on every page; SoftwareApplication or Product with Offer and BreadcrumbList on product pages; Product with isRelatedTo on bundles; FAQPage on About. Builders live in `src/data/ld.js`; facts in `src/data/geo.js`.
 - The FAQ on About is the citable source of truth for licence, formats, requirements, discounts and contact. Change facts there first; llms.txt and JSON-LD follow.
 - Write for citation: one fact per sentence, numbers and prices explicit, names spelled the same everywhere (IceMan Studio, FastFX, VeSprite, GhostFrames, Frost).
+
+## 12. Delivery (after a card payment)
+
+- Files live in the R2 bucket `icemanstudio-files` (EU), key `<slug>/<filename>`. Upload with `python scripts/upload-files.py [slug]` from `../entregables/<slug>/`; it writes `src/data/files.json` (the manifest the webhook reads). Never commit the files themselves.
+- Stripe calls `/api/stripe-webhook` on `checkout.session.completed`. The worker verifies the signature, expands bundles into items, signs one download link per file (HMAC, 30 days) and emails them through Resend to the checkout email, with a copy to `CONTACT_TO`.
+- `/dl/<token>` verifies the token and streams the file from R2 with a download filename. Expired links answer 410 with instructions to reply to the order email.
+- After paying, the customer returns to the product page with `?paid=1`, which shows the "links on their way" banner.
+- Secrets in the Worker: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `DOWNLOAD_SECRET`, `RESEND_API_KEY`; variable `CONTACT_TO`.

@@ -1,0 +1,51 @@
+{
+ "11-modular-big-swords": [
+  {
+   "key": "11-modular-big-swords/Big_Swords.zip",
+   "name": "Big_Swords.zip",
+   "size": 802718
+  }
+ ],
+ "11-modular-swords": [
+  {
+   "key": "11-modular-swords/OneHandSwords.zip",
+   "name": "OneHandSwords.zip",
+   "size": 671716
+  }
+ ],
+ "epic-explosions-pixel-vfx": [
+  {
+   "key": "epic-explosions-pixel-vfx/Epic Explosions.rar",
+   "name": "Epic Explosions.rar",
+   "size": 6764761
+  }
+ ],
+ "fastfx-full-particle-system-for-aseprite": [
+  {
+   "key": "fastfx-full-particle-system-for-aseprite/fastfx-2.5.3.aseprite-extension",
+   "name": "fastfx-2.5.3.aseprite-extension",
+   "size": 2840279
+  }
+ ],
+ "ghostframe-aseprite-extension": [
+  {
+   "key": "ghostframe-aseprite-extension/GhostFrames-0.8.1-windows-linux.zip",
+   "name": "GhostFrames-0.8.1-windows-linux.zip",
+   "size": 112790744
+  }
+ ],
+ "pixel-projectile-effects-and-hits": [
+  {
+   "key": "pixel-projectile-effects-and-hits/Projectiles.rar",
+   "name": "Projectiles.rar",
+   "size": 2663107
+  }
+ ],
+ "vesprite-vector-drawing-for-pixel-art-inside-aseprite": [
+  {
+   "key": "vesprite-vector-drawing-for-pixel-art-inside-aseprite/VeSprite-0.1.0.aseprite-extension",
+   "name": "VeSprite-0.1.0.aseprite-extension",
+   "size": 112520
+  }
+ ]
+}

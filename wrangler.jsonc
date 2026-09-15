@@ -8,5 +8,6 @@
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "icemanstudio-files", "jurisdiction": "eu" }],
   "observability": { "enabled": true }
 }
