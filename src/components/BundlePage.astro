@@ -9,7 +9,6 @@ const s = t.store;
 const bi = bundleInfo(b);
 ---
 <section style="padding-top:28px">
-  <div class="card offer-banner" id="paid-banner" hidden style="margin-bottom:18px"><p style="margin:0">{s.paid}</p></div>
   <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{s.bundles}</span></p>
   <div class="product-hero">
     <div class="bundle-covers big">
@@ -33,7 +32,3 @@ const bi = bundleInfo(b);
   <h2 style="font-size:24px">{s.included}</h2>
   <div class="grid">{bi.items.map((p) => <ProductCard p={p} t={t} />)}</div>
 </section>
-
-<script>
-  if (new URLSearchParams(location.search).get('paid') === '1') { const b = document.getElementById('paid-banner'); if (b) b.hidden = false; }
-</script>

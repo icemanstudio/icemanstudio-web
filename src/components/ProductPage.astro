@@ -11,7 +11,6 @@ const related = products.filter((x) => x.cat === p.cat && x.slug !== p.slug).sli
 const canCheckout = !pi.free && config.stripeEnabled;
 ---
 <section style="padding-top:28px">
-  <div class="card offer-banner" id="paid-banner" hidden style="margin-bottom:18px"><p style="margin:0">{s.paid}</p></div>
   <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{categories[p.cat][L]}</span></p>
   <div class="product-hero">
     <div class="gallery">
@@ -60,8 +59,4 @@ const canCheckout = !pi.free && config.stripeEnabled;
     if (!main) return; main.src = th.dataset.full || th.src;
     document.querySelectorAll('.thumbs img').forEach((x) => x.classList.remove('on')); th.classList.add('on');
   }));
-</script>
-
-<script>
-  if (new URLSearchParams(location.search).get('paid') === '1') { const b = document.getElementById('paid-banner'); if (b) b.hidden = false; }
 </script>

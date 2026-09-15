@@ -42,7 +42,7 @@ export async function onRequestPost({ request, env }) {
     'automatic_tax[enabled]': 'true',
     allow_promotion_codes: 'true',
     locale: lang,
-    success_url: `${origin}${base}/assets/${bundleSlug ? 'bundle/' + bundleSlug : slug}/?paid=1`,
+    success_url: `${origin}${base}/download/?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}${base}/assets/${bundleSlug ? 'bundle/' + bundleSlug : slug}/`,
     'metadata[slug]': p.slug,
     'metadata[offer]': pi.offer ? pi.offer.id : ''
