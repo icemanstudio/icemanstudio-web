@@ -1,36 +1,48 @@
-// Direct card checkout via Stripe Checkout. Not active until STRIPE_SECRET_KEY is set in Cloudflare and
-// products carry a `stripePrice` in src/data/products.js. Until then it answers 501 and the page falls back to itch.io.
-//
-// Setup (later): 1) create each product + price in Stripe (EUR, one-time); 2) paste Price IDs into products.js;
-// 3) set secrets STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET in the Worker; 4) enable Stripe Tax; 5) the webhook
-// (functions/api/stripe-webhook.js) emails the download link on checkout.session.completed.
+// Direct card checkout via Stripe Checkout with ad-hoc prices.
+// The amount comes from src/data/products.js + src/data/offers.js at request time, so a sale is an edit in offers.js.
+// Nothing needs to exist in Stripe except the account: no products, no price IDs. Promotion codes created in the
+// Stripe dashboard still work (allow_promotion_codes). Requires secret STRIPE_SECRET_KEY in the Worker and
+// `stripeEnabled: true` in src/data/config.js (so product pages render the Buy button).
 import { bySlug } from '../../src/data/products.js';
+import { priceInfo } from '../../src/data/offers.js';
+
+const TAX_CODE = 'txcd_10202000'; // Stripe Tax: downloadable software / digital goods
 
 export async function onRequestPost({ request, env }) {
   const data = await request.formData();
   const slug = String(data.get('slug') || '');
   const lang = String(data.get('lang') || 'en') === 'es' ? 'es' : 'en';
   const p = bySlug[slug];
-  if (!p || !p.stripePrice || !env.STRIPE_SECRET_KEY) return new Response('checkout not configured', { status: 501 });
+  if (!p || !env.STRIPE_SECRET_KEY) return new Response('checkout not configured', { status: 501 });
+  const pi = priceInfo(p);
+  if (pi.free) return Response.redirect(p.itch, 303);
   const origin = new URL(request.url).origin;
   const base = lang === 'es' ? '/es' : '';
   const body = new URLSearchParams({
     mode: 'payment',
-    'line_items[0][price]': p.stripePrice,
     'line_items[0][quantity]': '1',
+    'line_items[0][price_data][currency]': 'eur',
+    'line_items[0][price_data][unit_amount]': String(Math.round(pi.final * 100)),
+    'line_items[0][price_data][tax_behavior]': 'exclusive',
+    'line_items[0][price_data][product_data][name]': p.name + (pi.offer ? ` (-${pi.offer.percent}%)` : ''),
+    'line_items[0][price_data][product_data][description]': p.sub[lang],
+    'line_items[0][price_data][product_data][tax_code]': TAX_CODE,
+    'line_items[0][price_data][product_data][metadata][slug]': slug,
     'automatic_tax[enabled]': 'true',
     allow_promotion_codes: 'true',
     locale: lang,
     success_url: `${origin}${base}/assets/${slug}/?paid=1`,
     cancel_url: `${origin}${base}/assets/${slug}/`,
-    'metadata[slug]': slug
+    'metadata[slug]': slug,
+    'metadata[offer]': pi.offer ? pi.offer.id : ''
   });
+  if (origin.includes('icemanstudio.com')) body.set('success_url', `https://icemanstudio.com${base}/assets/${slug}/?paid=1`);
   const r = await fetch('https://api.stripe.com/v1/checkout/sessions', {
     method: 'POST',
     headers: { Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`, 'Content-Type': 'application/x-www-form-urlencoded' },
     body
   });
-  if (!r.ok) return new Response('stripe error', { status: 502 });
+  if (!r.ok) return new Response('stripe error: ' + (await r.text()).slice(0, 300), { status: 502 });
   const session = await r.json();
   return Response.redirect(session.url, 303);
 }

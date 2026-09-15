@@ -2,12 +2,13 @@
 import ProductCard from './ProductCard.astro';
 import { products, categories } from '../data/products.js';
 import { priceInfo, fmt } from '../data/offers.js';
+import { config } from '../data/config.js';
 const { p, t } = Astro.props;
 const L = t.lang;
 const s = t.store;
 const pi = priceInfo(p);
 const related = products.filter((x) => x.cat === p.cat && x.slug !== p.slug).slice(0, 3);
-const canCheckout = !pi.free && !!p.stripePrice;
+const canCheckout = !pi.free && config.stripeEnabled;
 ---
 <section style="padding-top:28px">
   <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{categories[p.cat][L]}</span></p>

@@ -40,3 +40,7 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 ## 2026-09-14 · Paleta C "Ascua": coral sobre carbón, verde agua secundario
 - **Decisión:** el acento pasa del azul cielo al coral `#FF7A59` (claro `#FFB199`, profundo `#E85D3F`), con verde agua `#2DD4BF` solo en etiquetas de oferta y barra de logros. Tokens renombrados a `--acc`, `--acc2`, `--acc3`, `--acc-b`. Logos, favicon y guía de marca actualizados.
 - **Por qué:** el azul era genérico; el coral es reconocible, vivo y encaja con FastFX y los packs de explosiones, manteniendo la base #131313 sobria.
+
+## 2026-09-15 · Checkout con precios ad hoc: las rebajas se controlan desde `offers.js`
+- **Decisión:** `functions/api/checkout.js` envía a Stripe Checkout un `price_data` calculado en el momento con `priceInfo()` (base menos oferta activa), nombre del producto y código fiscal de software descargable. No se crean productos ni precios en Stripe. El botón "Buy now" se activa con `config.stripeEnabled`.
+- **Por qué:** una rebaja es editar `src/data/offers.js` y publicar; lo mostrado y lo cobrado salen del mismo cálculo. Los códigos promocionales creados en Stripe siguen funcionando encima.
