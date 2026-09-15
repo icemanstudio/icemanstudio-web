@@ -1,0 +1,17 @@
+---
+import { legal, holder } from '../data/legal.js';
+const { t, kind } = Astro.props;
+const L = t.lang;
+const d = legal[L];
+const title = kind === 'privacy' ? d.privacyTitle : d.termsTitle;
+const sections = kind === 'privacy' ? d.privacy : d.terms;
+---
+<section>
+  <h2>{title}</h2>
+  <p class="lead">{L === 'es' ? 'Última actualización' : 'Last updated'}: {holder.updated}</p>
+  <div class="grid" style="grid-template-columns:1fr;max-width:820px">
+    {sections.map(([h, body]) => (
+      <div class="card"><h3>{h}</h3><p style="margin:0;color:var(--text)">{body}</p></div>
+    ))}
+  </div>
+</section>

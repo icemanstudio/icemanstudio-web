@@ -59,6 +59,7 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools,
           <a href={`${b}/tools`}>{t.nav.tools}</a>
           <a href={`${b}/about`}>{t.nav.about}</a>
           <a href={`${b}/contact`}>{t.nav.contact}</a>
+          <a href={`${b}/account/`}>{t.nav.account}</a>
           <a class="lang" href={`${otherBase}${path || '/'}`}>{t.otherLabel}</a>
         </nav>
       </div>
@@ -68,7 +69,7 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools,
     </main>
     <footer class="site">
       <div class="wrap">
-        <span>{t.footer}</span>
+        <span>{t.footer} · <a href={`${b}/privacy/`}>{t.nav.privacy}</a> · <a href={`${b}/terms/`}>{t.nav.terms}</a></span>
         <span><a href="https://github.com/icemanstudio">GitHub</a> · <a href="https://icemaan.itch.io/">itch.io</a> · <a href="https://github.com/icemanstudio/icemanstudio-web/commits/main" title="Patch notes">build v{version}</a></span>
       </div>
     </footer>

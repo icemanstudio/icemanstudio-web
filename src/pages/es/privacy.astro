@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import Legal from '../../components/Legal.astro';
+import { t as all } from '../../data/t.js';
+import { legal } from '../../data/legal.js';
+const t = all.es;
+---
+<Base t={t} title={legal.es.privacyTitle} path="/privacy/" description={legal.es.privacyTitle}>
+  <Legal t={t} kind="privacy" />
+</Base>
