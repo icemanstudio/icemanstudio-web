@@ -4,6 +4,6 @@ import Tools from '../components/Tools.astro';
 import { t as all } from '../data/t.js';
 const t = all.en;
 ---
-<Base t={t} title={t.nav.tools} path="/tools">
+<Base t={t} title={t.nav.tools} path="/tools" description={t.tools.lead}>
   <Tools t={t} />
 </Base>

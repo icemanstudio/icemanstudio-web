@@ -4,6 +4,6 @@ import Services from '../../components/Services.astro';
 import { t as all } from '../../data/t.js';
 const t = all.es;
 ---
-<Base t={t} title={t.nav.services} path="/services">
+<Base t={t} title={t.nav.services} path="/services" description={t.services.lead}>
   <Services t={t} />
 </Base>

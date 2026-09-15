@@ -4,6 +4,6 @@ import Contact from '../components/Contact.astro';
 import { t as all } from '../data/t.js';
 const t = all.en;
 ---
-<Base t={t} title={t.nav.contact} path="/contact">
+<Base t={t} title={t.nav.contact} path="/contact" description={t.contact.lead}>
   <Contact t={t} />
 </Base>

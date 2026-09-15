@@ -130,3 +130,7 @@ header.site nav a:not(.lang):hover::after{right:0}
 .bundle-covers img{width:100%;aspect-ratio:315/250;object-fit:cover;display:block}
 .bundle-covers.big{gap:8px;border-radius:6px;overflow:hidden}
 .bundle-covers.big a{display:block}.bundle-covers.big img{border-radius:6px;border:1px solid var(--line)}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;gap:10px}.faq details{padding:14px 18px}.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:"+";color:var(--acc);font-weight:900}.faq details[open] summary::after{content:"–"}

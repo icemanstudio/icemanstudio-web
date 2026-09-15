@@ -52,3 +52,7 @@ Registro de decisiones duraderas. Añadir al final; no reescribir las anteriores
 ## 2026-09-15 · Bundles a precio cerrado, solo por checkout propio
 - **Decisión:** `src/data/bundles.js` define paquetes con precio fijo y lista de productos; ficha propia, mosaico de portadas, ahorro calculado; se cobran como un único pago con los slugs incluidos en los metadatos de Stripe para la entrega. Ocultos hasta `config.showBundles`.
 - **Por qué:** itch no tiene bundles por producto; es una ventaja exclusiva de la tienda propia y una razón para comprar aquí. Sin ofertas porcentuales encima para no acumular descuentos.
+
+## 2026-09-15 · GEO: entradas legibles por máquinas y datos estructurados
+- **Decisión:** robots.txt que permite explícitamente los rastreadores de IA, sitemap con hreflang, `llms.txt` y `llms-full.txt`, feed `catalog.json`, JSON-LD (Organization, WebSite, SoftwareApplication/Product+Offer, BreadcrumbList, FAQPage), canónicas y metadatos por página, y una FAQ citable en Sobre. Hechos centralizados en `src/data/geo.js`.
+- **Por qué:** los asistentes y agentes citan lo que pueden leer sin ambigüedad; el catálogo y la licencia expuestos como datos evitan que inventen precios o condiciones.

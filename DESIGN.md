@@ -97,3 +97,11 @@ Achievements are a Steam-style toast (bottom right, 4.2s, slides in with bounce)
 - `src/data/bundles.js`: slug, name, fixed price, item slugs, sub and short in both languages. The page computes the sum of the items, the saving and the percent. Sold only via our checkout (`bundle=<slug>`), never on itch.
 - Shown in the store and at `/assets/bundle/<slug>/` when `config.showBundles` is true. Percentage offers never apply to bundles: the bundle price is already the deal.
 - Card: 2x2 mosaic of the included covers, aqua saving tag, struck-through sum.
+
+## 11. GEO (findability for search engines and AI assistants)
+
+- Entry points that must keep working: `/robots.txt` (AI crawlers explicitly allowed), `/sitemap-index.xml`, `/llms.txt` (short guide), `/llms-full.txt` (catalogue in Markdown), `/catalog.json` (product feed), `/offers.json` (live discounts). All generated from data at build time; never hand-edit the outputs.
+- Every page sets a canonical URL, hreflang alternates, a specific meta description, Open Graph and Twitter tags. Product pages pass their cover as the share image.
+- JSON-LD: Organization + WebSite (with SearchAction) on every page; SoftwareApplication or Product with Offer and BreadcrumbList on product pages; Product with isRelatedTo on bundles; FAQPage on About. Builders live in `src/data/ld.js`; facts in `src/data/geo.js`.
+- The FAQ on About is the citable source of truth for licence, formats, requirements, discounts and contact. Change facts there first; llms.txt and JSON-LD follow.
+- Write for citation: one fact per sentence, numbers and prices explicit, names spelled the same everywhere (IceMan Studio, FastFX, VeSprite, GhostFrames, Frost).

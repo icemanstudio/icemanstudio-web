@@ -4,6 +4,6 @@ import Store from '../../components/Store.astro';
 import { t as all } from '../../data/t.js';
 const t = all.en;
 ---
-<Base t={t} title={t.store.title} path="/assets/">
+<Base t={t} title={t.store.title} path="/assets/" description={t.store.lead}>
   <Store t={t} />
 </Base>

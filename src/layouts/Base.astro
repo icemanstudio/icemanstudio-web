@@ -1,6 +1,14 @@
 ---
 import '../styles/global.css';
-const { t, title, path = '' } = Astro.props;
+import { org } from '../data/geo.js';
+const { t, title, path = '', description, image, jsonld } = Astro.props;
+const canonical = `https://icemanstudio.com${t.base}${path || '/'}`;
+const desc = description || t.hero.sub;
+const ogImage = image ? (image.startsWith('http') ? image : `https://icemanstudio.com${image}`) : 'https://icemanstudio.com/brand/logo-horizontal-dark.svg';
+const orgLd = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'Organization', '@id': `${org.url}/#org`, name: org.name, url: org.url, logo: org.logo, email: org.email, foundingDate: org.founded, address: { '@type': 'PostalAddress', addressCountry: org.country }, sameAs: org.sameAs, description: org.summary[t.lang] },
+  { '@type': 'WebSite', '@id': `${org.url}/#site`, url: org.url, name: org.name, inLanguage: ['en', 'es'], publisher: { '@id': `${org.url}/#org` }, potentialAction: { '@type': 'SearchAction', target: { '@type': 'EntryPoint', urlTemplate: `${org.url}${t.base}/assets/?q={search_term_string}` }, 'query-input': 'required name=search_term_string' } }
+] };
 const b = t.base;
 const otherBase = t.other === 'es' ? '/es' : '';
 import pkg from '../../package.json';
@@ -13,15 +21,24 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools,
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
-    <meta name="description" content={t.hero.sub} />
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" hreflang="en" href={`https://icemanstudio.com${path}`} />
     <link rel="alternate" hreflang="es" href={`https://icemanstudio.com/es${path}`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={t.hero.sub} />
-    <meta property="og:image" content="https://icemanstudio.com/brand/logo-horizontal-dark.svg" />
+    <meta property="og:description" content={desc} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="IceMan Studio" />
+    <meta property="og:locale" content={t.lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
     <script src="/juice.js" defer></script>
     <script src="/search.js" defer></script>
     <script src="/offers.js" defer></script>

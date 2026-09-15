@@ -2,8 +2,9 @@
 import Base from '../layouts/Base.astro';
 import About from '../components/About.astro';
 import { t as all } from '../data/t.js';
+import { faqLd } from '../data/ld.js';
 const t = all.en;
 ---
-<Base t={t} title={t.nav.about} path="/about">
+<Base t={t} title={t.nav.about} path="/about" description={t.about.text} jsonld={faqLd(t.lang)}>
   <About t={t} />
 </Base>
