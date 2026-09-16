@@ -25,11 +25,11 @@ def clean(h):
     h = re.split(r'<a href="javascript:void\(0\)">More information', h)[0]
     h = re.sub(r'<svg.*?</svg>', '', h, flags=re.S)
     h = re.sub(r'<table>.*?</table>', '', h, flags=re.S)
-    h = re.sub(r'<iframe[^>]*>\s*<a href="([^"]+)">(.*?)</a>\s*</iframe>',
-               lambda m: '<p><a class="btn ghost" href="/assets/%s/">%s</a></p>' % (m.group(1).rstrip('/').split('/')[-1], re.sub('<[^>]+>', '', m.group(2)).strip()), h, flags=re.S)
+    # itch embeds of other listings are dropped: the site has its own related-products block
     h = re.sub(r'<iframe.*?</iframe>', '', h, flags=re.S)
     h = re.sub(r'(<p><br></p>\s*){2,}', '<p><br></p>', h)
     h = re.sub(r'<h3>\s*</h3>', '', h)
+    h = re.sub(r'<h[2-5]>\s*More Packs\s*</h[2-5]>\s*$', '', h)  # heading that only introduced the embeds
     return h.strip()
 
 
@@ -41,9 +41,9 @@ for slug in SLUGS:
         page = get(url).decode("utf-8", "ignore")
     except Exception as e:
         print("ERR", slug, e); continue
-    title = re.search(r'<h1 class="game_title">(.*?)</h1>', page, re.S)
+    title = re.search(r'<h1[^>]*class="game_title"[^>]*>(.*?)</h1>', page, re.S)
     title = html.unescape(re.sub('<[^>]+>', '', title.group(1))).strip() if title else slug
-    short = re.search(r'<meta name="description" content="([^"]*)"', page)
+    short = re.search(r'<meta name="description" content="([^"]*)"', page) or re.search(r'<meta content="([^"]*)" name="description"', page)
     short = html.unescape(short.group(1)) if short else ""
     desc = re.search(r'<div class="formatted_description user_formatted">(.*?)</div>\s*(?:</div>|<div class="game_info_panel_widget|$)', page, re.S)
     desc_html = clean(desc.group(1)) if desc else ""
@@ -62,7 +62,7 @@ for slug in SLUGS:
         except Exception as e:
             print("  img err", src[:60], e)
     banner = ""
-    hm = re.search(r'<div id="header"[^>]*has_image[^>]*>\s*<img src="([^"]+)"', page)
+    hm = re.search(r'<div[^>]*class="header[^"]*has_image[^"]*"[^>]*>\s*<img[^>]*src="([^"]+)"', page) or re.search(r'<div id="header"[^>]*has_image[^>]*>\s*<img src="([^"]+)"', page)
     if hm:
         try:
             data = get(hm.group(1).strip().strip('"').strip("'"))
