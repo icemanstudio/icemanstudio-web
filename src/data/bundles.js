@@ -9,9 +9,9 @@ export const bundles = [
     sub: { en: 'FastFX + VeSprite + GhostFrames', es: 'FastFX + VeSprite + GhostFrames' },
     short: { en: 'Every IceMan extension for Aseprite in one purchase: particles, vector drawing and automatic inbetweens.', es: 'Todas las extensiones IceMan para Aseprite en una compra: partículas, dibujo vectorial e intercalados automáticos.' } },
   { slug: 'pixel-vfx-complete', name: 'Pixel VFX Complete', price: 17.99,
-    items: ['500-rpg-vfx', 'epic-explosions-pixel-vfx', 'blood-impacts-vfx-pixel', 'pixel-projectile-effects-and-hits'],
-    sub: { en: '500 effects + Explosions + Blood + Projectiles', es: '500 efectos + Explosiones + Sangre + Proyectiles' },
-    short: { en: 'All the paid pixel art VFX packs together: RPG effects, explosions, blood impacts, projectiles and hits.', es: 'Todos los packs de VFX en pixel art de pago juntos: efectos RPG, explosiones, impactos de sangre, proyectiles e impactos.' } }
+    items: ['500-rpg-vfx', 'epic-explosions-pixel-vfx', 'blood-impacts-vfx-pixel', 'pixel-projectile-effects-and-hits', '50-vfx-fire-mage-spells', 'ice-and-frost-mage'],
+    sub: { en: '500 effects + Explosions + Blood + Projectiles + Fire + Ice', es: '500 efectos + Explosiones + Sangre + Proyectiles + Fuego + Hielo' },
+    short: { en: 'All the paid pixel art VFX packs together: RPG effects, explosions, blood impacts, projectiles and hits, fire and ice spells.', es: 'Todos los packs de VFX en pixel art de pago juntos: efectos RPG, explosiones, impactos de sangre, proyectiles e impactos, hechizos de fuego y hielo.' } }
 ];
 
 export function bundleInfo(b) {
