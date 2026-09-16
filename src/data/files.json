@@ -66,5 +66,19 @@
    "name": "Blood-Impacts-Pixel-VFX.zip",
    "size": 2425352
   }
+ ],
+ "50-vfx-fire-mage-spells": [
+  {
+   "key": "50-vfx-fire-mage-spells/Fire Mage Spells.zip",
+   "name": "Fire Mage Spells.zip",
+   "size": 918287
+  }
+ ],
+ "ice-and-frost-mage": [
+  {
+   "key": "ice-and-frost-mage/Ice and Frost Mage.zip",
+   "name": "Ice and Frost Mage.zip",
+   "size": 408628
+  }
  ]
 }
