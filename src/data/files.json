@@ -80,5 +80,12 @@
    "name": "Ice and Frost Mage.zip",
    "size": 408628
   }
+ ],
+ "spaghetti-node-based-textures-for-aseprite": [
+  {
+   "key": "spaghetti-node-based-textures-for-aseprite/Spaghetti-0.95.0.aseprite-extension",
+   "name": "Spaghetti-0.95.0.aseprite-extension",
+   "size": 3072027
+  }
  ]
 }

@@ -5,9 +5,9 @@ import { bySlug } from './products.js';
 
 export const bundles = [
   { slug: 'aseprite-complete', name: 'Aseprite Complete', price: 21.99,
-    items: ['fastfx-full-particle-system-for-aseprite', 'vesprite-vector-drawing-for-pixel-art-inside-aseprite', 'ghostframe-aseprite-extension'],
-    sub: { en: 'FastFX + VeSprite + GhostFrames', es: 'FastFX + VeSprite + GhostFrames' },
-    short: { en: 'Every IceMan extension for Aseprite in one purchase: particles, vector drawing and automatic inbetweens.', es: 'Todas las extensiones IceMan para Aseprite en una compra: partículas, dibujo vectorial e intercalados automáticos.' } },
+    items: ['fastfx-full-particle-system-for-aseprite', 'vesprite-vector-drawing-for-pixel-art-inside-aseprite', 'ghostframe-aseprite-extension', 'spaghetti-node-based-textures-for-aseprite'],
+    sub: { en: 'FastFX + VeSprite + GhostFrames + Spaghetti', es: 'FastFX + VeSprite + GhostFrames + Spaghetti' },
+    short: { en: 'Every IceMan extension for Aseprite in one purchase: particles, vector drawing, automatic inbetweens and node-based textures.', es: 'Todas las extensiones IceMan para Aseprite en una compra: partículas, dibujo vectorial, intercalados automáticos y texturas por nodos.' } },
   { slug: 'pixel-vfx-complete', name: 'Pixel VFX Complete', price: 17.99,
     items: ['500-rpg-vfx', 'epic-explosions-pixel-vfx', 'blood-impacts-vfx-pixel', 'pixel-projectile-effects-and-hits', '50-vfx-fire-mage-spells', 'ice-and-frost-mage'],
     sub: { en: '500 effects + Explosions + Blood + Projectiles + Fire + Ice', es: '500 efectos + Explosiones + Sangre + Proyectiles + Fuego + Hielo' },
