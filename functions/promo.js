@@ -21,8 +21,9 @@ const src = (url) => (url.searchParams.get('src') || 'direct').toLowerCase().rep
 function log(env, ctx, kind, source, variant, request) {
   if (!env.DB) return;
   const country = (request.cf && request.cf.country) || '';
-  ctx.waitUntil(env.DB.prepare('INSERT INTO promo_events (ts, kind, src, variant, country) VALUES (?, ?, ?, ?, ?)')
-    .bind(Math.floor(Date.now() / 1000), kind, source, variant, country).run().catch(() => {}));
+  const referer = (request.headers.get('Referer') || '').slice(0, 300);
+  ctx.waitUntil(env.DB.prepare('INSERT INTO promo_events (ts, kind, src, variant, country, referer) VALUES (?, ?, ?, ?, ?, ?)')
+    .bind(Math.floor(Date.now() / 1000), kind, source, variant, country, referer).run().catch(() => {}));
 }
 
 export async function promoImage({ request, env, ctx }) {

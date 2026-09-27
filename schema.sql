@@ -32,5 +32,5 @@ CREATE TABLE IF NOT EXISTS login_tokens (
 );
 
 -- promo banner views and clicks (functions/promo.js)
-CREATE TABLE IF NOT EXISTS promo_events (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, kind TEXT NOT NULL, src TEXT, variant TEXT, country TEXT);
+CREATE TABLE IF NOT EXISTS promo_events (id INTEGER PRIMARY KEY AUTOINCREMENT, ts INTEGER NOT NULL, kind TEXT NOT NULL, src TEXT, variant TEXT, country TEXT, referer TEXT);
 CREATE INDEX IF NOT EXISTS promo_events_ts ON promo_events(ts);
