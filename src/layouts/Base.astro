@@ -13,7 +13,7 @@ const b = t.base;
 const otherBase = t.other === 'es' ? '/es' : '';
 import pkg from '../../package.json';
 const version = pkg.version;
-const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools, services and funding for indie game studios';
+const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools and assets for indie game developers';
 ---
 <!doctype html>
 <html lang={t.lang}>
@@ -55,7 +55,6 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools,
         <nav id="site-nav">
           <a href={`${b}/assets`}>{t.nav.assets}</a>
           <a href={`${b}/pixel-art`}>{t.nav.pixel}</a>
-          <a href={`${b}/services`}>{t.nav.services}</a>
           <a href={`${b}/tools`}>{t.nav.tools}</a>
           <a href={`${b}/about`}>{t.nav.about}</a>
           <a href={`${b}/contact`}>{t.nav.contact}</a>

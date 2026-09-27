@@ -19,9 +19,6 @@ export function GET() {
     ]),
     ...(config.showBundles ? ['### Bundles', ...bundles.map((b) => { const bi = bundleInfo(b); return `- [${b.name}](${U}/assets/bundle/${b.slug}/): ${b.short.en} €${b.price.toFixed(2)} instead of €${bi.sum.toFixed(2)}.`; })] : []),
     '',
-    '## Services',
-    `- [Game localization with LQA](${U}/services/): from €0.05 per word and language, minimum €300. Core pack: Simplified Chinese, Russian, Brazilian Portuguese, Spanish.`,
-    `- [Engine migration](${U}/services/): fixed price per project from €2,000. Unity to Godot, Unity to Unreal, UE4 to UE5.`,
     `- [Free Steam tools](${U}/tools/): wishlist and revenue calculators.`,
     '',
     '## Licence',
@@ -32,7 +29,7 @@ export function GET() {
     '',
     '## Machine-readable',
     `- Product feed (JSON): ${U}/catalog.json`,
-    `- Full catalogue and services in Markdown: ${U}/llms-full.txt`,
+    `- Full catalogue in Markdown: ${U}/llms-full.txt`,
     `- Sitemap: ${U}/sitemap-index.xml`,
     ''
   ];

@@ -2,19 +2,18 @@ export const t = {
   en: {
     lang: 'en', other: 'es', otherLabel: 'ES', base: '',
     store: { title: 'Store', lead: 'Every asset we publish, in one place. Pay by card here or buy on itch.io; both give you the same files and updates.', all: 'All', buy: 'Buy now', free: 'Free', download: 'Download free', itch: 'Buy on itch.io', getItch: 'Get it on itch.io', soonCheckout: 'Direct card checkout is being set up. Until then, itch.io delivers the same files.', off: 'off', ends: 'Offer ends', code: 'Code', gallery: 'Gallery', about: 'About this product', back: 'Back to store', related: 'More in', vat: 'Prices in EUR. VAT is added at checkout where it applies.', secure: 'Card payments by Stripe. Use an email you can access: your download page, the order email and your library are tied to it.', frostSoon: 'Engine systems (Frost family) are in production; the first release, FrostFeel, lands in October 2026.', bundles: 'Bundles', bundlesLead: 'Several products, one price. Bundles are sold here only.', buyBundle: 'Buy the bundle', youSave: 'You save', included: 'Included in this bundle', paid: 'Payment received. Your download links are on their way to the email you used at checkout (check spam if they take more than a minute).' },
-    nav: { account: 'My account', privacy: 'Privacy', terms: 'Terms', assets: 'Store', pixel: 'Pixel art', services: 'Services', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
+    nav: { account: 'My account', privacy: 'Privacy', terms: 'Terms', assets: 'Store', pixel: 'Pixel art', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
     pixel: { title: 'Aseprite extensions and pixel art packs', lead: 'Tools for Aseprite and animated VFX packs, sold and downloaded on itch.io. Free versions available to try before you buy.', cta: 'Open the itch.io store', free: 'Free', buy: 'View on itch.io →', view: 'View product →' },
     hero: {
-      title: 'Tools and services for indie game studios.',
-      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX, and localizes and migrates games for indie studios.',
-      cta1: 'Browse assets', cta2: 'Get a quote'
+      title: 'Tools and assets for indie game developers.',
+      sub: 'IceMan Studio builds gameplay systems for Unreal, Unity and Godot, Aseprite extensions and pixel art VFX for indie developers.',
+      cta1: 'Browse assets', cta2: 'Get in touch'
     },
     search: { placeholder: 'Search the store…  ( / )' },
     home: { soon: 'Coming soon', latest: 'Latest releases', all: 'See the whole store' },
     pillars: [
       { title: 'Store', text: 'Aseprite extensions, pixel art VFX, tilesets and low-poly packs. Buy by card here or on itch.io. Frost engine systems coming next.', href: '/assets' },
       { title: 'Pixel art', text: 'Aseprite extensions (FastFX, VeSprite, GhostFrames) and animated pixel art VFX packs, on itch.io.', href: '/pixel-art' },
-      { title: 'Services', text: 'Game localization with LQA, engine migrations at a fixed price, and Steam marketing tools.', href: '/services' },
     ],
     assets: {
       title: 'Assets', lead: 'Every product ships for Unreal Engine and Unity, with documentation, sample scenes and support within 24 hours. Buy on Fab, the Unity Asset Store, or directly here.',
@@ -51,25 +50,24 @@ export const t = {
     tools: { title: 'Free tools', lead: 'Small, honest calculators for Steam launches. Assumptions visible and editable.',
       wl: { title: 'Wishlists to first-week sales', wishlists: 'Wishlists at launch', conv: 'Launch-week conversion (%)', price: 'Price ($)', estimate: 'Estimate', res: 'Estimated first-week gross', note: 'Benchmarks: 10–25 % of wishlists convert in launch week; Steam keeps 30 %.' } },
     about: { faq: 'Frequently asked questions', machine: 'Machine-readable:', title: 'About', text: 'IceMan Studio is the workshop of a game developer from Spain. Four years building in Unreal Engine, mostly in Blueprints, and a catalogue of tools born from daily pixel art work: FastFX, VeSprite and GhostFrames for Aseprite, plus hundreds of animated VFX, tilesets and low-poly packs published on itch.io. Everything sold here is used in our own projects first, including Querencia, our own game, now in early beta. One rule for every product and service: you can test, read or play what you get before paying the balance.' },
-    contact: { title: 'Contact', lead: 'Write to hello@icemanstudio.com or use the form. We answer within one business day.', name: 'Name', email: 'Email', topic: 'Topic', message: 'Message', send: 'Send', sent: 'Thanks. We will reply within one business day.', fail: 'The form could not be sent. Please email hello@icemanstudio.com.', topics: ['Assets', 'Localization', 'Engine migration', 'Funding', 'Other'] },
+    contact: { title: 'Contact', lead: 'Write to hello@icemanstudio.com or use the form. We answer within one business day.', name: 'Name', email: 'Email', topic: 'Topic', message: 'Message', send: 'Send', sent: 'Thanks. We will reply within one business day.', fail: 'The form could not be sent. Please email hello@icemanstudio.com.', topics: ['Assets', 'Funding', 'Other'] },
     footer: '© 2026 IceMan Studio · Spain · hello@icemanstudio.com'
   },
   es: {
     lang: 'es', other: 'en', otherLabel: 'EN', base: '/es',
     store: { title: 'Tienda', lead: 'Todos los assets que publicamos, en un solo sitio. Paga con tarjeta aquí o compra en itch.io; ambos dan los mismos archivos y actualizaciones.', all: 'Todo', buy: 'Comprar', free: 'Gratis', download: 'Descargar gratis', itch: 'Comprar en itch.io', getItch: 'Conseguir en itch.io', soonCheckout: 'El pago directo con tarjeta se está configurando. Mientras tanto, itch.io entrega los mismos archivos.', off: 'de descuento', ends: 'La oferta termina el', code: 'Código', gallery: 'Galería', about: 'Sobre este producto', back: 'Volver a la tienda', related: 'Más en', vat: 'Precios en EUR. El IVA se añade al pagar donde corresponda.', secure: 'Pago con tarjeta por Stripe. Usa un correo al que tengas acceso: la página de descarga, el correo del pedido y tu biblioteca van ligados a él.', frostSoon: 'Los sistemas para motores (familia Frost) están en producción; el primero, FrostFeel, sale en octubre de 2026.', bundles: 'Bundles', bundlesLead: 'Varios productos, un solo precio. Los bundles solo se venden aquí.', buyBundle: 'Comprar el bundle', youSave: 'Ahorras', included: 'Incluido en este bundle', paid: 'Pago recibido. Los enlaces de descarga van de camino al correo que usaste al pagar (mira en spam si tardan más de un minuto).' },
-    nav: { account: 'Mi cuenta', privacy: 'Privacidad', terms: 'Términos', assets: 'Tienda', pixel: 'Pixel art', services: 'Servicios', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
+    nav: { account: 'Mi cuenta', privacy: 'Privacidad', terms: 'Términos', assets: 'Tienda', pixel: 'Pixel art', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
     pixel: { title: 'Extensiones para Aseprite y packs de pixel art', lead: 'Herramientas para Aseprite y packs de VFX animados, a la venta y descarga en itch.io. Hay versiones gratuitas para probar antes de comprar.', cta: 'Abrir la tienda en itch.io', free: 'Gratis', buy: 'Ver en itch.io →', view: 'Ver producto →' },
     hero: {
-      title: 'Herramientas y servicios para estudios indie.',
-      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art, y localiza y migra juegos para estudios indie.',
-      cta1: 'Ver assets', cta2: 'Pedir presupuesto'
+      title: 'Herramientas y assets para desarrolladores indie.',
+      sub: 'IceMan Studio construye sistemas de gameplay para Unreal, Unity y Godot, extensiones para Aseprite y VFX en pixel art para desarrolladores indie.',
+      cta1: 'Ver assets', cta2: 'Contactar'
     },
     search: { placeholder: 'Buscar en la tienda…  ( / )' },
     home: { soon: 'Próximamente', latest: 'Últimos lanzamientos', all: 'Ver toda la tienda' },
     pillars: [
       { title: 'Tienda', text: 'Extensiones para Aseprite, VFX en pixel art, tilesets y packs low poly. Compra con tarjeta aquí o en itch.io. Sistemas Frost para motores, próximamente.', href: '/es/assets' },
       { title: 'Pixel art', text: 'Extensiones para Aseprite (FastFX, VeSprite, GhostFrames) y packs de VFX animados en pixel art, en itch.io.', href: '/es/pixel-art' },
-      { title: 'Servicios', text: 'Localización de juegos con LQA, migraciones de motor a precio cerrado y herramientas de marketing para Steam.', href: '/es/services' },
     ],
     assets: {
       title: 'Assets', lead: 'Cada producto sale para Unreal Engine y Unity, con documentación, escenas de ejemplo y soporte en menos de 24 horas. Compra en Fab, en la Unity Asset Store o directamente aquí.',
@@ -106,7 +104,7 @@ export const t = {
     tools: { title: 'Herramientas gratuitas', lead: 'Calculadoras pequeñas y honestas para lanzamientos en Steam. Supuestos visibles y editables.',
       wl: { title: 'De wishlists a ventas de la primera semana', wishlists: 'Wishlists al lanzar', conv: 'Conversión en semana de lanzamiento (%)', price: 'Precio ($)', estimate: 'Calcular', res: 'Ingreso bruto estimado en la primera semana', note: 'Referencias: convierte el 10–25 % de las wishlists en la semana de lanzamiento; Steam se queda el 30 %.' } },
     about: { faq: 'Preguntas frecuentes', machine: 'Legible por máquinas:', title: 'Sobre', text: 'IceMan Studio es el taller de un desarrollador de juegos de España. Cuatro años construyendo en Unreal Engine, sobre todo en Blueprints, y un catálogo de herramientas nacidas del trabajo diario en pixel art: FastFX, VeSprite y GhostFrames para Aseprite, más cientos de VFX animados, tilesets y packs low poly publicados en itch.io. Todo lo que se vende aquí se usa antes en nuestros propios proyectos, incluido Querencia, el juego del estudio, ahora en beta temprana. Una regla para cada producto y servicio: puedes probar, leer o jugar lo que recibes antes de pagar el resto.' },
-    contact: { title: 'Contacto', lead: 'Escribe a hola@icemanstudio.com o usa el formulario. Respondemos en un día laborable.', name: 'Nombre', email: 'Correo', topic: 'Tema', message: 'Mensaje', send: 'Enviar', sent: 'Gracias. Respondemos en un día laborable.', fail: 'No se pudo enviar el formulario. Escríbenos a hola@icemanstudio.com.', topics: ['Assets', 'Localización', 'Migración de motor', 'Financiación', 'Otro'] },
+    contact: { title: 'Contacto', lead: 'Escribe a hola@icemanstudio.com o usa el formulario. Respondemos en un día laborable.', name: 'Nombre', email: 'Correo', topic: 'Tema', message: 'Mensaje', send: 'Enviar', sent: 'Gracias. Respondemos en un día laborable.', fail: 'No se pudo enviar el formulario. Escríbenos a hola@icemanstudio.com.', topics: ['Assets', 'Financiación', 'Otro'] },
     footer: '© 2026 IceMan Studio · España · hola@icemanstudio.com'
   }
 };

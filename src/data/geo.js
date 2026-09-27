@@ -26,7 +26,6 @@ export const faq = {
     { q: 'What do I need to run the Aseprite extensions?', a: 'A licensed copy of Aseprite. Each extension is installed from the .aseprite-extension file downloaded after purchase; the product page lists the exact requirements.' },
     { q: 'Are there free versions to try?', a: 'Yes: FastFX Lite, Easy Interpolations, Pixel VFX Essentials (150 effects), 150 One-Bit VFX, 160 Pixel Art Effects, the Extended Dungeon Tileset, three low-poly swords and three low-poly cars are free.' },
     { q: 'Do you offer discounts?', a: 'Every new product is 25% off during its first week. There are seasonal sales (spring, summer, autumn, Halloween, Black Friday, winter) and bundles at a fixed price. Active offers are shown on the store page.' },
-    { q: 'What services does IceMan Studio offer to studios?', a: 'Game localization with LQA from €0.05 per word and language (minimum €300), engine migrations at a fixed price from €2,000 (Unity to Godot, Unity to Unreal, UE4 to UE5), and free Steam launch calculators.' },
     { q: 'How do I contact IceMan Studio?', a: 'Email hello@icemanstudio.com or use the contact form. Replies within one business day.' }
   ],
   es: [
@@ -37,7 +36,6 @@ export const faq = {
     { q: '¿Qué necesito para usar las extensiones de Aseprite?', a: 'Una copia con licencia de Aseprite. Cada extensión se instala desde el archivo .aseprite-extension que se descarga tras la compra; la ficha del producto indica los requisitos exactos.' },
     { q: '¿Hay versiones gratuitas para probar?', a: 'Sí: FastFX Lite, Easy Interpolations, Pixel VFX Essentials (150 efectos), 150 One-Bit VFX, 160 Pixel Art Effects, el Extended Dungeon Tileset, tres espadas low poly y tres coches low poly son gratuitos.' },
     { q: '¿Hay descuentos?', a: 'Cada producto nuevo tiene un 25 % de descuento durante su primera semana. Hay rebajas de temporada (primavera, verano, otoño, Halloween, Black Friday, invierno) y bundles a precio cerrado. Las ofertas activas se muestran en la tienda.' },
-    { q: '¿Qué servicios ofrece IceMan Studio a estudios?', a: 'Localización de juegos con LQA desde 0,05 € por palabra e idioma (mínimo 300 €), migraciones de motor a precio cerrado desde 2.000 € (Unity a Godot, Unity a Unreal, UE4 a UE5), y calculadoras gratuitas para lanzamientos en Steam.' },
     { q: '¿Cómo contacto con IceMan Studio?', a: 'Por correo a hola@icemanstudio.com o con el formulario de contacto. Respuesta en un día laborable.' }
   ]
 };
