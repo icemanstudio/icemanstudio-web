@@ -30,7 +30,7 @@ export async function promoImage({ request, env, ctx }) {
   const { v } = pick();
   log(env, ctx, 'view', src(url), v, request);
   const r = await env.ASSETS.fetch(new URL(`/promo/${v}.gif`, url));
-  return new Response(r.body, { headers: { 'Content-Type': 'image/gif', 'Cache-Control': 'public, max-age=900', 'Access-Control-Allow-Origin': '*' } });
+  return new Response(r.body, { headers: { 'Content-Type': 'image/gif', 'Cache-Control': 'no-store', 'Access-Control-Allow-Origin': '*' } });
 }
 
 export async function promoClick({ request, env, ctx }) {
