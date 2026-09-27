@@ -1,7 +1,7 @@
 """Import product pages from icemaan.itch.io into src/data/itch-import.json and public/itch/<slug>/.
 Downloads: gallery + description images, the itch theme banner (header background) and the cover (og:image).
 Run: python scripts/import-itch.py   (re-run any time a listing changes; new slugs get firstSeen = today)"""
-import re, json, os, time, html, datetime, urllib.request
+import re, json, os, time, html, datetime, hashlib, urllib.request
 
 BASE = "https://icemaan.itch.io/"
 SLUGS = json.load(open("scripts/itch-slugs.json"))
@@ -83,3 +83,11 @@ for slug in SLUGS:
     time.sleep(1)
 json.dump(out, open("src/data/itch-import.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("saved", len(out), "products")
+# Spanish descriptions live in src/data/itch-es.json ({slug: {src: hash of the English text, html}}); flag the ones to redo
+# (hash the visible text only: itch shuffles attribute order between requests)
+src_hash = lambda h: hashlib.sha1(re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', h)).strip().encode('utf-8')).hexdigest()
+es = json.load(open("src/data/itch-es.json", encoding="utf-8")) if os.path.exists("src/data/itch-es.json") else {}
+for slug, p in out.items():
+    h = src_hash(p["description_html"])
+    if slug not in es: print("  ES missing:", slug)
+    elif es[slug].get("src") != h: print("  ES outdated (English copy changed):", slug)

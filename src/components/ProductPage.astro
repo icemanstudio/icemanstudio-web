@@ -59,7 +59,7 @@ const images = p.images.length ? p.images : (p.cover ? [p.cover] : []);
 </section>
 <section class="prose-sec">
   <h2>{s.about}</h2>
-  <div class="prose" set:html={p.html} />
+  <div class="prose" set:html={(L === 'es' && p.htmlEs) || p.html} />
 </section>
 {related.length > 0 && (
   <section>

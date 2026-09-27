@@ -4,6 +4,7 @@
 // `trial` (optional): slug of the free version, linked from the buy box.
 // Stripe: fill `stripePrice` with the Price ID (price_...) once products exist in Stripe. Empty = direct checkout not available yet.
 import imported from './itch-import.json';
+import importedEs from './itch-es.json';
 
 const cats = {
   aseprite: { en: 'Aseprite extensions', es: 'Extensiones para Aseprite' },
@@ -89,7 +90,7 @@ export const categories = cats;
 
 export const products = raw.map((p) => {
   const i = imported[p.slug] || {};
-  return { ...p, released: p.released || i.firstSeen || '', itch: i.url || `https://icemaan.itch.io/${p.slug}`, images: i.images || [], cover: i.cover || (i.images || [])[0] || '', banner: i.banner || '', html: i.description_html || '' };
+  return { ...p, released: p.released || i.firstSeen || '', itch: i.url || `https://icemaan.itch.io/${p.slug}`, images: i.images || [], cover: i.cover || (i.images || [])[0] || '', banner: i.banner || '', html: i.description_html || '', htmlEs: (importedEs[p.slug] || {}).html || '' };
 });
 
 export const bySlug = Object.fromEntries(products.map((p) => [p.slug, p]));
