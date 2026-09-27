@@ -29,7 +29,7 @@ def clean(h):
     h = re.sub(r'<iframe.*?</iframe>', '', h, flags=re.S)
     h = re.sub(r'(<p><br></p>\s*){2,}', '<p><br></p>', h)
     h = re.sub(r'<h3>\s*</h3>', '', h)
-    h = re.sub(r'<h[2-5]>\s*More Packs\s*</h[2-5]>\s*$', '', h)  # heading that only introduced the embeds
+    h = re.sub(r'<h[2-5]>\s*More [^<]*</h[2-5]>\s*$', '', h)  # heading that only introduced the embeds
     return h.strip()
 
 

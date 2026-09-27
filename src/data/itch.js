@@ -29,6 +29,8 @@ export const itch = {
         { name: 'FastFX', sub: 'Full particle system for Aseprite', price: '€11.99', url: U + 'fastfx-full-particle-system-for-aseprite', img: '/itch/fastfx-full-particle-system-for-aseprite.gif',
           en: 'Build looping particle animations with a live preview and bake them straight into your sprite frames. Presets for fire, smoke, sparks, rain and magic.',
           es: 'Crea animaciones de partículas en bucle con vista previa en vivo y hornéalas directamente en los frames del sprite. Presets de fuego, humo, chispas, lluvia y magia.' },
+        { name: 'Spaghetti', sub: 'Node-based textures', price: '€5.99', url: U + 'spaghetti-node-based-textures-for-aseprite', img: '/itch/spaghetti-node-based-textures-for-aseprite.gif',
+          en: 'Node graph textures for pixel art, over 200 nodes.', es: 'Texturas por nodos para pixel art, más de 200 nodos.' },
         { name: 'VeSprite', sub: 'Vector drawing for pixel art', price: '€5.99', url: U + 'vesprite-vector-drawing-for-pixel-art-inside-aseprite', img: '/itch/vesprite-vector-drawing-for-pixel-art-inside-aseprite.gif',
           en: 'Draw with bezier tools and get pixels back. Layers, blend modes, and gradients that dither to Bayer or blue noise.',
           es: 'Dibuja con curvas bézier y obtén píxeles. Capas, modos de fusión y degradados con dithering Bayer o blue noise.' },
