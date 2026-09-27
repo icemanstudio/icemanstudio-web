@@ -7,9 +7,18 @@ since = int((datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(d
 
 
 def q(sql):
-    r = subprocess.run(f'npx wrangler d1 execute icemanstudio-db --remote --json --command "{sql}"',
-                       shell=True, capture_output=True, text=True, encoding="utf-8")
-    return json.loads(r.stdout)[0]["results"]
+    # no stdin (so wrangler can never sit waiting on a prompt), bytes decoded leniently (Windows console codepage), hard timeout
+    env = {**os.environ, "CI": "1", "WRANGLER_SEND_METRICS": "false", "NO_COLOR": "1"}
+    try:
+        r = subprocess.run(f'npx --yes wrangler d1 execute icemanstudio-db --remote --json --command "{sql}"', shell=True,
+                           capture_output=True, stdin=subprocess.DEVNULL, env=env, timeout=90)
+    except subprocess.TimeoutExpired:
+        sys.exit("wrangler did not answer in 90 s. Check your connection (WARP on?) and run `npx wrangler whoami`.")
+    out = r.stdout.decode("utf-8", "replace")
+    try:
+        return json.loads(out[out.index("["):])[0]["results"]
+    except (ValueError, KeyError, IndexError):
+        sys.exit("wrangler failed: " + (out + r.stderr.decode("utf-8", "replace"))[-1500:])
 
 
 W = f"WHERE ts >= {since}"
