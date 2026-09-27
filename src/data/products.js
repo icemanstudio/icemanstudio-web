@@ -1,6 +1,7 @@
 // Product catalogue. Prices here are the source of truth for the store (EUR).
 // Long descriptions and gallery come from src/data/itch-import.json (run scripts/import-itch.py to refresh).
 // `released` (YYYY-MM-DD) drives the automatic launch-week discount; the importer stamps it for new products (firstSeen).
+// `trial` (optional): slug of the free version, linked from the buy box.
 // Stripe: fill `stripePrice` with the Price ID (price_...) once products exist in Stripe. Empty = direct checkout not available yet.
 import imported from './itch-import.json';
 
@@ -13,7 +14,7 @@ const cats = {
 };
 
 const raw = [
-  { slug: 'fastfx-full-particle-system-for-aseprite', name: 'FastFX', cat: 'aseprite', price: 11.99, stripePrice: '',
+  { slug: 'fastfx-full-particle-system-for-aseprite', name: 'FastFX', cat: 'aseprite', price: 11.99, stripePrice: '', trial: 'lite-fastfx-full-particle-system-for-aseprite',
     sub: { en: 'Full particle system for Aseprite', es: 'Sistema de partículas completo para Aseprite' },
     short: { en: 'Build looping particle animations with a live preview and bake them straight into your sprite frames.', es: 'Crea animaciones de partículas en bucle con vista previa en vivo y hornéalas directamente en los frames del sprite.' } },
   { slug: 'vesprite-vector-drawing-for-pixel-art-inside-aseprite', name: 'VeSprite', cat: 'aseprite', price: 5.99, stripePrice: '',
@@ -31,7 +32,7 @@ const raw = [
   { slug: 'free-easy-interpolations-for-aseprite', name: 'Easy Interpolations', cat: 'aseprite', price: 0, stripePrice: '',
     sub: { en: 'Free tweening for Aseprite', es: 'Interpolaciones gratuitas para Aseprite' },
     short: { en: 'Generates inbetween frames: tween position, opacity, crossfade, rotation and scale.', es: 'Genera frames intermedios: posición, opacidad, fundido, rotación y escala.' } },
-  { slug: '500-rpg-vfx', name: '500 Pixel Art Effects', cat: 'vfx', price: 11.99, stripePrice: '',
+  { slug: '500-rpg-vfx', name: '500 Pixel Art Effects', cat: 'vfx', price: 11.99, stripePrice: '', trial: 'free-500-pixel-art-effects',
     sub: { en: 'RPG VFX mega pack', es: 'Mega pack de VFX para RPG' },
     short: { en: '500 animated effects for RPGs: fire, magic, hits, status, UI. PNG frames, GIFs and spritesheets.', es: '500 efectos animados para RPG: fuego, magia, impactos, estados, UI. Frames PNG, GIFs y spritesheets.' } },
   { slug: 'epic-explosions-pixel-vfx', name: 'Epic Explosions', cat: 'vfx', price: 3.99, stripePrice: '',

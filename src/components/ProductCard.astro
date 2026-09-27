@@ -1,20 +1,28 @@
 ---
+// Store card. Keeps `card product` + data-slug + .price-tags + .badge: public/offers.js and public/search.js rely on them.
 import { priceInfo, fmt } from '../data/offers.js';
+import { categories } from '../data/products.js';
 const { p, t } = Astro.props;
 const L = t.lang;
 const pi = priceInfo(p);
 const href = `${t.base}/assets/${p.slug}/`;
 ---
-<a class="card product" href={href} data-slug={p.slug} style="display:block;padding:0;overflow:hidden">
-  {p.cover && <img src={p.cover} alt={p.name} loading="lazy" style="width:100%;aspect-ratio:315/250;object-fit:cover;display:block;background:#131313" />}
-  <div style="padding:18px 22px 22px">
-    <div class="price-tags" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      {pi.free ? <span class="tag">{t.store.free}</span> : pi.offer
-        ? <><span class="tag sale">-{pi.offer.percent}%</span><span class="tag"><s style="opacity:.6">{fmt(pi.base, L)}</s> {fmt(pi.final, L)}</span></>
-        : <span class="tag">{fmt(pi.base, L)}</span>}
+<a class="card product pcard" href={href} data-slug={p.slug} data-cat={p.cat} data-free={pi.free ? '1' : '0'}>
+  <div class="media">
+    {p.cover && <img src={p.cover} alt={p.name} loading="lazy" />}
+    {pi.free ? <span class="badge free">{t.store.free}</span> : <span class="badge sale" hidden={!pi.offer}>{pi.offer ? `-${pi.offer.percent}%` : ''}</span>}
+  </div>
+  <div class="body">
+    <span class="eyebrow">{categories[p.cat][L]}</span>
+    <h3>{p.name}</h3>
+    <p class="short">{p.short[L]}</p>
+    <div class="foot">
+      <div class="price-tags">
+        {pi.free ? <b class="now">{t.store.free}</b> : pi.offer
+          ? <><b class="now">{fmt(pi.final, L)}</b><s>{fmt(pi.base, L)}</s></>
+          : <b class="now">{fmt(pi.base, L)}</b>}
+      </div>
+      <span class="go">{t.store.view} <span aria-hidden="true">→</span></span>
     </div>
-    <h3 style="margin-top:10px">{p.name}</h3>
-    <p class="small" style="color:#FFB199">{p.sub[L]}</p>
-    <p>{p.short[L]}</p>
   </div>
 </a>

@@ -9,33 +9,61 @@ const { t } = Astro.props;
 const L = t.lang;
 const s = t.store;
 const offers = activeOffers();
+// Category order on the page. A new category in products.js must be added here to show up.
 const order = ['aseprite', 'vfx', 'tileset', 'lowpoly'];
+const chips = [
+  { id: 'all', label: s.allProducts, n: products.length + (config.showBundles ? bundles.length : 0) },
+  ...(config.showBundles ? [{ id: 'bundles', label: s.bundles, n: bundles.length }] : []),
+  ...order.map((c) => ({ id: c, label: categories[c][L], n: products.filter((p) => p.cat === c).length })),
+  { id: 'free', label: s.freeOnly, n: products.filter((p) => p.price === 0).length }
+];
 ---
-<section>
-  <h2>{s.title}</h2>
+<section class="store-head">
+  <h1>{s.title}</h1>
   <p class="lead">{s.lead}</p>
-  <div class="card offer-banner" id="offer-banner" style="margin-bottom:22px" hidden={offers.length === 0}>
-    {offers.map((o) => <p style="margin:0"><strong>{o.name[L]}:</strong> -{o.percent}% · {s.ends} {offerUntil(o)}{o.code ? ` · ${s.code} ${o.code}` : ''}</p>)}
+  <div class="offer-banner" id="offer-banner" hidden={offers.length === 0}>
+    {offers.map((o) => <p><strong>{o.name[L]}: -{o.percent}%</strong> · {s.ends} {offerUntil(o)}{o.code ? ` · ${s.code} ${o.code}` : ''}</p>)}
   </div>
-  <div class="card" style="margin-bottom:22px"><p style="margin:0">{s.frostSoon}</p></div>
-  <nav class="cats" aria-label="Categories">
-    {config.showBundles && <a href="#bundles">{s.bundles}</a>}
-    {order.map((c) => <a href={`#${c}`}>{categories[c][L]}</a>)}
-  </nav>
 </section>
+<nav class="chips" aria-label={s.filterLabel} id="store-chips">
+  {chips.map((c, i) => <a href={c.id === 'all' ? '#' : `#${c.id}`} data-filter={c.id} class={i === 0 ? 'on' : ''}>{c.label} <small>{c.n}</small></a>)}
+</nav>
 {config.showBundles && (
-  <section id="bundles">
-    <h2 style="font-size:26px">{s.bundles}</h2>
-    <p class="lead">{s.bundlesLead}</p>
-    <div class="grid">{bundles.map((b) => <BundleCard b={b} t={t} />)}</div>
+  <section id="bundles" class="cat-sec" data-sec="bundles">
+    <div class="sec-head"><div><h2>{s.bundles}</h2><p class="lead">{s.bundlesLead}</p></div></div>
+    <div class="bgrid">{bundles.map((b) => <BundleCard b={b} t={t} wide />)}</div>
   </section>
 )}
 {order.map((c) => (
-  <section id={c}>
-    <h2 style="font-size:26px">{categories[c][L]}</h2>
-    <div class="grid">
+  <section id={c} class="cat-sec" data-sec={c}>
+    <div class="sec-head"><h2>{categories[c][L]}</h2></div>
+    <div class="pgrid">
       {products.filter((p) => p.cat === c).map((p) => <ProductCard p={p} t={t} />)}
     </div>
   </section>
 ))}
+<p class="small muted">{s.frostSoon}</p>
 <p class="small muted">{s.vat}</p>
+<script is:inline>
+  // Category chips: filter sections/cards in place. Works from the hash too (#vfx, #free, #bundles) so the home tiles can deep-link.
+  (() => {
+    const nav = document.getElementById('store-chips'); if (!nav) return;
+    const secs = [...document.querySelectorAll('.cat-sec')];
+    const apply = (f) => {
+      nav.querySelectorAll('a').forEach((a) => a.classList.toggle('on', a.dataset.filter === f));
+      secs.forEach((s) => {
+        const cards = [...s.querySelectorAll('.pcard')];
+        if (f === 'free') { cards.forEach((c) => (c.hidden = c.dataset.free !== '1')); s.hidden = !cards.some((c) => !c.hidden); }
+        else { cards.forEach((c) => (c.hidden = false)); s.hidden = !(f === 'all' || s.dataset.sec === f); }
+      });
+    };
+    const fromHash = () => { const h = location.hash.slice(1); return nav.querySelector(`[data-filter="${h}"]`) ? h : 'all'; };
+    nav.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-filter]'); if (!a) return; e.preventDefault();
+      const f = a.dataset.filter; history.replaceState(null, '', f === 'all' ? location.pathname + location.search : '#' + f); apply(f);
+      const top = nav.getBoundingClientRect().top + scrollY - 70; if (scrollY > top) scrollTo({ top, behavior: 'smooth' });
+    });
+    if (!new URLSearchParams(location.search).get('q')) { apply(fromHash()); if (location.hash) scrollTo(0, 0); }
+    addEventListener('hashchange', () => apply(fromHash()));
+  })();
+</script>

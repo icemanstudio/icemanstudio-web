@@ -1,47 +1,116 @@
 ---
 import ProductCard from './ProductCard.astro';
-import { bySlug } from '../data/products.js';
+import BundleCard from './BundleCard.astro';
+import { bySlug, products, categories } from '../data/products.js';
+import { bundles } from '../data/bundles.js';
+import { config } from '../data/config.js';
 import { home } from '../data/home.js';
 import { itch } from '../data/itch.js';
+import { priceInfo, fmt } from '../data/offers.js';
 const { t } = Astro.props;
 const L = t.lang;
+const h = t.home;
+const b = t.base;
+const feat = bySlug[home.featured];
+const fpi = feat ? priceInfo(feat) : null;
 const latest = home.latest.map((s) => bySlug[s]).filter(Boolean);
+const free = home.free.map((s) => bySlug[s]).filter(Boolean);
+const count = (fn) => products.filter(fn).length;
+const coverOf = (slug) => bySlug[slug]?.cover || '';
+const tiles = [
+  { href: `${b}/assets/#aseprite`, name: categories.aseprite[L], n: count((p) => p.cat === 'aseprite'), img: coverOf('fastfx-full-particle-system-for-aseprite') },
+  { href: `${b}/assets/#vfx`, name: categories.vfx[L], n: count((p) => p.cat === 'vfx'), img: coverOf('epic-explosions-pixel-vfx') },
+  { href: `${b}/assets/#lowpoly`, name: categories.lowpoly[L], n: count((p) => p.cat === 'lowpoly'), img: coverOf('11-modular-swords') },
+  { href: `${b}/assets/#free`, name: h.catFree, n: count((p) => p.price === 0), img: coverOf('extended-dungeon-tileset'), sub: h.catFreeSub }
+];
+const soon = itch.soon.items[0];
 ---
-<section class="hero">
-  <h1>{t.hero.title}</h1>
-  <p>{t.hero.sub}</p>
-  <a class="btn" href={`${t.base}/assets`}>{t.hero.cta1}</a>
-  <a class="btn ghost" href={`${t.base}/contact`} style="margin-left:10px">{t.hero.cta2}</a>
+<section class="hero home-hero">
+  <div class="hero-copy">
+    <p class="eyebrow">{h.eyebrow}</p>
+    <h1>{h.title}</h1>
+    <p class="hero-sub">{h.sub}</p>
+    <div class="cta-row">
+      <a class="btn big" href={`${b}/assets/`}>{h.cta1}</a>
+      <a class="btn ghost big" href={`${b}/assets/#free`}>{h.cta2}</a>
+    </div>
+  </div>
+  {feat && (
+    <a class="showcase" href={`${b}/assets/${feat.slug}/`} data-slug={feat.slug}>
+      <div class="media">
+        <img src={feat.cover} alt={feat.name} />
+        <span class="badge feat">{h.featured}</span>
+        <span class="badge sale" hidden={!fpi.offer}>{fpi.offer ? `-${fpi.offer.percent}%` : ''}</span>
+      </div>
+      <div class="body">
+        <div>
+          <span class="eyebrow">{categories[feat.cat][L]}</span>
+          <h2>{feat.name}</h2>
+          <p class="muted">{feat.sub[L]}</p>
+        </div>
+        <div class="buy">
+          <div class="price-tags">
+            {fpi.free ? <b class="now">{t.store.free}</b> : fpi.offer
+              ? <><b class="now">{fmt(fpi.final, L)}</b><s>{fmt(fpi.base, L)}</s></>
+              : <b class="now">{fmt(fpi.base, L)}</b>}
+          </div>
+          <span class="btn">{h.view} <span aria-hidden="true">→</span></span>
+        </div>
+      </div>
+    </a>
+  )}
 </section>
-<div class="frost"></div>
+
+<ul class="trust" aria-label={h.why}>
+  {t.trust.map((x) => <li><b>{x.t}</b><span>{x.d}</span></li>)}
+</ul>
+
 <section>
-  <div class="grid">
-    {t.pillars.map((p) => (
-      <a class="card" href={p.href} style="display:block">
-        <h3>{p.title}</h3>
-        <p>{p.text}</p>
+  <div class="sec-head"><h2>{h.cats}</h2></div>
+  <div class="tiles">
+    {tiles.map((c) => (
+      <a class="card tile" href={c.href}>
+        <img src={c.img} alt="" loading="lazy" />
+        <span class="tile-txt"><b>{c.name}</b><small>{c.sub ? `${c.sub} · ` : ''}{c.n} {h.products}</small></span>
       </a>
     ))}
   </div>
 </section>
+
 <section>
-  <h2>{t.home.soon}</h2>
-  <p class="lead">{itch.soon.lead[L]}</p>
-  <div class="grid">
-    {itch.soon.items.map((i) => (
-      <a class="card" href={`${t.base}/pixel-art#soon`} style="display:block;border-color:#FF7A59">
-        <span class="tag">{t.home.soon}</span>{i.price !== 'Soon' && <span class="tag">{i.price}</span>}
-        <h3 style="margin-top:10px">{i.name}</h3>
-        <p class="small" style="color:#FFB199">{i.sub}</p>
-        <p>{i[L]}</p>
-      </a>
-    ))}
+  <div class="sec-head">
+    <h2>{h.latest}</h2>
+    <a class="more" href={`${b}/assets/`}>{h.all} →</a>
   </div>
+  <div class="pgrid">{latest.map((p) => <ProductCard p={p} t={t} />)}</div>
 </section>
-<section>
-  <h2>{t.home.latest}</h2>
-  <div class="grid">
-    {latest.map((p) => <ProductCard p={p} t={t} />)}
+
+{config.showBundles && bundles.length > 0 && (
+  <section>
+    <div class="sec-head">
+      <div><h2>{h.bundles}</h2><p class="lead">{h.bundlesLead}</p></div>
+    </div>
+    <div class="bgrid">{bundles.map((x) => <BundleCard b={x} t={t} wide />)}</div>
+  </section>
+)}
+
+<section id="free">
+  <div class="sec-head">
+    <div><h2>{h.freeTitle}</h2><p class="lead">{h.freeLead}</p></div>
+    <a class="more" href={`${b}/assets/#free`}>{h.all} →</a>
   </div>
-  <p style="margin-top:18px"><a class="btn ghost" href={`${t.base}/assets`}>{t.home.all}</a></p>
+  <div class="pgrid">{free.map((p) => <ProductCard p={p} t={t} />)}</div>
 </section>
+
+{soon && (
+  <section>
+    <div class="card soon">
+      <div>
+        <span class="eyebrow">{h.soon}{soon.price && soon.price !== 'Soon' ? ` · ${soon.price}` : ''}</span>
+        <h3>{soon.name}</h3>
+        <p class="muted">{soon[L]}</p>
+      </div>
+      <a class="btn ghost" href={`${b}/pixel-art#soon`}>{h.view} →</a>
+    </div>
+  </section>
+)}

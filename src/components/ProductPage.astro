@@ -1,63 +1,90 @@
 ---
 import ProductCard from './ProductCard.astro';
-import { products, categories } from '../data/products.js';
+import { products, categories, bySlug } from '../data/products.js';
+import { bundles, bundleInfo } from '../data/bundles.js';
 import { priceInfo, fmt } from '../data/offers.js';
 import { config } from '../data/config.js';
 const { p, t } = Astro.props;
 const L = t.lang;
 const s = t.store;
 const pi = priceInfo(p);
-const related = products.filter((x) => x.cat === p.cat && x.slug !== p.slug).slice(0, 3);
+const related = products.filter((x) => x.cat === p.cat && x.slug !== p.slug).sort((a, b) => (b.price > 0) - (a.price > 0)).slice(0, 4);
 const canCheckout = !pi.free && config.stripeEnabled;
+const trial = p.trial ? bySlug[p.trial] : null;
+const bundle = config.showBundles ? bundles.find((b) => b.items.includes(p.slug)) : null;
+const bi = bundle ? bundleInfo(bundle) : null;
+const images = p.images.length ? p.images : (p.cover ? [p.cover] : []);
 ---
-<section style="padding-top:28px">
-  {p.banner && <img class="banner" src={p.banner} alt={p.name} />}
-  <p class="small"><a href={`${t.base}/assets/`}>← {s.back}</a> · <span class="muted">{categories[p.cat][L]}</span></p>
-  <div class="product-hero">
-    <div class="gallery">
-      {p.images.length > 0 && <img id="g-main" src={p.images[0]} alt={p.name} style="width:100%;border-radius:6px;border:1px solid var(--line);background:#131313;display:block" />}
-      {p.images.length > 1 && (
-        <div class="thumbs">
-          {p.images.map((im, i) => <img src={im} alt={`${p.name} ${i + 1}`} loading="lazy" data-full={im} class={i === 0 ? 'on' : ''} />)}
-        </div>
-      )}
-    </div>
-    <aside class="buybox card" data-slug={p.slug}>
-      <h1 style="margin:0 0 4px;font-size:30px">{p.name}</h1>
-      <p style="color:#FFB199;margin:0 0 14px">{p.sub[L]}</p>
-      <p class="muted" style="margin:0 0 18px">{p.short[L]}</p>
-      <div class="price">
-        {pi.free ? <span class="big">{s.free}</span> : pi.offer
-          ? <><span class="big">{fmt(pi.final, L)}</span> <s class="muted">{fmt(pi.base, L)}</s> <span class="tag sale">-{pi.offer.percent}% {s.off}</span></>
-          : <span class="big">{fmt(pi.base, L)}</span>}
+<nav class="crumbs small"><a href={`${t.base}/assets/`}>{s.title}</a> <span>/</span> <a href={`${t.base}/assets/#${p.cat}`}>{categories[p.cat][L]}</a> <span>/</span> <span class="muted">{p.name}</span></nav>
+<section class="product-hero">
+  <div class="gallery">
+    {images.length > 0 && <div class="stage"><img id="g-main" src={images[0]} alt={p.name} /></div>}
+    {images.length > 1 && (
+      <div class="thumbs" role="list">
+        {images.map((im, i) => <button type="button" role="listitem" class={i === 0 ? 'on' : ''} data-full={im} aria-label={`${p.name} ${i + 1}`}><img src={im} alt="" loading="lazy" /></button>)}
       </div>
-      <p class="small muted offer-note" hidden={!pi.offer}>{pi.offer ? `${pi.offer.name[L]} · ${s.ends} ${pi.until}${pi.offer.code ? ` · ${s.code}: ${pi.offer.code}` : ''}` : ''}</p>
-      {pi.free
-        ? <a class="btn" href={p.itch} target="_blank" rel="noopener">{s.download}</a>
-        : canCheckout
-          ? <><form method="post" action="/api/checkout"><input type="hidden" name="slug" value={p.slug} /><input type="hidden" name="lang" value={L} /><button class="btn" type="submit">{s.buy}</button></form>
-              <a class="btn ghost" href={p.itch} target="_blank" rel="noopener" style="margin-top:8px">{s.itch}</a>
-              <p class="small muted" style="margin-top:12px">{s.secure}</p></>
-          : <><a class="btn" href={p.itch} target="_blank" rel="noopener">{s.itch}</a>
-              <p class="small muted" style="margin-top:12px">{s.soonCheckout}</p></>}
-      <p class="small muted" style="margin-top:10px">{s.vat}</p>
-    </aside>
+    )}
   </div>
+  <aside class="buybox" id="buy" data-slug={p.slug}>
+    <span class="eyebrow">{categories[p.cat][L]}</span>
+    <h1>{p.name}</h1>
+    <p class="sub">{p.sub[L]}</p>
+    <p class="muted">{p.short[L]}</p>
+    <div class="price">
+      {pi.free ? <span class="big">{s.free}</span> : pi.offer
+        ? <><span class="big">{fmt(pi.final, L)}</span> <s class="muted">{fmt(pi.base, L)}</s> <span class="tag sale">-{pi.offer.percent}% {s.off}</span></>
+        : <span class="big">{fmt(pi.base, L)}</span>}
+    </div>
+    <p class="small offer-note" hidden={!pi.offer}>{pi.offer ? `${pi.offer.name[L]} · ${s.ends} ${pi.until}${pi.offer.code ? ` · ${s.code}: ${pi.offer.code}` : ''}` : ''}</p>
+    <div class="actions">
+      {pi.free
+        ? <a class="btn big" href={p.itch} target="_blank" rel="noopener">{s.download}</a>
+        : canCheckout
+          ? <><form method="post" action="/api/checkout" id="buy-form"><input type="hidden" name="slug" value={p.slug} /><input type="hidden" name="lang" value={L} /><button class="btn big" type="submit">{s.buy}</button></form>
+              <a class="btn ghost" href={p.itch} target="_blank" rel="noopener">{s.itch}</a></>
+          : <><a class="btn big" href={p.itch} target="_blank" rel="noopener">{s.itch}</a>
+              <p class="small muted">{s.soonCheckout}</p></>}
+    </div>
+    <ul class="perks">{(pi.free ? s.perksFree : s.perks).map((x) => <li>{x}</li>)}</ul>
+    {trial && <a class="trial" href={`${t.base}/assets/${trial.slug}/`}>{s.tryFree}: <b>{trial.name}</b> →</a>}
+    {bundle && (
+      <a class="upsell" href={`${t.base}/assets/bundle/${bundle.slug}/`}>
+        <span class="mini">{bi.items.slice(0, 4).map((x) => <img src={x.cover} alt="" loading="lazy" />)}</span>
+        <span><small>{s.alsoIn}</small><b>{bundle.name}</b><span class="small">{bi.items.length} {s.bundleDeal} {fmt(bundle.price, L)} · <em>{s.save} {bi.percent}%</em></span></span>
+      </a>
+    )}
+    {canCheckout && <p class="small muted">{s.secure}</p>}
+    <p class="small muted">{s.vat}</p>
+  </aside>
 </section>
-<section>
-  <h2 style="font-size:24px">{s.about}</h2>
+<section class="prose-sec">
+  <h2>{s.about}</h2>
   <div class="prose" set:html={p.html} />
 </section>
 {related.length > 0 && (
   <section>
-    <h2 style="font-size:24px">{s.related} {categories[p.cat][L]}</h2>
-    <div class="grid">{related.map((r) => <ProductCard p={r} t={t} />)}</div>
+    <div class="sec-head"><h2>{s.related} {categories[p.cat][L]}</h2><a class="more" href={`${t.base}/assets/#${p.cat}`}>{t.home.all} →</a></div>
+    <div class="pgrid">{related.map((r) => <ProductCard p={r} t={t} />)}</div>
   </section>
 )}
+<div class="buybar" data-slug={p.slug} aria-hidden="true">
+  <div><b>{p.name}</b>
+    <div class="price-tags">
+      {pi.free ? <b class="now">{s.free}</b> : pi.offer ? <><b class="now">{fmt(pi.final, L)}</b><s>{fmt(pi.base, L)}</s></> : <b class="now">{fmt(pi.base, L)}</b>}
+    </div>
+  </div>
+  {pi.free
+    ? <a class="btn" href={p.itch} target="_blank" rel="noopener" tabindex="-1">{s.download}</a>
+    : canCheckout ? <button class="btn" type="submit" form="buy-form" tabindex="-1">{s.buyBar}</button>
+    : <a class="btn" href={p.itch} target="_blank" rel="noopener" tabindex="-1">{s.itch}</a>}
+</div>
 <script>
   const main = document.getElementById('g-main') as HTMLImageElement | null;
-  document.querySelectorAll<HTMLImageElement>('.thumbs img').forEach((th) => th.addEventListener('click', () => {
-    if (!main) return; main.src = th.dataset.full || th.src;
-    document.querySelectorAll('.thumbs img').forEach((x) => x.classList.remove('on')); th.classList.add('on');
+  document.querySelectorAll<HTMLButtonElement>('.thumbs button').forEach((th) => th.addEventListener('click', () => {
+    if (!main) return; main.src = th.dataset.full || '';
+    document.querySelectorAll('.thumbs button').forEach((x) => x.classList.remove('on')); th.classList.add('on');
   }));
+  // Mobile buy bar: shows once the buy box has scrolled out of view.
+  const box = document.getElementById('buy'); const bar = document.querySelector('.buybar');
+  if (box && bar && 'IntersectionObserver' in window) new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting && e.boundingClientRect.top < 0)).observe(box);
 </script>

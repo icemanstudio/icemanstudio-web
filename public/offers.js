@@ -30,18 +30,26 @@
       const o = offers.filter((x) => applies(x, p) && active(x, p)).sort((a, b) => b.percent - a.percent)[0] || null;
       const final = o ? Math.round(p.price * (100 - o.percent)) / 100 : p.price;
       const tags = el.querySelector('.price-tags'); const big = el.querySelector('.price');
-      if (tags) tags.innerHTML = o ? `<span class="tag sale">-${o.percent}%</span><span class="tag"><s style="opacity:.6">${fmt(p.price)}</s> ${fmt(final)}</span>` : `<span class="tag">${fmt(p.price)}</span>`;
+      if (tags) tags.innerHTML = o ? `<b class="now">${fmt(final)}</b><s>${fmt(p.price)}</s>` : `<b class="now">${fmt(p.price)}</b>`;
+      const badge = el.querySelector('.badge.sale'); if (badge) { badge.hidden = !o; badge.textContent = o ? `-${o.percent}%` : ''; }
       if (big) {
         big.innerHTML = o ? `<span class="big">${fmt(final)}</span> <s class="muted">${fmt(p.price)}</s> <span class="tag sale">-${o.percent}% ${T.off}</span>` : `<span class="big">${fmt(p.price)}</span>`;
         const note = el.querySelector('.offer-note'); if (note) { note.hidden = !o; if (o) note.textContent = `${o.name[lang]} · ${T.ends} ${until(o, p)}${o.code ? ` · ${T.code}: ${o.code}` : ''}`; }
       }
     });
+    // site-wide offer bar (first active store-wide offer)
+    const bar = document.getElementById('offer-bar');
+    if (bar) {
+      const o = offers.filter((x) => x.kind !== 'launch' && active(x))[0];
+      bar.hidden = !o;
+      if (o) { const u = bar.querySelector('u'); const cta = u ? u.outerHTML : ''; bar.innerHTML = `<span><strong>${o.name[lang]} · -${o.percent}%</strong> · ${T.ends} ${until(o)}${o.code ? ` · ${T.code} ${o.code}` : ''} ${cta}</span>`; }
+    }
     // store banner
     const banner = document.getElementById('offer-banner');
     if (banner) {
       const list = offers.filter((o) => o.kind !== 'launch' && active(o));
       banner.hidden = list.length === 0;
-      banner.innerHTML = list.map((o) => `<p style="margin:0"><strong>${o.name[lang]}:</strong> -${o.percent}% · ${T.ends} ${until(o)}${o.code ? ` · ${T.code} ${o.code}` : ''}</p>`).join('');
+      banner.innerHTML = list.map((o) => `<p><strong>${o.name[lang]}: -${o.percent}%</strong> · ${T.ends} ${until(o)}${o.code ? ` · ${T.code} ${o.code}` : ''}</p>`).join('');
     }
   }).catch(() => {});
 })();

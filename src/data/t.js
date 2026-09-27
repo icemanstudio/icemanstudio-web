@@ -1,7 +1,7 @@
 export const t = {
   en: {
     lang: 'en', other: 'es', otherLabel: 'ES', base: '',
-    store: { title: 'Store', lead: 'Every asset we publish, in one place. Pay by card here or buy on itch.io; both give you the same files and updates.', all: 'All', buy: 'Buy now', free: 'Free', download: 'Download free', itch: 'Buy on itch.io', getItch: 'Get it on itch.io', soonCheckout: 'Direct card checkout is being set up. Until then, itch.io delivers the same files.', off: 'off', ends: 'Offer ends', code: 'Code', gallery: 'Gallery', about: 'About this product', back: 'Back to store', related: 'More in', vat: 'Prices in EUR. VAT is added at checkout where it applies.', secure: 'Card payments by Stripe. Use an email you can access: your download page, the order email and your library are tied to it.', frostSoon: 'Engine systems (Frost family) are in production; the first release, FrostFeel, lands in October 2026.', bundles: 'Bundles', bundlesLead: 'Several products, one price. Bundles are sold here only.', buyBundle: 'Buy the bundle', youSave: 'You save', included: 'Included in this bundle', paid: 'Payment received. Your download links are on their way to the email you used at checkout (check spam if they take more than a minute).' },
+    store: { title: 'Store', lead: 'Every asset we publish, in one place. Pay by card here or buy on itch.io; both give you the same files and updates.', all: 'All', buy: 'Buy now', free: 'Free', download: 'Download free', itch: 'Buy on itch.io', getItch: 'Get it on itch.io', soonCheckout: 'Direct card checkout is being set up. Until then, itch.io delivers the same files.', off: 'off', ends: 'Offer ends', code: 'Code', gallery: 'Gallery', about: 'About this product', back: 'Back to store', related: 'More in', vat: 'Prices in EUR. VAT is added at checkout where it applies.', secure: 'Card payments by Stripe. Use an email you can access: your download page, the order email and your library are tied to it.', frostSoon: 'Engine systems (Frost family) are in production; the first release, FrostFeel, lands in October 2026.', bundles: 'Bundles', bundlesLead: 'Several products, one price. Bundles are sold here only.', buyBundle: 'Buy the bundle', youSave: 'You save', included: 'Included in this bundle', filterLabel: 'Filter', allProducts: 'All', freeOnly: 'Free', items: 'items', view: 'View', perks: ['Instant download after payment', 'Commercial use, no attribution', 'Updates included', '14-day fix or refund'], perksFree: ['Free download on itch.io', 'Commercial use, no attribution'], tryFree: 'Try the free version first', alsoIn: 'Also in a bundle', bundleDeal: 'products for', save: 'Save', buyBar: 'Buy', paid: 'Payment received. Your download links are on their way to the email you used at checkout (check spam if they take more than a minute).' },
     nav: { account: 'My account', privacy: 'Privacy', terms: 'Terms', assets: 'Store', pixel: 'Pixel art', financing: 'Funding', tools: 'Free tools', about: 'About', contact: 'Contact' },
     pixel: { title: 'Aseprite extensions and pixel art packs', lead: 'Tools for Aseprite and animated VFX packs, sold and downloaded on itch.io. Free versions available to try before you buy.', cta: 'Open the itch.io store', free: 'Free', buy: 'View on itch.io →', view: 'View product →' },
     hero: {
@@ -10,7 +10,21 @@ export const t = {
       cta1: 'Browse assets', cta2: 'Get in touch'
     },
     search: { placeholder: 'Search the store…  ( / )' },
-    home: { soon: 'Coming soon', latest: 'Latest releases', all: 'See the whole store' },
+    home: { soon: 'Coming soon', latest: 'New and popular', all: 'See the whole store',
+      eyebrow: 'Aseprite extensions · Pixel art VFX · Low-poly 3D',
+      title: 'Aseprite tools and pixel art VFX for indie games.',
+      sub: 'Particles, vector drawing, inbetweens and node textures inside Aseprite. Animated effect packs in GIF, spritesheet and PNG frames for any engine. Made by one dev who uses them in his own game.',
+      cta1: 'Browse the store', cta2: 'Get the free packs', featured: 'Featured', view: 'View', products: 'products', free: 'free',
+      cats: 'Shop by category', catFree: 'Free downloads', catFreeSub: 'Try before you buy',
+      bundles: 'Bundles', bundlesLead: 'Several products, one price. Sold only here.',
+      freeTitle: 'Start free', freeLead: 'Free versions of the tools and packs. Try the workflow, then upgrade if it fits.',
+      why: 'Buying here' },
+    trust: [
+      { t: 'Commercial use', d: 'Use it in games you sell. No attribution.' },
+      { t: 'Instant download', d: 'Download page right after paying, plus a copy by email.' },
+      { t: 'Yours to keep', d: 'Purchases stay in your account. Download again any time.' },
+      { t: '14-day guarantee', d: 'Broken file or not as described: fixed or refunded.' }
+    ],
     pillars: [
       { title: 'Store', text: 'Aseprite extensions, pixel art VFX, tilesets and low-poly packs. Buy by card here or on itch.io. Frost engine systems coming next.', href: '/assets' },
       { title: 'Pixel art', text: 'Aseprite extensions (FastFX, VeSprite, GhostFrames) and animated pixel art VFX packs, on itch.io.', href: '/pixel-art' },
@@ -56,11 +70,11 @@ export const t = {
         'If a file is broken or is not what the product page says, write to me within 14 days and I will fix it or refund you.',
         'You can use everything in commercial games, no attribution needed. And almost every line has a free version to try before you buy.'], },
     contact: { title: 'Contact', lead: 'Write to hello@icemanstudio.com or use the form. We answer within one business day.', name: 'Name', email: 'Email', topic: 'Topic', message: 'Message', send: 'Send', sent: 'Thanks. We will reply within one business day.', fail: 'The form could not be sent. Please email hello@icemanstudio.com.', topics: ['Assets', 'Funding', 'Other'] },
-    footer: '© 2026 IceMan Studio · Spain · hello@icemanstudio.com'
+    footer: '© 2026 IceMan Studio · Spain · hello@icemanstudio.com', foot: { shop: 'Shop', studio: 'Studio', help: 'Help', tagline: 'Tools and assets for indie game developers. Made in Spain.' }
   },
   es: {
     lang: 'es', other: 'en', otherLabel: 'EN', base: '/es',
-    store: { title: 'Tienda', lead: 'Todos los assets que publicamos, en un solo sitio. Paga con tarjeta aquí o compra en itch.io; ambos dan los mismos archivos y actualizaciones.', all: 'Todo', buy: 'Comprar', free: 'Gratis', download: 'Descargar gratis', itch: 'Comprar en itch.io', getItch: 'Conseguir en itch.io', soonCheckout: 'El pago directo con tarjeta se está configurando. Mientras tanto, itch.io entrega los mismos archivos.', off: 'de descuento', ends: 'La oferta termina el', code: 'Código', gallery: 'Galería', about: 'Sobre este producto', back: 'Volver a la tienda', related: 'Más en', vat: 'Precios en EUR. El IVA se añade al pagar donde corresponda.', secure: 'Pago con tarjeta por Stripe. Usa un correo al que tengas acceso: la página de descarga, el correo del pedido y tu biblioteca van ligados a él.', frostSoon: 'Los sistemas para motores (familia Frost) están en producción; el primero, FrostFeel, sale en octubre de 2026.', bundles: 'Bundles', bundlesLead: 'Varios productos, un solo precio. Los bundles solo se venden aquí.', buyBundle: 'Comprar el bundle', youSave: 'Ahorras', included: 'Incluido en este bundle', paid: 'Pago recibido. Los enlaces de descarga van de camino al correo que usaste al pagar (mira en spam si tardan más de un minuto).' },
+    store: { title: 'Tienda', lead: 'Todos los assets que publicamos, en un solo sitio. Paga con tarjeta aquí o compra en itch.io; ambos dan los mismos archivos y actualizaciones.', all: 'Todo', buy: 'Comprar', free: 'Gratis', download: 'Descargar gratis', itch: 'Comprar en itch.io', getItch: 'Conseguir en itch.io', soonCheckout: 'El pago directo con tarjeta se está configurando. Mientras tanto, itch.io entrega los mismos archivos.', off: 'de descuento', ends: 'La oferta termina el', code: 'Código', gallery: 'Galería', about: 'Sobre este producto', back: 'Volver a la tienda', related: 'Más en', vat: 'Precios en EUR. El IVA se añade al pagar donde corresponda.', secure: 'Pago con tarjeta por Stripe. Usa un correo al que tengas acceso: la página de descarga, el correo del pedido y tu biblioteca van ligados a él.', frostSoon: 'Los sistemas para motores (familia Frost) están en producción; el primero, FrostFeel, sale en octubre de 2026.', bundles: 'Bundles', bundlesLead: 'Varios productos, un solo precio. Los bundles solo se venden aquí.', buyBundle: 'Comprar el bundle', youSave: 'Ahorras', included: 'Incluido en este bundle', filterLabel: 'Filtrar', allProducts: 'Todo', freeOnly: 'Gratis', items: 'productos', view: 'Ver', perks: ['Descarga inmediata tras el pago', 'Uso comercial, sin atribución', 'Actualizaciones incluidas', '14 días para arreglo o reembolso'], perksFree: ['Descarga gratis en itch.io', 'Uso comercial, sin atribución'], tryFree: 'Prueba antes la versión gratis', alsoIn: 'También en un bundle', bundleDeal: 'productos por', save: 'Ahorras', buyBar: 'Comprar', paid: 'Pago recibido. Los enlaces de descarga van de camino al correo que usaste al pagar (mira en spam si tardan más de un minuto).' },
     nav: { account: 'Mi cuenta', privacy: 'Privacidad', terms: 'Términos', assets: 'Tienda', pixel: 'Pixel art', financing: 'Financiación', tools: 'Herramientas', about: 'Sobre', contact: 'Contacto' },
     pixel: { title: 'Extensiones para Aseprite y packs de pixel art', lead: 'Herramientas para Aseprite y packs de VFX animados, a la venta y descarga en itch.io. Hay versiones gratuitas para probar antes de comprar.', cta: 'Abrir la tienda en itch.io', free: 'Gratis', buy: 'Ver en itch.io →', view: 'Ver producto →' },
     hero: {
@@ -69,7 +83,21 @@ export const t = {
       cta1: 'Ver assets', cta2: 'Contactar'
     },
     search: { placeholder: 'Buscar en la tienda…  ( / )' },
-    home: { soon: 'Próximamente', latest: 'Últimos lanzamientos', all: 'Ver toda la tienda' },
+    home: { soon: 'Próximamente', latest: 'Novedades y más vendidos', all: 'Ver toda la tienda',
+      eyebrow: 'Extensiones para Aseprite · VFX en pixel art · 3D low poly',
+      title: 'Herramientas para Aseprite y VFX en pixel art para juegos indie.',
+      sub: 'Partículas, dibujo vectorial, intercalados y texturas por nodos dentro de Aseprite. Packs de efectos animados en GIF, spritesheet y frames PNG para cualquier motor. Hecho por un dev que los usa en su propio juego.',
+      cta1: 'Ver la tienda', cta2: 'Packs gratis', featured: 'Destacado', view: 'Ver', products: 'productos', free: 'gratis',
+      cats: 'Comprar por categoría', catFree: 'Descargas gratis', catFreeSub: 'Prueba antes de comprar',
+      bundles: 'Bundles', bundlesLead: 'Varios productos, un solo precio. Solo se venden aquí.',
+      freeTitle: 'Empieza gratis', freeLead: 'Versiones gratuitas de las herramientas y los packs. Prueba el flujo y, si te encaja, da el salto.',
+      why: 'Comprar aquí' },
+    trust: [
+      { t: 'Uso comercial', d: 'Úsalo en juegos que vendas. Sin atribución.' },
+      { t: 'Descarga al momento', d: 'Página de descarga nada más pagar, y copia por correo.' },
+      { t: 'Para siempre', d: 'Las compras quedan en tu cuenta. Descarga otra vez cuando quieras.' },
+      { t: 'Garantía de 14 días', d: 'Archivo roto o distinto a la ficha: lo arreglo o te devuelvo el dinero.' }
+    ],
     pillars: [
       { title: 'Tienda', text: 'Extensiones para Aseprite, VFX en pixel art, tilesets y packs low poly. Compra con tarjeta aquí o en itch.io. Sistemas Frost para motores, próximamente.', href: '/es/assets' },
       { title: 'Pixel art', text: 'Extensiones para Aseprite (FastFX, VeSprite, GhostFrames) y packs de VFX animados en pixel art, en itch.io.', href: '/es/pixel-art' },
@@ -115,6 +143,6 @@ export const t = {
         'Si un archivo llega roto o no es lo que dice la ficha, escríbeme en los 14 días siguientes y lo arreglo o te devuelvo el dinero.',
         'Puedes usarlo todo en juegos comerciales, sin atribución. Y casi todo tiene versión gratis para probar antes de comprar.'], },
     contact: { title: 'Contacto', lead: 'Escribe a hola@icemanstudio.com o usa el formulario. Respondemos en un día laborable.', name: 'Nombre', email: 'Correo', topic: 'Tema', message: 'Mensaje', send: 'Enviar', sent: 'Gracias. Respondemos en un día laborable.', fail: 'No se pudo enviar el formulario. Escríbenos a hola@icemanstudio.com.', topics: ['Assets', 'Financiación', 'Otro'] },
-    footer: '© 2026 IceMan Studio · España · hola@icemanstudio.com'
+    footer: '© 2026 IceMan Studio · España · hola@icemanstudio.com', foot: { shop: 'Tienda', studio: 'Estudio', help: 'Ayuda', tagline: 'Herramientas y assets para desarrolladores indie. Hecho en España.' }
   }
 };

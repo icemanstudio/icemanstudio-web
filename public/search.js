@@ -26,7 +26,8 @@
     input.value = q; const terms = norm(q).split(/\s+/);
     let shown = 0;
     document.querySelectorAll('.card.product').forEach((c) => { const ok = terms.every((t) => norm(c.textContent).includes(t)); c.style.display = ok ? '' : 'none'; if (ok) shown++; });
+    const chips = document.getElementById('store-chips'); if (chips) chips.hidden = true;
     document.querySelectorAll('section[id]').forEach((s) => { const any = [...s.querySelectorAll('.card.product')].some((c) => c.style.display !== 'none'); s.style.display = any ? '' : 'none'; });
-    const h = document.querySelector('main h2'); if (h) h.insertAdjacentHTML('afterend', `<p class="lead" id="q-note">${shown} ${lang === 'es' ? 'resultados para' : 'results for'} "${q}" · <a href="${base}/assets/">${lang === 'es' ? 'ver todo' : 'show all'}</a></p>`);
+    const h = document.querySelector('main h1, main h2'); if (h) h.insertAdjacentHTML('afterend', `<p class="lead" id="q-note">${shown} ${lang === 'es' ? 'resultados para' : 'results for'} "${q}" · <a href="${base}/assets/">${lang === 'es' ? 'ver todo' : 'show all'}</a></p>`);
   }
 })();

@@ -12,6 +12,8 @@ const orgLd = { '@context': 'https://schema.org', '@graph': [
 const b = t.base;
 const otherBase = t.other === 'es' ? '/es' : '';
 import pkg from '../../package.json';
+import { activeOffers, offerUntil } from '../data/offers.js';
+const offers = activeOffers();
 const version = pkg.version;
 const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools and assets for indie game developers';
 ---
@@ -28,7 +30,7 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools 
     <link rel="alternate" hreflang="en" href={`https://icemanstudio.com${path}`} />
     <link rel="alternate" hreflang="es" href={`https://icemanstudio.com/es${path}`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:image" content={ogImage} />
@@ -44,6 +46,9 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools 
     <script src="/offers.js" defer></script>
   </head>
   <body>
+    <a class="offer-bar" id="offer-bar" href={`${b}/assets/`} hidden={offers.length === 0}>
+      {offers.slice(0, 1).map((o) => <span><strong>{o.name[t.lang]} · -{o.percent}%</strong> · {t.store.ends} {offerUntil(o)}{o.code ? ` · ${t.store.code} ${o.code}` : ''} <u>{t.home.cta1} →</u></span>)}
+    </a>
     <header class="site">
       <div class="wrap">
         <a class="logo" href={b || '/'} aria-label="IceMan Studio"><img src="/brand/logo-header.svg" alt="IceMan Studio" /></a>
@@ -53,7 +58,7 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools 
           <button type="button" class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
         </form>
         <nav id="site-nav">
-          <a href={`${b}/assets`}>{t.nav.assets}</a>
+          <a class="nav-store" href={`${b}/assets/`}>{t.nav.assets}</a>
           <a href={`${b}/pixel-art`}>{t.nav.pixel}</a>
           <a href={`${b}/tools`}>{t.nav.tools}</a>
           <a href={`${b}/about`}>{t.nav.about}</a>
@@ -67,9 +72,31 @@ const pageTitle = title ? `${title} · IceMan Studio` : 'IceMan Studio · Tools 
       <slot />
     </main>
     <footer class="site">
-      <div class="wrap">
-        <span>{t.footer} · <a href={`${b}/privacy/`}>{t.nav.privacy}</a> · <a href={`${b}/terms/`}>{t.nav.terms}</a></span>
-        <span><a href="https://github.com/icemanstudio">GitHub</a> · <a href="https://icemaan.itch.io/">itch.io</a> · <a href="https://github.com/icemanstudio/icemanstudio-web/commits/main" title="Patch notes">build v{version}</a></span>
+      <div class="wrap foot-grid">
+        <div class="foot-brand">
+          <img src="/brand/logo-header.svg" alt="IceMan Studio" height="40" />
+          <p class="muted">{t.foot.tagline}</p>
+          <p class="small muted">{t.footer}</p>
+        </div>
+        <div><b>{t.foot.shop}</b>
+          <a href={`${b}/assets/`}>{t.nav.assets}</a>
+          <a href={`${b}/assets/#bundles`}>{t.store.bundles}</a>
+          <a href={`${b}/assets/#free`}>{t.store.freeOnly}</a>
+          <a href={`${b}/pixel-art`}>{t.nav.pixel}</a>
+        </div>
+        <div><b>{t.foot.studio}</b>
+          <a href={`${b}/about`}>{t.nav.about}</a>
+          <a href={`${b}/tools`}>{t.nav.tools}</a>
+          <a href="https://icemaan.itch.io/">itch.io</a>
+          <a href="https://github.com/icemanstudio">GitHub</a>
+        </div>
+        <div><b>{t.foot.help}</b>
+          <a href={`${b}/contact`}>{t.nav.contact}</a>
+          <a href={`${b}/account/`}>{t.nav.account}</a>
+          <a href={`${b}/privacy/`}>{t.nav.privacy}</a>
+          <a href={`${b}/terms/`}>{t.nav.terms}</a>
+          <a href="https://github.com/icemanstudio/icemanstudio-web/commits/main" title="Patch notes">build v{version}</a>
+        </div>
       </div>
     </footer>
   </body>
