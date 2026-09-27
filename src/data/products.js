@@ -19,7 +19,7 @@ const raw = [
   { slug: 'vesprite-vector-drawing-for-pixel-art-inside-aseprite', name: 'VeSprite', cat: 'aseprite', price: 5.99, stripePrice: '',
     sub: { en: 'Vector drawing for pixel art, inside Aseprite', es: 'Dibujo vectorial para pixel art, dentro de Aseprite' },
     short: { en: 'Draw with bezier tools and get pixels back. Layers, blend modes, gradients that dither to Bayer or blue noise.', es: 'Dibuja con curvas bézier y obtén píxeles. Capas, modos de fusión y degradados con dithering Bayer o blue noise.' } },
-  { slug: 'spaghetti-node-based-textures-for-aseprite', name: 'Spaghetti', cat: 'aseprite', price: 5.99, stripePrice: '',
+  { slug: 'spaghetti-node-based-textures-for-aseprite', name: 'Spaghetti', cat: 'aseprite', price: 7.99, stripePrice: '',
     sub: { en: 'Node-based textures for Aseprite', es: 'Texturas por nodos para Aseprite' },
     short: { en: 'A node graph that generates pixel art textures inside Aseprite. Over 200 nodes.', es: 'Un grafo de nodos que genera texturas de pixel art dentro de Aseprite. Más de 200 nodos.' } },
   { slug: 'ghostframe-aseprite-extension', name: 'GhostFrames', cat: 'aseprite', price: 9.97, stripePrice: '',
