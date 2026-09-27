@@ -40,5 +40,5 @@ Sitemap: https://icemanstudio.com/sitemap-index.xml
 
 # Machine-readable entry points
 # https://icemanstudio.com/llms.txt        short guide for language models
-# https://icemanstudio.com/llms-full.txt   full catalogue and services in Markdown
+# https://icemanstudio.com/llms-full.txt   full catalogue in Markdown
 # https://icemanstudio.com/catalog.json    product feed (prices in EUR, links, licence)
