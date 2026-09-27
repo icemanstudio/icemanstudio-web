@@ -27,6 +27,7 @@ def clean(h):
     h = re.sub(r'<table>.*?</table>', '', h, flags=re.S)
     # itch embeds of other listings are dropped: the site has its own related-products block
     h = re.sub(r'<iframe.*?</iframe>', '', h, flags=re.S)
+    h = re.sub(r'<a[^>]*icemanstudio\.com/go[^>]*>.*?</a>', '', h, flags=re.S)  # our own promo banner, pasted on itch pages
     h = re.sub(r'(<p><br></p>\s*){2,}', '<p><br></p>', h)
     h = re.sub(r'<h3>\s*</h3>', '', h)
     h = re.sub(r'<h[2-5]>\s*More [^<]*</h[2-5]>\s*$', '', h)  # heading that only introduced the embeds
