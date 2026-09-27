@@ -5,8 +5,8 @@ const L = t.lang;
 ---
 <section>
   <h2>{t.about.title}</h2>
-  <p class="lead">{t.about.text}</p>
-  <img src="/brand/logo-horizontal-dark.svg" alt="IceMan Studio" style="max-width:420px;width:100%;border-radius:6px;border:1px solid #2a2a2a" />
+  {t.about.text.map((x, i) => <p class={i === 0 ? "lead" : ""} style="margin:0 0 12px">{x}</p>)}
+  <p style="margin-top:24px"><a class="btn" href={`${t.base}/assets`}>{t.about.cta}</a> <a class="btn ghost" href={`${t.base}/pixel-art`} style="margin-left:10px">{t.about.free}</a></p>
 </section>
 
 <section id="faq">
