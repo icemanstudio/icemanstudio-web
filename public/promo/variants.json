@@ -1,0 +1,13 @@
+{
+ "launch": "spaghetti-node-based-textures-for-aseprite",
+ "variants": [
+  "bundle-pixel-vfx-complete",
+  "launch-spaghetti-node-based-textures-for-aseprite",
+  "sale-autumn",
+  "sale-blackfriday",
+  "sale-halloween",
+  "sale-spring",
+  "sale-summer",
+  "sale-winter"
+ ]
+}

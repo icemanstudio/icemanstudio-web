@@ -3,14 +3,17 @@ import { onRequestPost as checkout } from '../functions/api/checkout.js';
 import { onRequestPost as webhook } from '../functions/api/stripe-webhook.js';
 import { onRequestGet as download } from '../functions/dl.js';
 import { onRequestGet as downloadPage } from '../functions/download.js';
+import { promoImage, promoClick } from '../functions/promo.js';
 import { accountPage, authRequest, authVerify, authLogout, accountName, accountEmail, accountDelete } from '../functions/account.js';
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api/') && url.pathname.endsWith('/')) url.pathname = url.pathname.replace(/\/+$/, '');
     if (/^\/(es\/)?download\/?$/.test(url.pathname)) return downloadPage({ request, env });
     if (/^\/(es\/)?account\/?$/.test(url.pathname)) return accountPage({ request, env });
+    if (url.pathname === '/promo.gif') return promoImage({ request, env, ctx });
+    if (url.pathname === '/go') return promoClick({ request, env, ctx });
     if (url.pathname === '/auth/verify') return authVerify({ request, env });
     if (request.method === 'POST') {
       if (url.pathname === '/api/auth/request') return authRequest({ request, env });
