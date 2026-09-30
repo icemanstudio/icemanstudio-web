@@ -10,7 +10,7 @@ const L = t.lang;
 const s = t.store;
 const offers = activeOffers();
 // Category order on the page. A new category in products.js must be added here to show up.
-const order = ['aseprite', 'vfx', 'tileset', 'lowpoly'];
+const order = ['aseprite', 'tools', 'vfx', 'tileset', 'lowpoly'];
 const chips = [
   { id: 'all', label: s.allProducts, n: products.length + (config.showBundles ? bundles.length : 0) },
   ...(config.showBundles ? [{ id: 'bundles', label: s.bundles, n: bundles.length }] : []),
