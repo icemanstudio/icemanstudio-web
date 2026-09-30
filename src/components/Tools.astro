@@ -18,6 +18,7 @@ const full = bySlug['tallboy-pixel-art-buildings-with-interiors'];
     </div>
     <div class="tb-actions">
       <a class="btn" href={`${t.base}/assets/${full.slug}/?ref=tools`}>{tb.full} · {fmt(full.price, t.lang)}</a>
+      <button class="btn ghost" id="tb-fs" type="button">{tb.fs}</button>
       <a class="btn ghost" href="/tools/tallboy/" target="_blank" rel="noopener">{tb.tab}</a>
     </div>
     <p class="small muted" style="margin-top:10px">{tb.fullNote}</p>
@@ -35,9 +36,9 @@ const full = bySlug['tallboy-pixel-art-buildings-with-interiors'];
   </div>
 </section>
 <style>
-  .tb-stage{position:relative;aspect-ratio:16/9;background:#0e0e0e;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .tb-stage{position:relative;height:min(82vh,760px);min-height:480px;background:#0e0e0e;border:1px solid var(--line);border-radius:6px;overflow:hidden}
   .tb-stage img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated;opacity:.55}
-  .tb-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .tb-stage :global(iframe){position:absolute;inset:0;width:100%;height:100%;border:0}
   .tb-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
   .tb-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
 </style>
@@ -47,6 +48,10 @@ const full = bySlug['tallboy-pixel-art-buildings-with-interiors'];
     const f = document.createElement('iframe');
     f.src = '/tools/tallboy/'; f.title = 'Tallboy'; f.allow = 'fullscreen; clipboard-write'; f.allowFullscreen = true;
     stage.replaceChildren(f);
+  });
+  document.getElementById('tb-fs')?.addEventListener('click', () => {
+    if (!document.querySelector('#tb-stage iframe')) (document.getElementById('tb-play') as HTMLElement)?.click();
+    document.getElementById('tb-stage')?.requestFullscreen?.();
   });
   document.getElementById('wl-go')?.addEventListener('click', () => {
     const n = Number((document.getElementById('wl-n') as HTMLInputElement).value);
