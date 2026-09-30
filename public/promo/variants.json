@@ -1,8 +1,8 @@
 {
- "launch": "spaghetti-node-based-textures-for-aseprite",
+ "launch": "tallboy-pixel-art-buildings-with-interiors",
  "variants": [
   "bundle-pixel-vfx-complete",
-  "launch-spaghetti-node-based-textures-for-aseprite",
+  "launch-tallboy-pixel-art-buildings-with-interiors",
   "sale-autumn",
   "sale-blackfriday",
   "sale-halloween",
