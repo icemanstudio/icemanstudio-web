@@ -1,10 +1,27 @@
 ---
 const { t } = Astro.props;
+import { bySlug } from '../data/products.js';
+import { fmt } from '../data/offers.js';
 const w = t.tools.wl;
+const tb = t.tools.tb;
+const full = bySlug['tallboy-pixel-art-buildings-with-interiors'];
 ---
 <section>
   <h2>{t.tools.title}</h2>
   <p class="lead">{t.tools.lead}</p>
+  <div class="card tb" id="tallboy">
+    <h3>{tb.title}</h3>
+    <p class="muted" style="margin:6px 0 14px">{tb.text}</p>
+    <div class="tb-stage" id="tb-stage">
+      <img src={full.cover} alt="Tallboy" loading="lazy" />
+      <button class="btn big tb-play" id="tb-play" type="button">▶ {tb.play}</button>
+    </div>
+    <div class="tb-actions">
+      <a class="btn" href={`${t.base}/assets/${full.slug}/?ref=tools`}>{tb.full} · {fmt(full.price, t.lang)}</a>
+      <a class="btn ghost" href="/tools/tallboy/" target="_blank" rel="noopener">{tb.tab}</a>
+    </div>
+    <p class="small muted" style="margin-top:10px">{tb.fullNote}</p>
+  </div>
   <div class="card">
     <h3>{w.title}</h3>
     <form onsubmit="return false">
@@ -17,7 +34,20 @@ const w = t.tools.wl;
     <p class="small muted" style="margin-top:12px">{w.note}</p>
   </div>
 </section>
+<style>
+  .tb-stage{position:relative;aspect-ratio:16/9;background:#0e0e0e;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .tb-stage img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated;opacity:.55}
+  .tb-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .tb-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+  .tb-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+</style>
 <script>
+  document.getElementById('tb-play')?.addEventListener('click', () => {
+    const stage = document.getElementById('tb-stage') as HTMLElement;
+    const f = document.createElement('iframe');
+    f.src = '/tools/tallboy/'; f.title = 'Tallboy'; f.allow = 'fullscreen; clipboard-write'; f.allowFullscreen = true;
+    stage.replaceChildren(f);
+  });
   document.getElementById('wl-go')?.addEventListener('click', () => {
     const n = Number((document.getElementById('wl-n') as HTMLInputElement).value);
     const c = Number((document.getElementById('wl-c') as HTMLInputElement).value) / 100;

@@ -46,6 +46,7 @@ const images = p.images.length ? p.images : (p.cover ? [p.cover] : []);
               <p class="small muted">{s.soonCheckout}</p></>}
     </div>
     <ul class="perks">{(pi.free ? s.perksFree : s.perks).map((x) => <li>{x}</li>)}</ul>
+    {p.demo && <a class="trial" href={p.demo} target="_blank" rel="noopener">{s.tryDemo} →</a>}
     {trial && <a class="trial" href={`${t.base}/assets/${trial.slug}/`}>{s.tryFree}: <b>{trial.name}</b> →</a>}
     {bundle && (
       <a class="upsell" href={`${t.base}/assets/bundle/${bundle.slug}/`}>

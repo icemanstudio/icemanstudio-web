@@ -1,0 +1,629 @@
+{
+ "version": 1,
+ "templates": [
+  {
+   "id": 1500,
+   "name": "FacadeGen apartment bay",
+   "role": "bay",
+   "w": 8,
+   "h": 8,
+   "channel": "frame",
+   "data": "AQEBAQEBAQEBAQUBBQEBAQEBBQEFAQEBAQEBAQEBAQEBAQUBBQEBAQEBBQEFAQEBAQEFAQUBAQEBAQEBAQEBAQ==",
+   "chan": "AAAAAAAAAAAABAEEAQQAAAAEAQQBBAAAAAQBBAEEAAAABAEEAQQAAAAEAQQBBAAAAAQBBAEEAAAAAAAAAAAAAA==",
+   "win": "AAAAAAAAAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAAAAAAAAAA==",
+   "night": "AAAAAAAAAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAAAAAAAAAAAA==",
+   "tags": [
+    "facadegen",
+    "apartment"
+   ]
+  },
+  {
+   "id": 1501,
+   "name": "FacadeGen tower bay",
+   "role": "bay",
+   "w": 8,
+   "h": 8,
+   "channel": "glass",
+   "data": "AQEBAQEBAQEBAQwBDAEBAQEBDAEMAQEBAQEMAQwBAQEBAQwBDAEBAQEBDAEMAQEBAQEMAQwBAQEBAQEBAQEBAQ==",
+   "chan": "AwMDAwMDAwEDAAAAAAADAQMAAAAAAAMBAwAAAAAAAwEDAAAAAAADAQMAAAAAAAMBAwAAAAAAAwEDAwMDAwMDAQ==",
+   "win": "AAAAAAAAAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAAAAAAAAAA==",
+   "night": "AAAAAAAAAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAAAAAAAAAAAA==",
+   "tags": [
+    "facadegen",
+    "tower"
+   ]
+  },
+  {
+   "id": 1502,
+   "name": "FacadeGen house bay",
+   "role": "bay",
+   "w": 8,
+   "h": 8,
+   "channel": "frame",
+   "data": "AQEBAQEBAQEBAQgBCAEBAQEBCAEIAQEBAQEIAQgBAQEBAQgBCAEBAQEBCAEIAQEBAQEIAQgBAQEBAQEBAQEBAQ==",
+   "chan": "AAAAAAAAAAAABAEEAQQACAAEAQQBBAAIAAQBBAEEAAgABAEEAQQAAAAEAQQBBAAAAAQBBAEEAAAAAAAAAAAAAA==",
+   "win": "AAAAAAAAAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAAAAAAAAAA==",
+   "night": "AAAAAAAAAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAAAAAAAAAAAA==",
+   "tags": [
+    "facadegen",
+    "house"
+   ]
+  },
+  {
+   "id": 1503,
+   "name": "FacadeGen shop bay",
+   "role": "bay",
+   "w": 8,
+   "h": 8,
+   "channel": "frame",
+   "data": "AQEICAEBCAEBAQgIAQEIAQEBCAgBAQgBAQEBAQEBAQEBAQgBCAEBAQEBCAEIAQEBAQEBAQEBAQEICAgICAgIAQ==",
+   "chan": "AAcHBwcHBwAABwcHBwcHAAAHBwcHBwcAAAAAAAAAAAAABAEEAQQAAAAEAQQBBAAAAAAAAAAAAAACAgICAgICAA==",
+   "win": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAEAAAABAAEAAQAAAAAAAAAAAAAAAAAAAAAAAA==",
+   "night": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAPAA8AAAAPAA8ADwAAAAAAAAAAAAAAAAAAAAAAAA==",
+   "tags": [
+    "facadegen",
+    "shop"
+   ]
+  },
+  {
+   "id": 1504,
+   "name": "FacadeGen house door",
+   "role": "ground",
+   "w": 8,
+   "h": 8,
+   "channel": "frame",
+   "data": "AQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQ==",
+   "chan": "AAAAAAAAAAAAAAAAAAAACAAEBgYGBgAIAAQGBgYGAAgABAYGBgYAAAAEBgYGBgAAAAQGBgYGAAAAAAYGBgYAAA==",
+   "win": "AAAAAAAAAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAAAAAAAAAA==",
+   "night": "AAAAAAAAAAAADwAPAA8AAA8PAA8ADwAAAA8ADwAPAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAAAAAAAAAAAA==",
+   "tags": [
+    "facadegen",
+    "house"
+   ]
+  },
+  {
+   "id": 1505,
+   "name": "FacadeGen shop front",
+   "role": "ground",
+   "w": 16,
+   "h": 12,
+   "channel": "frame",
+   "data": "AQEICAEBCAgBAQgIAQEIAQEBCAgBAQgIAQEICAEBCAEBAQgIAQEICAEBCAgBAQgBAQEBAQEBAQgBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEIAQgBAQgBAQgBCAEBAQEBCAEIAQEIAQEIAQgBAQEBAQgBCAEBCAEBCAEIAQEBAQEIAQgBAQgBAQgBCAEBAQEBAQEBAQEBAQEBAQEBAQEICAgICAgIAQgICAgICAgB",
+   "chan": "AAcHBwcHBwcHBwcHBwcHAAAHBwcHBwcHBwcHBwcHBwAABwcHBwcHBwcHBwcHBwcAAAAAAAAAAAEAAAAAAAAAAAAECAQIBAAIAAQIBAgEAAAABAgECAQACAAECAQIBAAAAAQBBAEEAAEABAEEAQQAAAAEAQQBBAABAAQBBAEEAAAABAEEAQQAAQAEAQQBBAAAAAQBBAEEAAEABAEEAQQAAAAAAAAAAAABAAAAAAAAAAACAgICAgICAQICAgICAgIA",
+   "win": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAABAAEAAQAAAAEAAQABAAAAAQABAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+   "night": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDw8PDw8PDw8PDw8PAAAADw8PDw8PDw8PDw8PDwAAAA8ADwAPAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAADwAPAA8AAAAPAA8ADwAAAA8ADwAPAAAADwAPAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+   "tags": [
+    "facadegen",
+    "shop"
+   ]
+  },
+  {
+   "id": 1506,
+   "name": "FacadeGen flat roof",
+   "role": "roof",
+   "w": 8,
+   "h": 8,
+   "channel": "roof",
+   "data": "AQEBAQEBAQEBDgwMDAwOAQEMDAwMAw4BAQMDAwMDDgEBAwMDAwcOAQEDAwMDCg4BAQ4ODg4ODgEBAQEBAQEBAQ==",
+   "tags": [
+    "facadegen",
+    "roof_flat"
+   ]
+  },
+  {
+   "id": 1507,
+   "name": "FacadeGen roof tiles",
+   "role": "roof",
+   "w": 12,
+   "h": 8,
+   "channel": "roof",
+   "data": "DQ0NDQ0NDQ0NDQ0NAQEBAQEBAQEBAQEBCAgICAgICAgICAgIAQEBAQEBAQEBAQEBCAgICAgICAgICAgIAQEBAQEBAQEBAQEBCAgICAgICAgICAgIAQEBAQEBAQEBAQEB",
+   "tags": [
+    "facadegen",
+    "roof_tiles"
+   ]
+  }
+ ],
+ "palettes": [
+  {
+   "key": "facadegen-apartment",
+   "name": "FacadeGen Apartment",
+   "author": "Tallboy (FacadeGen)",
+   "license": "CC0",
+   "ramps": {
+    "wall": [
+     [
+      40,
+      38,
+      62
+     ],
+     [
+      58,
+      54,
+      88
+     ],
+     [
+      68,
+      62,
+      100
+     ]
+    ],
+    "trim": [
+     [
+      92,
+      86,
+      130
+     ],
+     [
+      118,
+      110,
+      154
+     ]
+    ],
+    "frame": [
+     [
+      26,
+      22,
+      40
+     ]
+    ],
+    "glass": [
+     [
+      34,
+      38,
+      66
+     ]
+    ],
+    "accent": [
+     [
+      48,
+      46,
+      74
+     ]
+    ],
+    "roof": [
+     [
+      40,
+      38,
+      50
+     ],
+     [
+      50,
+      48,
+      60
+     ],
+     [
+      58,
+      56,
+      70
+     ],
+     [
+      70,
+      68,
+      82
+     ],
+     [
+      84,
+      82,
+      98
+     ],
+     [
+      92,
+      90,
+      104
+     ],
+     [
+      148,
+      144,
+      158
+     ]
+    ]
+   },
+   "tags": [
+    "facadegen"
+   ],
+   "light": [
+    [
+     250,
+     198,
+     92
+    ]
+   ]
+  },
+  {
+   "key": "facadegen-tower",
+   "name": "FacadeGen Tower",
+   "author": "Tallboy (FacadeGen)",
+   "license": "CC0",
+   "ramps": {
+    "wall": [
+     [
+      40,
+      60,
+      92
+     ]
+    ],
+    "frame": [
+     [
+      24,
+      30,
+      50
+     ]
+    ],
+    "glass": [
+     [
+      26,
+      34,
+      62
+     ],
+     [
+      58,
+      90,
+      132
+     ],
+     [
+      76,
+      112,
+      154
+     ]
+    ],
+    "accent": [
+     [
+      96,
+      108,
+      148
+     ],
+     [
+      150,
+      150,
+      172
+     ]
+    ],
+    "roof": [
+     [
+      40,
+      38,
+      50
+     ],
+     [
+      50,
+      48,
+      60
+     ],
+     [
+      58,
+      56,
+      70
+     ],
+     [
+      70,
+      68,
+      82
+     ],
+     [
+      84,
+      82,
+      98
+     ],
+     [
+      92,
+      90,
+      104
+     ],
+     [
+      148,
+      144,
+      158
+     ]
+    ]
+   },
+   "tags": [
+    "facadegen"
+   ],
+   "light": [
+    [
+     252,
+     204,
+     96
+    ]
+   ]
+  },
+  {
+   "key": "facadegen-house",
+   "name": "FacadeGen House",
+   "author": "Tallboy (FacadeGen)",
+   "license": "CC0",
+   "ramps": {
+    "wall": [
+     [
+      104,
+      90,
+      130
+     ],
+     [
+      124,
+      108,
+      152
+     ]
+    ],
+    "trim": [
+     [
+      56,
+      48,
+      80
+     ],
+     [
+      72,
+      62,
+      98
+     ]
+    ],
+    "frame": [
+     [
+      44,
+      40,
+      66
+     ]
+    ],
+    "glass": [
+     [
+      36,
+      34,
+      62
+     ]
+    ],
+    "door": [
+     [
+      78,
+      56,
+      46
+     ]
+    ],
+    "awning": [
+     [
+      150,
+      140,
+      172
+     ]
+    ],
+    "accent": [
+     [
+      168,
+      86,
+      88
+     ]
+    ],
+    "roof": [
+     [
+      122,
+      64,
+      62
+     ],
+     [
+      158,
+      84,
+      80
+     ],
+     [
+      182,
+      100,
+      90
+     ],
+     [
+      205,
+      120,
+      100
+     ]
+    ]
+   },
+   "tags": [
+    "facadegen"
+   ],
+   "light": [
+    [
+     250,
+     196,
+     90
+    ]
+   ]
+  },
+  {
+   "key": "facadegen-shop",
+   "name": "FacadeGen Shop",
+   "author": "Tallboy (FacadeGen)",
+   "license": "CC0",
+   "ramps": {
+    "wall": [
+     [
+      44,
+      38,
+      64
+     ],
+     [
+      70,
+      60,
+      98
+     ]
+    ],
+    "trim": [
+     [
+      60,
+      52,
+      86
+     ],
+     [
+      96,
+      88,
+      128
+     ]
+    ],
+    "frame": [
+     [
+      40,
+      36,
+      60
+     ]
+    ],
+    "glass": [
+     [
+      38,
+      40,
+      72
+     ],
+     [
+      122,
+      162,
+      192
+     ]
+    ],
+    "awning": [
+     [
+      150,
+      60,
+      72
+     ],
+     [
+      200,
+      92,
+      92
+     ]
+    ],
+    "accent": [
+     [
+      222,
+      200,
+      150
+     ]
+    ],
+    "roof": [
+     [
+      40,
+      38,
+      50
+     ],
+     [
+      50,
+      48,
+      60
+     ],
+     [
+      58,
+      56,
+      70
+     ],
+     [
+      70,
+      68,
+      82
+     ],
+     [
+      84,
+      82,
+      98
+     ],
+     [
+      92,
+      90,
+      104
+     ],
+     [
+      148,
+      144,
+      158
+     ]
+    ]
+   },
+   "tags": [
+    "facadegen"
+   ],
+   "light": [
+    [
+     250,
+     200,
+     94
+    ]
+   ]
+  },
+  {
+   "key": "facadegen-roof-flat",
+   "name": "FacadeGen Roof Flat",
+   "author": "Tallboy (FacadeGen)",
+   "license": "CC0",
+   "ramps": {
+    "roof": [
+     [
+      40,
+      38,
+      50
+     ],
+     [
+      50,
+      48,
+      60
+     ],
+     [
+      58,
+      56,
+      70
+     ],
+     [
+      70,
+      68,
+      82
+     ],
+     [
+      84,
+      82,
+      98
+     ],
+     [
+      92,
+      90,
+      104
+     ],
+     [
+      148,
+      144,
+      158
+     ]
+    ]
+   },
+   "tags": [
+    "facadegen"
+   ]
+  },
+  {
+   "key": "facadegen-roof-tiles",
+   "name": "FacadeGen Roof Tiles",
+   "author": "Tallboy (FacadeGen)",
+   "license": "CC0",
+   "ramps": {
+    "roof": [
+     [
+      122,
+      64,
+      62
+     ],
+     [
+      158,
+      84,
+      80
+     ],
+     [
+      182,
+      100,
+      90
+     ],
+     [
+      205,
+      120,
+      100
+     ]
+    ]
+   },
+   "tags": [
+    "facadegen"
+   ]
+  }
+ ]
+}

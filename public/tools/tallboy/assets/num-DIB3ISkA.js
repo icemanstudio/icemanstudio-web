@@ -1,0 +1,1 @@
+function e(e,t){return(e%t+t)%t}function t(e){return Math.floor(e+.5)}export{t as n,e as t};

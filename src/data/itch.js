@@ -20,7 +20,7 @@ export const itch = {
         es: 'Herramientas que añaden partículas, dibujo vectorial e intercalados automáticos a Aseprite. A la venta en itch.io; actualizaciones de por vida.'
       },
       items: [
-        { name: 'Tallboy', sub: 'Isometric buildings with interiors', price: 'Free', url: U + 'tallboy-pixel-art-buildings-with-interiors', img: '/itch/tallboy-pixel-art-buildings-with-interiors.gif',
+        { name: 'Tallboy', sub: 'Isometric buildings with interiors', price: 'Free demo', url: U + 'tallboy-pixel-art-buildings-with-interiors', img: '/itch/tallboy-pixel-art-buildings-with-interiors.gif',
           en: 'A browser tool that models and bakes isometric pixel art buildings, rooms included.', es: 'Una herramienta de navegador que modela y hornea edificios isométricos en pixel art, con habitaciones.' },
         { name: 'FastFX', sub: 'Full particle system for Aseprite', price: '€11.99', url: U + 'fastfx-full-particle-system-for-aseprite', img: '/itch/fastfx-full-particle-system-for-aseprite.gif',
           en: 'Build looping particle animations with a live preview and bake them straight into your sprite frames. Presets for fire, smoke, sparks, rain and magic.',
